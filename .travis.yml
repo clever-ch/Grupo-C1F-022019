@@ -1,0 +1,13 @@
+language: java
+sudo: required
+
+jdk:
+  - oraclejdk8
+ 
+ # safelist
+branches:
+  only:
+    - master
+
+install:
+  - cd desapp-grupoC1F-backend && mvn clean install -Dmaven.compiler.target=1.8 -Dmaven.compiler.source=1.8
