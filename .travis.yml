@@ -13,3 +13,8 @@ branches:
 
 install:
   - cd desapp-groupc1f-backend && mvn clean install -Dmaven.compiler.target=1.8 -Dmaven.compiler.source=1.8
+  
+ deploy:
+  provider: heroku
+  api_key: 88312bb8-dd6a-425e-8a52-2d644dc1ca00
+  app: desapp-groupc1f-backend
