@@ -12,4 +12,4 @@ branches:
     - master
 
 install:
-  - cd desapp-grupoC1F-backend && mvn clean install -Dmaven.compiler.target=1.8 -Dmaven.compiler.source=1.8
+  - cd desapp-groupc1f-backend && mvn clean install -Dmaven.compiler.target=1.8 -Dmaven.compiler.source=1.8
