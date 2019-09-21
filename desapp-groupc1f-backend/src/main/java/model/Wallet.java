@@ -1,5 +1,7 @@
 package model;
 
-public class Wallet {
+import utilities.Entity;
+
+public abstract class Wallet extends Entity {
 
 }
