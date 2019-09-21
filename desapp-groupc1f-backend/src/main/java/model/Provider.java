@@ -3,6 +3,23 @@ package model;
 import java.util.List;
 
 public class Provider extends User {
-	List<FoodService> foodService;
-	List<OrderHistory> orderHistory;
+	private List<FoodService> foodService;
+	private List<OrderHistory> orderHistory;
+	
+	
+	public List<FoodService> getFoodService() {
+		return foodService;
+	}
+	
+	public void addFoodService(FoodService foodService) {
+		this.foodService.add(foodService);
+	}
+
+	public List<OrderHistory> getOrderHistory() {
+		return orderHistory;
+	}
+
+	public void addOrderHistory(OrderHistory orderHistory) {
+		this.orderHistory.add(orderHistory);
+	}
 }
