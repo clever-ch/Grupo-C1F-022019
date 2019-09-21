@@ -1,5 +1,7 @@
 package model;
 
-public class Account {
+import utilities.Entity;
+
+public class Account extends Entity {
 
 }
