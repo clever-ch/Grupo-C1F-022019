@@ -1,4 +1,4 @@
-package modelFactories;
+package model.factories;
 
 import model.Menu;
 
