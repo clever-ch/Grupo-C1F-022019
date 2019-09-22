@@ -1,6 +1,7 @@
 package model;
 
-import constants.*;
+import constants.RegisterType;
+import constants.UserType;
 import utilities.Entity;
 
 public abstract class User extends Entity {
