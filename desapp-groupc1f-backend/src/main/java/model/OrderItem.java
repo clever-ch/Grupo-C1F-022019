@@ -1,14 +1,17 @@
 package model;
 
-public class OrderItem {
+import utilities.Entity;
 
+public class OrderItem extends Entity {
+	public OrderItem() {  }
+	
+	public OrderItem(Menu m, int n) { 
+		this.menu = m;
+		this.cant = n;
+	}
+	
   private Menu menu;
   private int cant;
-  
-  public OrderItem(Menu m, int n) {
-    this.setMenu(m); 
-    this.setCant(n);
-  }
   
   public int GetPriceOrderItem() {
 	  return 0;
