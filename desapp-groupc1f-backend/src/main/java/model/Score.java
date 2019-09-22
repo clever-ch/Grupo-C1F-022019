@@ -8,15 +8,15 @@ public abstract class Score extends Entity {
 	private ScoreState scoreState;
 	private User user;
 	
-	public int GetScore() {
+	public int getScore() {
 		return this.score;
 	}
 	
-	public ScoreState GetScoreState() {
+	public ScoreState getScoreState() {
 		return this.scoreState;
 	}
 	
-	public User GetUser() {
+	public User getUser() {
 		return this.user;
 	}
 }
