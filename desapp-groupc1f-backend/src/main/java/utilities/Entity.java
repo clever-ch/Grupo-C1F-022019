@@ -3,7 +3,7 @@ package utilities;
 public abstract class Entity {
 	private long id;
 	
-	public long GetId() {
+	public long getId() {
 		return this.id;
 	}
 }
