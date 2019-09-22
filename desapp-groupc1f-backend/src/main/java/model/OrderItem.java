@@ -13,7 +13,7 @@ public class OrderItem extends Entity {
   private Menu menu;
   private int cant;
   
-  public int GetPriceOrderItem() {
+  public int getPriceOrderItem() {
 	  return 0;
   }
   
