@@ -1,13 +1,13 @@
 package model;
 
 import junit.framework.TestCase;
-import modelFactories.AccountFactory;
+import model.factories.AccountFactory;
 import org.junit.Test;
 
 public class AccountTest extends TestCase {
 
     @Test
-    public void testCreationAccount_correctFields(){
+    public void testCreationAccountCorrectFields(){
         Account aAccount = AccountFactory.createAccountComplete("inc", "Ignacio", "Crovara",
                 "inc@gmail.com", 42322344, "Quilmes", "Mitre");
         assertEquals("inc", aAccount.getUserName());

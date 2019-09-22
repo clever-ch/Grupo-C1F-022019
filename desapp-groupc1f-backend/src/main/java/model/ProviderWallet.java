@@ -2,13 +2,9 @@ package model;
 
 public class ProviderWallet extends Wallet {
 
-    public ProviderWallet(){
-        super();
-    }
-
     @Override
     public void loadCredit(double n) {
-
+        System. out. println("you cannot use this option");
     }
 
     @Override

@@ -1,6 +1,7 @@
 package model;
+import utilities.Entity;
 
-public abstract class Wallet {
+public abstract class Wallet extends Entity {
     public double amount = 0;
 
     public double getAmount() {

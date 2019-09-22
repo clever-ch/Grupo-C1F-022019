@@ -1,13 +1,13 @@
 package model;
 
 import junit.framework.TestCase;
-import modelFactories.ProviderWalletFactory;
+import model.factories.ProviderWalletFactory;
 import org.junit.Test;
 
 public class ProviderWalletTest extends TestCase {
 
     @Test
-    public void testCreationWallet_amountCero(){
+    public void testCreationWalletAmountCero(){
 
         ProviderWallet aCustomerWallet = ProviderWalletFactory.anyProviderWallet();
         assertEquals(0.0, aCustomerWallet.getAmount());
@@ -15,7 +15,7 @@ public class ProviderWalletTest extends TestCase {
     }
 
     @Test
-    public void testTakeCredit_Success(){
+    public void testTakeCreditSuccess(){
 
         ProviderWallet aProviderWallet = ProviderWalletFactory.createProviderWalletWithAmount(200.0);
         aProviderWallet.takeCredit(100.0);
@@ -23,7 +23,7 @@ public class ProviderWalletTest extends TestCase {
     }
 
     @Test(expected = ArithmeticException.class)
-    public void testTakeCredit_NoSuccess(){
+    public void testTakeCreditNoSuccess(){
         ProviderWallet aProviderWallet = ProviderWalletFactory.createProviderWalletWithAmount(200.0);
         aProviderWallet.takeCredit(300.0);
         assertEquals(200.0, aProviderWallet.getAmount());

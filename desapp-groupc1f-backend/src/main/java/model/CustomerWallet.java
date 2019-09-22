@@ -2,10 +2,6 @@ package model;
 
 public class CustomerWallet extends Wallet {
 
-    public CustomerWallet(){
-        super();
-    }
-
     @Override
     public void loadCredit(double n) {
         this.amount = this.amount + n;
@@ -13,7 +9,7 @@ public class CustomerWallet extends Wallet {
 
     @Override
     public void takeCredit(double n) {
-
+        System. out. println("you cannot use this option");
     }
 
     @Override
