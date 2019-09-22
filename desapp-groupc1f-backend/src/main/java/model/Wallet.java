@@ -1,10 +1,14 @@
 package model;
 
 public abstract class Wallet {
-    public double amount;
+    public double amount = 0;
 
-    public Wallet() {
-        this.amount = 0;
+    public double getAmount() {
+        return amount;
+    }
+
+    public void setAmount(double amount) {
+        this.amount = amount;
     }
 
     public abstract void loadCredit(double n);

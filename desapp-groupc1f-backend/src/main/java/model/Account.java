@@ -6,19 +6,9 @@ public class Account {
     private String name;
     private String surname;
     private String email;
-    private char phone;
-    private char location;
+    private int phone;
+    private String location;
     private String direction;
-
-    public Account(String userName, String name, String surname, String email, char phone, char location, String direction) {
-        this.userName = userName;
-        this.name = name;
-        this.surname = surname;
-        this.email = email;
-        this.phone = phone;
-        this.location = location;
-        this.direction = direction;
-    }
 
     public String getUserName() {
         return userName;
@@ -52,19 +42,19 @@ public class Account {
         this.email = email;
     }
 
-    public char getPhone() {
+    public int getPhone() {
         return phone;
     }
 
-    public void setPhone(char phone) {
+    public void setPhone(int phone) {
         this.phone = phone;
     }
 
-    public char getLocation() {
+    public String getLocation() {
         return location;
     }
 
-    public void setLocation(char location) {
+    public void setLocation(String location) {
         this.location = location;
     }
 
