@@ -17,6 +17,7 @@ public class FoodService extends Entity {
 	private String deliveryLocations;
 	private List<Menu> serviceMenues;
 	private List<FoodServiceScore> serviceScores;
+	private int maxNumberMenus;
 	
 	
 	public String getServiceName() {
@@ -113,5 +114,13 @@ public class FoodService extends Entity {
 
 	public void addServiceScores(FoodServiceScore serviceScore) {
 		this.serviceScores.add(serviceScore);
+	}
+
+	public int getMaxNumberMenus() {
+		return maxNumberMenus;
+	}
+
+	public void setMaxNumberMenus(int maxNumberMenus) {
+		this.maxNumberMenus = maxNumberMenus;
 	}
 }
