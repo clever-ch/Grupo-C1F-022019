@@ -1,6 +1,6 @@
 
 [![Build Status](https://travis-ci.org/clever-ch/Grupo-C1F-022019.svg?branch=master)](https://travis-ci.org/clever-ch/Grupo-C1F-022019)
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/efb0e0011cb44673b666d5fd0c254456)](https://app.codacy.com/manual/clever.chuky/Grupo-C1F-022019?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=clever-ch/Grupo-C1F-022019&amp;utm_campaign=Badge_Grade)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/c60c6bb5a7e244498b97eb13e1fe2d42)](https://www.codacy.com/manual/clever.chuky/Grupo-C1F-022019?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=clever-ch/Grupo-C1F-022019&amp;utm_campaign=Badge_Grade)
 
 # Trabajo Práctico :: 2019s2
 
