@@ -1,4 +1,5 @@
 package model;
+
 import utilities.Entity;
 public class Account extends Entity {
 
@@ -65,4 +66,5 @@ public class Account extends Entity {
     public void setDirection(String direction) {
         this.direction = direction;
     }
+
 }

@@ -1,10 +1,13 @@
-package model;
+package java;
 
 import junit.framework.TestCase;
-import model.factories.AccountFactory;
+
+import java.factories.AccountFactory;
+
+import model.Account;
 import org.junit.Test;
 
-public class AccountTest extends TestCase {
+public class TestAccount extends TestCase {
 
     @Test
     public void testCreationAccountCorrectFields(){

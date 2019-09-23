@@ -1,10 +1,11 @@
-package model;
+package java;
 
 import junit.framework.TestCase;
-import modelFactories.CustomerWalletFactory;
+import model.CustomerWallet;
+import java.factories.CustomerWalletFactory;
 import org.junit.Test;
 
-public class CustomerWalletTest extends TestCase {
+public class TestCustomerWallet extends TestCase {
 
     @Test
     public void testCreationWalletAmountCero(){
