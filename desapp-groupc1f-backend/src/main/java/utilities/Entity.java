@@ -1,3 +1,4 @@
+
 package utilities;
 
 public abstract class Entity {
@@ -7,3 +8,4 @@ public abstract class Entity {
 		return this.id;
 	}
 }
+

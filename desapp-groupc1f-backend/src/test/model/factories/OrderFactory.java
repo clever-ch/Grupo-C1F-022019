@@ -1,4 +1,4 @@
-package model.factories;
+package java.factories;
 
 import model.Order;
 import model.OrderItem;
