@@ -1,4 +1,4 @@
-package model.factories;
+package java.factories;
 
 import java.sql.Time;
 import java.util.Date;
