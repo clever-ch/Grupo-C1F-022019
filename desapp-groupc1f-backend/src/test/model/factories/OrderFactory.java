@@ -15,4 +15,11 @@ public class OrderFactory {
 		
 		return aOrder;
 	}
+	
+	public static Order createOrderWithId(long id) {
+		Order aOrder = anyOrder();
+		aOrder.setId(id);
+		
+		return aOrder;
+	}
 }
