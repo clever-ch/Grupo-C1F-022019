@@ -2,6 +2,7 @@ package model;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import constants.DeliveryState;
 import utilities.Entity;
@@ -9,7 +10,7 @@ import java.time.LocalTime;
 
 
 public class Order extends Entity {
-	private ArrayList<OrderItem> orderItems = new ArrayList<OrderItem>();	
+	private List<OrderItem> orderItems = new ArrayList<OrderItem>();	
 	private boolean hasDelivery;
 	private Date creationDate;
 	private Date deliveredDate;
@@ -17,7 +18,7 @@ public class Order extends Entity {
 	private DeliveryState deliveryState;
 	
 	
-	public boolean areValidDatesOfOrder() {
+	public boolean orderDatesAreValid() {
 		return this.creationDate.before(deliveredDate) | this.creationDate.equals(deliveredDate);
 	}
 	
@@ -33,7 +34,7 @@ public class Order extends Entity {
 		return this.orderItems.contains(orderItem);
 	}
 	
-	public ArrayList<OrderItem> getOrderItems() {
+	public List<OrderItem> getOrderItems() {
 		return orderItems;
 	}
 	
