@@ -35,6 +35,17 @@ public class Menu extends Entity {
 				& this.maximunSales > 0;
 	}
 	
+	public boolean hasMaximunSales() {
+		return this.maximunSales > 0;
+	}
+	
+	public boolean hasMinimunOffers() {
+		return this.offers.size() >= 1;
+	}
+	
+	public boolean hasAvgDeliveryTime() {
+		return this.avgDeliveryTime != null;
+	}
 	
 	public boolean hasMinimunCategories() {
 		return this.categories.size() >= 1;
