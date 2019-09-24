@@ -35,6 +35,19 @@ public class Menu extends Entity {
 				& this.maximunSales > 0;
 	}
 	
+	
+	public boolean hasMinimunCategories() {
+		return this.categories.size() >= 1;
+	}
+	
+	public boolean isEmptyDescription() {
+		return this.description == "";
+	}
+	
+	public boolean isEmptyName() {
+		return this.menuName == "";
+	}
+	
 	public boolean offersAreValid() {
 		Offer[] arrayOffers = (Offer[]) this.offers.stream().toArray(Offer[]::new);
 		Offer fstOfert = arrayOffers[0];
