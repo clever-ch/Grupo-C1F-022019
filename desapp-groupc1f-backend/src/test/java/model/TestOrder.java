@@ -7,6 +7,7 @@ import junit.framework.TestCase;
 import model.factories.OrderFactory;
 import model.factories.OrderItemFactory;
 
+//TODO: Reemplazar por JUnit 4
 public class TestOrder extends TestCase {
 	
 	public void testAnyOrderItemHasItem() {
@@ -79,7 +80,7 @@ public class TestOrder extends TestCase {
 		aOrder.setCreationDate(today.getTime());
 		aOrder.setDeliveredDate(tomorrow.getTime());
 		
-		assertTrue(aOrder.areValidDatesOfOrder());
+		assertTrue(aOrder.orderDatesAreValid());
 	}
 	
 	public void testSameDayOrderDateAreValid() {
@@ -88,6 +89,6 @@ public class TestOrder extends TestCase {
 		aOrder.setCreationDate(today.getTime());
 		aOrder.setDeliveredDate(today.getTime());
 		
-		assertTrue(aOrder.areValidDatesOfOrder());
+		assertTrue(aOrder.orderDatesAreValid());
 	}
 }
