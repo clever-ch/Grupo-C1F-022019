@@ -1,4 +1,3 @@
-
 package utilities;
 
 public abstract class Entity {
@@ -12,4 +11,3 @@ public abstract class Entity {
 		this.id = id;
 	}
 }
-

@@ -1,14 +1,11 @@
-package java;
+package model;
 
-import java.factories.OrderItemFactory;
 import java.util.Calendar;
 
 import constants.DeliveryState;
 import junit.framework.TestCase;
-import model.Order;
-import model.OrderItem;
-
-import java.factories.OrderFactory;
+import model.factories.OrderFactory;
+import model.factories.OrderItemFactory;
 
 //TODO: Reemplazar por JUnit 4
 public class TestOrder extends TestCase {
