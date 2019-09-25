@@ -6,6 +6,9 @@ import org.junit.Test;
 
 import exceptions.DuplicateOrderException;
 import exceptions.DuplicateOrderHistoryException;
+import model.Customer;
+import model.Order;
+import model.OrderHistory;
 import model.factories.CustomerFactory;
 import model.factories.OrderFactory;
 import model.factories.OrderHistoryFactory;
