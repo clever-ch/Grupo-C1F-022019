@@ -11,13 +11,13 @@ import org.junit.Test;
 
 import constants.Category;
 import constants.ForeignExchange;
+import exceptions.DuplicateOrderException;
+import exceptions.OfferRegistrationException;
 import model.factories.MenuFactory;
 import model.factories.OfferFactory;
 
 public class TestMenu {
 
-	//TODO: Testear que un precio u oferta no se repita en la lista de ofertas
-	
 	@Test
 	public void testMenuWithOneOfferIsValid() {
 		Offer offerOne = OfferFactory.createCompleteOffer(8, 12, 80, ForeignExchange.ARS);
@@ -291,5 +291,206 @@ public class TestMenu {
 		Menu aMenu = MenuFactory.anyMenu();
 
 		assertFalse(aMenu.hasMaximunSales());
+	}
+	
+	@Test
+	public void testOfferWithSameIdNotIsValidToAdd() {
+		final long SAME_ID = 1;
+		
+		Offer anyOffer = OfferFactory.createCompleteOffer(1, 2, 10, ForeignExchange.ARS);
+		anyOffer.setId(SAME_ID);
+		
+		Offer offerWithSameId = OfferFactory.createCompleteOffer(4, 5, 20, ForeignExchange.ARS);
+		offerWithSameId.setId(SAME_ID);
+		
+		Menu aMenu = MenuFactory.anyMenu();
+		aMenu.addOffer(anyOffer);
+		
+		assertFalse(aMenu.isOfferValidToAdd(offerWithSameId));
+	}
+	
+	@Test
+	public void testOfferWithDifferentIdIsValidToAdd() {
+		final long ANY_ID = 1;
+		final long OTHER_ID = 2;
+		
+		Offer anyOffer = OfferFactory.createCompleteOffer(1, 2, 10, ForeignExchange.ARS);
+		anyOffer.setId(ANY_ID);
+		
+		Offer offerWithDifferentId = OfferFactory.createCompleteOffer(4, 5, 20, ForeignExchange.ARS);
+		offerWithDifferentId.setId(OTHER_ID);
+		
+		Menu aMenu = MenuFactory.anyMenu();
+		aMenu.addOffer(anyOffer);
+		
+		assertTrue(aMenu.isOfferValidToAdd(offerWithDifferentId));
+	}
+	
+	@Test
+	public void testOfferWithSamePriceNotIsValidToAdd() {
+		final double SAME_PRICE = 10;
+		
+		Offer anyOffer = OfferFactory.createCompleteOffer(1, 2, SAME_PRICE, ForeignExchange.ARS);
+		anyOffer.setId(1);
+		
+		Offer offerWithSamePrice = OfferFactory.createCompleteOffer(4, 5, SAME_PRICE, ForeignExchange.ARS);
+		offerWithSamePrice.setId(2);
+		
+		Menu aMenu = MenuFactory.anyMenu();
+		aMenu.addOffer(anyOffer);
+		
+		assertFalse(aMenu.isOfferValidToAdd(offerWithSamePrice));
+	}
+	
+	@Test
+	public void testOfferWithDifferentPriceIsValidToAdd() {
+		final double ANY_PRICE = 10;
+		final double OTHER_PRICE = 20;
+		
+		Offer anyOffer = OfferFactory.createCompleteOffer(1, 2, ANY_PRICE, ForeignExchange.ARS);
+		anyOffer.setId(1);
+		
+		Offer offerWithDifferentPrice = OfferFactory.createCompleteOffer(4, 5, OTHER_PRICE, ForeignExchange.ARS);
+		offerWithDifferentPrice.setId(2);
+		
+		Menu aMenu = MenuFactory.anyMenu();
+		aMenu.addOffer(anyOffer);
+		
+		assertTrue(aMenu.isOfferValidToAdd(offerWithDifferentPrice));
+	}
+	
+	@Test
+	public void testOfferExcludedIsValidToAdd() {
+		final int MIN = 5, MAX = 8;
+		final int MIN_NOT_INTERSECT = 9, MAX_NOT_INTERSECT = 10;
+		
+		
+		Offer anyOffer = OfferFactory.createCompleteOffer(MIN, MAX, 10, ForeignExchange.ARS);
+		anyOffer.setId(1);
+		
+		Offer otherOffer = OfferFactory.createCompleteOffer(MIN_NOT_INTERSECT, MAX_NOT_INTERSECT, 20, ForeignExchange.ARS);
+		otherOffer.setId(2);
+		
+		Menu aMenu = MenuFactory.anyMenu();
+		aMenu.addOffer(anyOffer);
+		
+		assertTrue(aMenu.isOfferValidToAdd(otherOffer));
+	}
+	
+	@Test
+	public void testOfferNotExcludedNotValidToAdd() {
+		final int MIN = 5, MAX = 8;
+		final int MIN_WITH_INTERSECTION = 6, MAX_WITH_INTERSECTION = 10;
+		
+		Offer anyOffer = OfferFactory.createCompleteOffer(MIN, MAX, 10, ForeignExchange.ARS);
+		anyOffer.setId(1);
+		
+		Offer otherOffer = OfferFactory.createCompleteOffer(MIN_WITH_INTERSECTION, MAX_WITH_INTERSECTION, 20, ForeignExchange.ARS);
+		otherOffer.setId(2);
+		
+		Menu aMenu = MenuFactory.anyMenu();
+		aMenu.addOffer(anyOffer);
+		
+		assertFalse(aMenu.isOfferValidToAdd(otherOffer));
+	}
+	
+	@Test(expected = OfferRegistrationException.class)
+	public void testRegisterOfferWithSameIdThrowsException() throws OfferRegistrationException {
+		final long SAME_ID = 1;
+		
+		Offer anyOffer = OfferFactory.createCompleteOffer(1, 5, 10, ForeignExchange.ARS);
+		anyOffer.setId(SAME_ID);
+		
+		Offer otherOffer = OfferFactory.createCompleteOffer(6, 8, 20, ForeignExchange.ARS);
+		otherOffer.setId(SAME_ID);
+		
+		Menu aMenu = MenuFactory.anyMenu();
+		aMenu.addOffer(anyOffer);
+		
+		aMenu.registerOffer(otherOffer);
+	}
+	
+	@Test(expected = OfferRegistrationException.class)
+	public void testRegisterOfferWithSamePriceThrowsException() throws OfferRegistrationException {
+		final double SAME_PRICE = 10;
+		
+		Offer anyOffer = OfferFactory.createCompleteOffer(1, 5, SAME_PRICE, ForeignExchange.ARS);
+		anyOffer.setId(1);
+		
+		Offer otherOffer = OfferFactory.createCompleteOffer(6, 8, SAME_PRICE, ForeignExchange.ARS);
+		otherOffer.setId(2);
+		
+		Menu aMenu = MenuFactory.anyMenu();
+		aMenu.addOffer(anyOffer);
+		
+		aMenu.registerOffer(otherOffer);
+	}
+	
+	@Test(expected = OfferRegistrationException.class)
+	public void testRegisterOfferNotExcludedThrowsException() throws OfferRegistrationException {
+		final int MIN = 5, MAX = 8;
+		final int MIN_WITH_INTERSECTION = 6, MAX_WITH_INTERSECTION = 10;
+		
+		Offer anyOffer = OfferFactory.createCompleteOffer(MIN, MAX, 10, ForeignExchange.ARS);
+		anyOffer.setId(1);
+		
+		Offer otherOffer = OfferFactory.createCompleteOffer(MIN_WITH_INTERSECTION, MAX_WITH_INTERSECTION, 20, ForeignExchange.ARS);
+		otherOffer.setId(2);
+		
+		Menu aMenu = MenuFactory.anyMenu();
+		aMenu.addOffer(anyOffer);
+		
+		aMenu.registerOffer(otherOffer);
+	}
+	//
+	@Test
+	public void testRegisterOfferWithDifferentIdNotThrowException() throws OfferRegistrationException {
+		final long SAME_ID = 1;
+		final long OTHER_ID = 2;
+		
+		Offer anyOffer = OfferFactory.createCompleteOffer(1, 5, 10, ForeignExchange.ARS);
+		anyOffer.setId(SAME_ID);
+		
+		Offer otherOffer = OfferFactory.createCompleteOffer(6, 8, 20, ForeignExchange.ARS);
+		otherOffer.setId(OTHER_ID);
+		
+		Menu aMenu = MenuFactory.anyMenu();
+		aMenu.addOffer(anyOffer);
+		
+		aMenu.registerOffer(otherOffer);
+	}
+	
+	@Test
+	public void testRegisterOfferWithDifferentPriceNotThrowException() throws OfferRegistrationException {
+		final double ANY_PRICE = 10;
+		final double DIFFERENT_PRICE = 20;
+		
+		Offer anyOffer = OfferFactory.createCompleteOffer(1, 5, ANY_PRICE, ForeignExchange.ARS);
+		anyOffer.setId(1);
+		
+		Offer otherOffer = OfferFactory.createCompleteOffer(6, 8, DIFFERENT_PRICE, ForeignExchange.ARS);
+		otherOffer.setId(2);
+		
+		Menu aMenu = MenuFactory.anyMenu();
+		aMenu.addOffer(anyOffer);
+		
+		aMenu.registerOffer(otherOffer);
+	}
+	
+	@Test
+	public void testRegisterOfferExcludedNotThrowException() throws OfferRegistrationException {
+		final int MIN = 5, MAX = 8;
+		final int MIN_NOT_INTERSECT = 9, MAX_NOT_INTERSECT = 10;
+		
+		Offer anyOffer = OfferFactory.createCompleteOffer(MIN, MAX, 10, ForeignExchange.ARS);
+		anyOffer.setId(1);
+		
+		Offer otherOffer = OfferFactory.createCompleteOffer(MIN_NOT_INTERSECT, MAX_NOT_INTERSECT, 20, ForeignExchange.ARS);
+		otherOffer.setId(2);
+		
+		Menu aMenu = MenuFactory.anyMenu();
+		aMenu.addOffer(anyOffer);
+		
+		aMenu.registerOffer(otherOffer);
 	}
 }
