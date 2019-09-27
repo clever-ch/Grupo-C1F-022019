@@ -2,6 +2,7 @@ package model;
 
 import java.sql.Time;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import constants.Category;
@@ -13,39 +14,49 @@ public class Menu extends Entity {
 	private String description;
 	private List<Category> categories = new ArrayList<Category>();
 	private double deliveryPrice;
-	private Date validFromDate;
-	private Date validToDate;
+	private Date validFromDate = Calendar.getInstance().getTime();
+	private Date validToDate = Calendar.getInstance().getTime();
 	private DeliveryInfo deliveryInfo;
 	private Time avgDeliveryTime;
-	private double price;
+	private double price = 0;
 	private List<Offer> offers = new ArrayList<Offer>();
 	private int maximunSales;
 	private MenuState menuState;
 	private List<MenuScore> menuScore = new ArrayList<MenuScore>();
 	
-	//TODO: Separar cada condicion con un metodo para ser testeado
 	public boolean isValidMenu() {
-		return this.menuName != "" 
-				& this.description != ""
-				& this.categories.size() >= 1
+		return !isEmptyName() 
+				& !isEmptyDescription()
+				& hasMinimunCategories()
 				& menuDatesAreValid()
-				& this.avgDeliveryTime != null
-				& this.offers.size() >= 1
+				& hasAvgDeliveryTime()
+				& hasMinimunOffers()
 				& offersAreValid()
-				& this.maximunSales > 0;
+				& hasMaximunSales();
 	}
 	
+	public boolean hasMaximunSales() {
+		return this.maximunSales > 0;
+	}
+	
+	public boolean hasMinimunOffers() {
+		return this.offers.size() >= getModelConstants().minOffersMenu();
+	}
+	
+	public boolean hasAvgDeliveryTime() {
+		return this.avgDeliveryTime != null;
+	}
 	
 	public boolean hasMinimunCategories() {
-		return this.categories.size() >= 1;
+		return this.categories.size() >= getModelConstants().minCategoriesMenu();
 	}
 	
 	public boolean isEmptyDescription() {
-		return this.description == "";
+		return this.description == "" | this.description == null;
 	}
 	
 	public boolean isEmptyName() {
-		return this.menuName == "";
+		return this.menuName == "" | this.menuName == null;
 	}
 	
 	public boolean offersAreValid() {
