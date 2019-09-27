@@ -16,9 +16,8 @@ public class Customer extends User {
 	
 	public boolean haveOrder(Order order) {
 		for (Order o : this.orders) {
-			if (o.getId() == order.getId()) {
+			if (o.getId() == order.getId())
 				return true;
-			}
 		}
 		return false;
 	}
@@ -28,11 +27,10 @@ public class Customer extends User {
 	}
 	
 	public void registerOrderIfApply(Order order) throws DuplicateOrderException {
-		if (haveOrder(order)) {
+		if (haveOrder(order))
 			throw new DuplicateOrderException("La orden ya se encuentra registrada");
-		} else {
+		else
 			addOrder(order);
-		}
 	}
 	
 	public List<OrderHistory> getOrderHistory() {
@@ -45,18 +43,16 @@ public class Customer extends User {
 	
 	public boolean haveOrderHistory(OrderHistory oHistory) {
 		for (OrderHistory history : orderHistory) {
-			if (history.getId() == oHistory.getId()) {
+			if (history.getId() == oHistory.getId())
 				return true;
-			}
 		}
 		return false;
 	}
 	
 	public void registerOrderHistoryIfApply(OrderHistory oHistory) throws DuplicateOrderHistoryException {
-		if (haveOrderHistory(oHistory)) {
+		if (haveOrderHistory(oHistory))
 			throw new DuplicateOrderHistoryException("El historial ya se encuentra registrado");
-		} else {
+		else
 			addOrderHistory(oHistory);
-		}
 	}
 }

@@ -9,6 +9,13 @@ public class OfferFactory {
 		return new Offer();
 	}
 	
+	public static Offer createOfferWithId(long id) {
+		Offer anyOffer = anyOffer();
+		anyOffer.setId(id);
+		
+		return anyOffer;
+	}
+	
 	public static Offer createCompleteOffer(int minM, int maxM, double price, ForeignExchange exchange) {
 		return new Offer(minM, maxM, price, exchange);
 	}

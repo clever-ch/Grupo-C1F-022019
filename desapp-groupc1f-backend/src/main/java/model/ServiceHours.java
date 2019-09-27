@@ -2,13 +2,14 @@ package model;
 
 import java.sql.Time;
 import java.util.ArrayList;
+import java.util.List;
 
 import constants.Days;
 import utilities.Entity;
 
 public class ServiceHours extends Entity {
 	private Days day;
-	private ArrayList<Time> hours;
+	private List<Time> hours = new ArrayList<Time>();
 	
 	
 	public Days getDay() {
@@ -19,7 +20,7 @@ public class ServiceHours extends Entity {
 		this.day = day;
 	}
 
-	public ArrayList<Time> getHours() {
+	public List<Time> getHours() {
 		return hours;
 	}
 
