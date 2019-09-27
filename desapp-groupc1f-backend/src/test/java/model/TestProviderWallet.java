@@ -1,20 +1,21 @@
 package model;
 
 import exceptions.CantTakeCreditException;
-import junit.framework.TestCase;
 import model.ProviderWallet;
 
 import model.factories.ProviderWalletFactory;
 
+import static org.junit.Assert.assertEquals;
+
 import org.junit.Test;
 
-public class    TestProviderWallet extends TestCase {
+public class TestProviderWallet {
 
     @Test
     public void testCreationWalletAmountCero(){
 
         ProviderWallet aCustomerWallet = ProviderWalletFactory.anyProviderWallet();
-        assertEquals(0.0, aCustomerWallet.getAmount());
+        assertEquals(0.0, aCustomerWallet.getAmount(), 0.0);
 
     }
 
@@ -23,7 +24,7 @@ public class    TestProviderWallet extends TestCase {
 
         ProviderWallet aProviderWallet = ProviderWalletFactory.createProviderWalletWithAmount(200.0);
         aProviderWallet.takeCredit(100.0);
-        assertEquals(100.0, aProviderWallet.getAmount());
+        assertEquals(100.0, aProviderWallet.getAmount(), 0.0);
     }
 
     @Test(expected = CantTakeCreditException.class)

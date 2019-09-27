@@ -1,12 +1,14 @@
 package model;
 
-import junit.framework.TestCase;
 import model.Account;
 
 import model.factories.AccountFactory;
+
+import static org.junit.Assert.assertEquals;
+
 import org.junit.Test;
 
-public class TestAccount extends TestCase {
+public class TestAccount {
 
     @Test
     public void testCreationAccountCorrectFields(){
