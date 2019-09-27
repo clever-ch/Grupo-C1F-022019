@@ -10,7 +10,7 @@ public class Offer extends Entity {
 	private ForeignExchange exchange;
 	
 	
-	public Offer() {}
+	public Offer() { }
 	
 	public Offer(int minM, int maxM, double price, ForeignExchange exchange) {
 		this.minAmount = minM;
@@ -54,5 +54,13 @@ public class Offer extends Entity {
 
 	public void setExchange(ForeignExchange exchange) {
 		this.exchange = exchange;
+	}
+	
+	public boolean offerHasSameId(Offer offer) {
+		return this.getId() == offer.getId();
+	}
+	
+	public boolean offerHasSamePrice(Offer offer) {
+		return this.offerPrice == offer.getOfferPrice();
 	}
 }
