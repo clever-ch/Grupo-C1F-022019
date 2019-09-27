@@ -193,7 +193,7 @@ public class Menu extends Entity {
 		boolean isValid = true;
 		
 		for (Offer anOffer : offers) {
-			return isValid
+			isValid = isValid
 					& !anOffer.offerHasSameId(offer)
 						& !anOffer.offerHasSamePrice(offer) 
 							& anOffer.offerIsExcluded(offer);
