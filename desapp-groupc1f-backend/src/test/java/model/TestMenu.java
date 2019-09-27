@@ -470,6 +470,8 @@ public class TestMenu {
 		aMenu.addOffer(anyOffer);
 		
 		aMenu.registerOffer(otherOffer);
+		
+		assertTrue(aMenu.getOffers().size() == 2);
 	}
 	
 	@Test
@@ -487,6 +489,8 @@ public class TestMenu {
 		aMenu.addOffer(anyOffer);
 		
 		aMenu.registerOffer(otherOffer);
+		
+		assertTrue(aMenu.getOffers().size() == 2);
 	}
 	
 	@Test
@@ -504,5 +508,7 @@ public class TestMenu {
 		aMenu.addOffer(anyOffer);
 		
 		aMenu.registerOffer(otherOffer);
+		
+		assertTrue(aMenu.getOffers().size() == 2);
 	}
 }
