@@ -7,6 +7,7 @@ import java.util.Date;
 import java.util.List;
 import constants.Category;
 import constants.MenuState;
+import exceptions.OfferRegistrationException;
 import utilities.Entity;
 
 public class Menu extends Entity {
@@ -186,5 +187,24 @@ public class Menu extends Entity {
 
 	public void addMenuScore(MenuScore menuScore) {
 		this.menuScore.add(menuScore);
+	}
+
+	public boolean isOfferValidToAdd(Offer offer) {
+		boolean isValid = true;
+		
+		for (Offer anOffer : offers) {
+			return isValid
+					& !anOffer.offerHasSameId(offer)
+						& !anOffer.offerHasSamePrice(offer) 
+							& anOffer.offerIsExcluded(offer);
+		}
+		return isValid;
+	}
+	
+	public void registerOffer(Offer offer) throws OfferRegistrationException {
+		if(isOfferValidToAdd(offer))
+			this.offers.add(offer);
+		else
+			throw new OfferRegistrationException("Ya existe una oferta similar."); 
 	}
 }
