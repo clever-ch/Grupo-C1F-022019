@@ -5,7 +5,6 @@ import static org.junit.Assert.*;
 import java.sql.Time;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 
 import org.junit.Test;
@@ -64,7 +63,7 @@ public class TestMenu {
 	}
 	
 	@Test
-	public void testNamelessMenuIsNotValid() {
+	public void testNamelessFullMenuIsNotValid() {
 		List<Category> categories = new ArrayList<Category>();
 		categories.add(Category.Pizza);
 		
@@ -83,9 +82,8 @@ public class TestMenu {
 		assertFalse(aMenu.isValidMenu());
 	}
 	
-	//TODO: a partir de aca testear cada metodo por condicion por separado
 	@Test
-	public void testMenuWithoutDescriptionIsNotValid() {
+	public void testFullMenuWithoutDescriptionIsNotValid() {
 		List<Category> categories = new ArrayList<Category>();
 		categories.add(Category.Pizza);
 		
@@ -105,7 +103,7 @@ public class TestMenu {
 	}
 	
 	@Test
-	public void testMenuWithoutCategoriesIsNotValid() {
+	public void testFullMenuWithoutCategoriesIsNotValid() {
 		List<Category> categories = new ArrayList<Category>();
 		
 		Offer anyOffer = OfferFactory.createCompleteOffer(8, 12, 80, ForeignExchange.ARS);
@@ -124,7 +122,7 @@ public class TestMenu {
 	}
 	
 	@Test
-	public void testMenuDatesAreNotValid() {
+	public void testFullMenuDatesAreNotValid() {
 		List<Category> categories = new ArrayList<Category>();
 		categories.add(Category.Pizza);
 		
@@ -144,7 +142,7 @@ public class TestMenu {
 	}
 	
 	@Test
-	public void testMenuAvgTimeIsNotValid() {
+	public void testFullMenuAvgTimeIsNotValid() {
 		List<Category> categories = new ArrayList<Category>();
 		categories.add(Category.Pizza);
 		
@@ -164,7 +162,7 @@ public class TestMenu {
 	}
 	
 	@Test
-	public void testMenuMaxSalesIsNotValid() {
+	public void testFullMenuMaxSalesIsNotValid() {
 		List<Category> categories = new ArrayList<Category>();
 		categories.add(Category.Pizza);
 		
@@ -182,5 +180,116 @@ public class TestMenu {
 		
 		assertFalse(aMenu.isValidMenu());
 	}
+	
+	@Test
+	public void testMenuHasEmptyName() {
+		Menu aMenu = MenuFactory.anyMenu();
+		
+		assertTrue(aMenu.isEmptyName());
+	}
+	
+	@Test
+	public void testMenuHasNoEmptyName() {
+		Menu aMenu = MenuFactory.anyMenu();
+		aMenu.setMenuName("anyName");
+		
+		assertFalse(aMenu.isEmptyName());
+	}
+	
+	@Test
+	public void testMenuHasEmptyDescription() {
+		Menu aMenu = MenuFactory.anyMenu();
+		
+		assertTrue(aMenu.isEmptyDescription());
+	}
+	
+	@Test
+	public void testMenuHasNoEmptyDescription() {
+		Menu aMenu = MenuFactory.anyMenu();
+		aMenu.setDescription("anyDescription");
+		
+		assertFalse(aMenu.isEmptyDescription());
+	}
+	
+	@Test
+	public void testMenuHasMinimunCategories() {		
+		Menu aMenu = MenuFactory.anyMenu();
+		aMenu.addCategory(Category.Pizza);
+		
+		assertTrue(aMenu.hasMinimunCategories());
+	}
+	
+	@Test
+	public void testMenuHasNoMinimunCategories() {		
+		Menu aMenu = MenuFactory.anyMenu();
+		
+		assertFalse(aMenu.hasMinimunCategories());
+	}
+	
+	@Test
+	public void testMenuDatesAreValid() {		
+		Menu aMenu = MenuFactory.anyMenu();
+		
+		assertTrue(aMenu.menuDatesAreValid());
+	}
+	
+	@Test
+	public void testMenuDatesAreNotValid() {
+		Calendar today = Calendar.getInstance();
+		Calendar tomorrow = Calendar.getInstance();
+		tomorrow.add(Calendar.DATE, 1);
+		
+		Menu aMenu = MenuFactory.anyMenu();
+		aMenu.setValidFromDate(tomorrow.getTime());
+		aMenu.setValidToDate(today.getTime());
+		
+		assertFalse(aMenu.menuDatesAreValid());
+	}
+	
+	@Test
+	public void testMenuHasAvgDeliveryTime() {
+		Time anyTime = new Time(1);
+		Menu aMenu = MenuFactory.anyMenu();
+		aMenu.setAvgDeliveryTime(anyTime);
+		assertTrue(aMenu.hasAvgDeliveryTime());
+	}
+	
+	@Test
+	public void testMenuHasNoAvgDeliveryTime() {		
+		Menu aMenu = MenuFactory.anyMenu();
+		
+		assertFalse(aMenu.hasAvgDeliveryTime());
+	}
+	
+	@Test
+	public void testMenuHasMinimunOffers() {
+		Offer anyOffer = OfferFactory.createCompleteOffer(8, 12, 80, ForeignExchange.ARS);
+		
+		Menu aMenu = MenuFactory.anyMenu();
+		aMenu.addOffer(anyOffer);
 
+		assertTrue(aMenu.hasMinimunOffers());
+	}
+	
+	@Test
+	public void testMenuHasNoMinimunOffers() {
+		Menu aMenu = MenuFactory.anyMenu();
+
+		assertFalse(aMenu.hasMinimunOffers());
+	}
+	
+	@Test
+	public void testMenuHasMaximunSales() {
+		Menu aMenu = MenuFactory.anyMenu();
+		aMenu.setMaximunSales(1);
+
+		assertTrue(aMenu.hasMaximunSales());
+	}
+	
+	@Test
+	public void testMenuHasNoMaximunSales() {
+		Menu aMenu = MenuFactory.anyMenu();
+
+		assertFalse(aMenu.hasMaximunSales());
+	}
 }
