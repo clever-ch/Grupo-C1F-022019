@@ -373,8 +373,10 @@ public class TestMenu {
 	
 	@Test
 	public void testOfferExcludedIsValidToAdd() {
-		final int MIN = 5, MAX = 8;
-		final int MIN_NOT_INTERSECT = 9, MAX_NOT_INTERSECT = 10;
+		final int MIN = 5;
+		final int MAX = 8;
+		final int MIN_NOT_INTERSECT = 9;
+		final int MAX_NOT_INTERSECT = 10;
 		
 		
 		Offer anyOffer = OfferFactory.createCompleteOffer(MIN, MAX, 10, ForeignExchange.ARS);
@@ -391,8 +393,10 @@ public class TestMenu {
 	
 	@Test
 	public void testOfferNotExcludedNotValidToAdd() {
-		final int MIN = 5, MAX = 8;
-		final int MIN_WITH_INTERSECTION = 6, MAX_WITH_INTERSECTION = 10;
+		final int MIN = 5;
+		final int MAX = 8;
+		final int MIN_WITH_INTERSECTION = 6;
+		final int MAX_WITH_INTERSECTION = 10;
 		
 		Offer anyOffer = OfferFactory.createCompleteOffer(MIN, MAX, 10, ForeignExchange.ARS);
 		anyOffer.setId(1);
@@ -440,8 +444,10 @@ public class TestMenu {
 	
 	@Test(expected = OfferRegistrationException.class)
 	public void testRegisterOfferNotExcludedThrowsException() throws OfferRegistrationException {
-		final int MIN = 5, MAX = 8;
-		final int MIN_WITH_INTERSECTION = 6, MAX_WITH_INTERSECTION = 10;
+		final int MIN = 5;
+		final int MAX = 8;
+		final int MIN_WITH_INTERSECTION = 6;
+		final int MAX_WITH_INTERSECTION = 10;
 		
 		Offer anyOffer = OfferFactory.createCompleteOffer(MIN, MAX, 10, ForeignExchange.ARS);
 		anyOffer.setId(1);
@@ -495,8 +501,10 @@ public class TestMenu {
 	
 	@Test
 	public void testRegisterOfferExcludedNotThrowException() throws OfferRegistrationException {
-		final int MIN = 5, MAX = 8;
-		final int MIN_NOT_INTERSECT = 9, MAX_NOT_INTERSECT = 10;
+		final int MIN = 5;
+		final int MAX = 8;
+		final int MIN_NOT_INTERSECT = 9;
+		final int MAX_NOT_INTERSECT = 10;
 		
 		Offer anyOffer = OfferFactory.createCompleteOffer(MIN, MAX, 10, ForeignExchange.ARS);
 		anyOffer.setId(1);
