@@ -11,7 +11,6 @@ import org.junit.Test;
 
 import constants.Category;
 import constants.ForeignExchange;
-import exceptions.DuplicateOrderException;
 import exceptions.OfferRegistrationException;
 import model.factories.MenuFactory;
 import model.factories.OfferFactory;
