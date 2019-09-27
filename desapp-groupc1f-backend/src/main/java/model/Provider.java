@@ -1,10 +1,11 @@
 package model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Provider extends User {
-	private List<FoodService> foodService;
-	private List<OrderHistory> orderHistory;
+	private List<FoodService> foodService = new ArrayList<FoodService>();
+	private List<OrderHistory> orderHistory = new ArrayList<OrderHistory>();
 	
 	
 	public List<FoodService> getFoodService() {

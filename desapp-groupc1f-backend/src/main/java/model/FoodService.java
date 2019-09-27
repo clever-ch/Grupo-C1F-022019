@@ -1,5 +1,6 @@
 package model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import utilities.Entity;
@@ -13,10 +14,10 @@ public class FoodService extends Entity {
 	private String webSite;
 	private String email;
 	private String phone;
-	private List<ServiceHours> serviceHours;
+	private List<ServiceHours> serviceHours = new ArrayList<ServiceHours>();
 	private String deliveryLocations;
-	private List<Menu> serviceMenues;
-	private List<FoodServiceScore> serviceScores;
+	private List<Menu> serviceMenues = new ArrayList<Menu>();
+	private List<FoodServiceScore> serviceScores = new ArrayList<FoodServiceScore>();
 	private int maxNumberMenus;
 	
 	

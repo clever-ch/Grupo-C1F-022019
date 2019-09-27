@@ -1,15 +1,16 @@
 package model;
 
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertFalse;
 import java.util.Calendar;
-
+import org.junit.Test;
 import constants.DeliveryState;
-import junit.framework.TestCase;
 import model.factories.OrderFactory;
 import model.factories.OrderItemFactory;
 
-//TODO: Reemplazar por JUnit 4
-public class TestOrder extends TestCase {
+public class TestOrder {
 	
+	@Test
 	public void testAnyOrderItemHasItem() {
 		
 		OrderItem aOrderItem = OrderItemFactory.createOrderItemWithOneMenuAndName("Menu_1");
@@ -18,6 +19,7 @@ public class TestOrder extends TestCase {
 		assertTrue(aOrder.hasOrderItem(aOrderItem));
 	}
 	
+	@Test
 	public void testAnyOrderItemHasNoItem() {
 
 		OrderItem aOrderItem_Two = OrderItemFactory.createOrderItemWithOneMenuAndName("Menu_2");
@@ -27,6 +29,7 @@ public class TestOrder extends TestCase {
 		assertFalse(aOrder.hasOrderItem(aOrderItem_Two));
 	}
 	
+	@Test
 	public void testIsValidTomorrowsDayDelivery() {
 		Calendar today = Calendar.getInstance();
 		Calendar tomorrow = Calendar.getInstance();
@@ -38,6 +41,7 @@ public class TestOrder extends TestCase {
 		assertTrue(aOrder.isDateDeliveredValid(tomorrow.getTime()));
 	}
 	
+	@Test
 	public void testIsValidSameDayDelivery() {
 		Calendar today = Calendar.getInstance();
 		
@@ -47,6 +51,7 @@ public class TestOrder extends TestCase {
 		assertTrue(aOrder.isDateDeliveredValid(today.getTime()));
 	}
 	
+	@Test
 	public void testNoIsValidDateYesterdayDelivered() {
 		Calendar today = Calendar.getInstance();
 		Calendar yesterday = Calendar.getInstance();
@@ -58,6 +63,7 @@ public class TestOrder extends TestCase {
 		assertFalse(aOrder.isDateDeliveredValid(yesterday.getTime()));
 	}
 	
+	@Test
 	public void testAnyOrderIsReceived() {
 		Order aOrder = OrderFactory.anyOrder();
 		aOrder.setDeliveryState(DeliveryState.RECEIVED);
@@ -65,6 +71,7 @@ public class TestOrder extends TestCase {
 		assertTrue(aOrder.orderIsReceived());
 	}
 	
+	@Test
 	public void testAnyOrderNotIsReceived() {
 		Order aOrder = OrderFactory.anyOrder();
 		aOrder.setDeliveryState(DeliveryState.PENDING);
@@ -72,6 +79,7 @@ public class TestOrder extends TestCase {
 		assertFalse(aOrder.orderIsReceived());
 	}
 	
+	@Test
 	public void testOrderDatesAreValid() {
 		Order aOrder = OrderFactory.anyOrder();
 		Calendar today = Calendar.getInstance();
@@ -83,6 +91,7 @@ public class TestOrder extends TestCase {
 		assertTrue(aOrder.orderDatesAreValid());
 	}
 	
+	@Test
 	public void testSameDayOrderDateAreValid() {
 		Order aOrder = OrderFactory.anyOrder();
 		Calendar today = Calendar.getInstance();

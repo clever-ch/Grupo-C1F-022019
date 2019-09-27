@@ -1,14 +1,15 @@
 package model;
 
 import java.sql.Time;
+import java.util.ArrayList;
 import java.util.List;
 
 import constants.Shift;
 import utilities.Entity;
 
 public class DeliveryInfo extends Entity {
-	private List<Shift> shiftsAvailable;
-	private List<Time> hoursAttention;
+	private List<Shift> shiftsAvailable = new ArrayList<Shift>();
+	private List<Time> hoursAttention = new ArrayList<Time>();
 	private boolean hasDelivery;
 	
 	public List<Shift> getShiftAvailable() {
