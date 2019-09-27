@@ -226,8 +226,21 @@ public class TestMenu {
 	}
 	
 	@Test
-	public void testMenuDatesAreValid() {		
+	public void testMenuDatesDefaultAreValid() {		
 		Menu aMenu = MenuFactory.anyMenu();
+		
+		assertTrue(aMenu.menuDatesAreValid());
+	}
+	
+	@Test
+	public void testMenuDatesAreValid() {
+		Calendar today = Calendar.getInstance();
+		Calendar tomorrow = Calendar.getInstance();
+		tomorrow.add(Calendar.DATE, 1);
+		
+		Menu aMenu = MenuFactory.anyMenu();
+		aMenu.setValidFromDate(today.getTime());
+		aMenu.setValidToDate(tomorrow.getTime());
 		
 		assertTrue(aMenu.menuDatesAreValid());
 	}
