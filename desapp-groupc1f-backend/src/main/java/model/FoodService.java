@@ -105,7 +105,7 @@ public class FoodService extends Entity {
 		return serviceMenues;
 	}
 
-	public void addServiceMenue(Menu menu) {
+	public void addServiceMenu(Menu menu) {
 		this.serviceMenues.add(menu);
 	}
 
@@ -123,5 +123,22 @@ public class FoodService extends Entity {
 
 	public void setMaxNumberMenus(int maxNumberMenus) {
 		this.maxNumberMenus = maxNumberMenus;
+	}
+
+	public int numberMenusEnabled() {
+		int menusEnabled = 0;
+		
+		for (Menu menu : serviceMenues)
+			menusEnabled = menusEnabled + (menu.isEnabled() ? 1 : 0);
+		
+		return menusEnabled;
+	}
+	
+	public boolean meetsMaxNumberMenusEnabled() {
+		return numberMenusEnabled() <= getModelConstants().numberMenusEnabled();
+	}
+	
+	public void setSetServiceMenues(List<Menu> menues) {
+		this.serviceMenues = menues;
 	}
 }
