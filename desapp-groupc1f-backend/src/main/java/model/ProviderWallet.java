@@ -12,9 +12,11 @@ public class ProviderWallet extends Wallet {
 
     @Override
     public void takeCredit(double n) throws CantTakeCreditException {
-
-            if ((this.amount - n) >= 0){
-                this.amount = this.amount -n;
+    		
+    	Double actualAmount = this.getAmount();
+        
+    	if ((actualAmount - n) >= 0){
+                this.setAmount(actualAmount - n);
             } else {
                 throw new CantTakeCreditException("El monto que desea quitar excede lo disponible en su billetera");
             }
@@ -23,6 +25,6 @@ public class ProviderWallet extends Wallet {
 
     @Override
     public double checkCredit() {
-        return this.amount;
+        return this.getAmount();
     }
 }

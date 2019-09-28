@@ -5,7 +5,7 @@ import exceptions.OptionNotAvailableException;
 import utilities.Entity;
 
 public abstract class Wallet extends Entity {
-    public double amount = 0;
+    private double amount = 0;
 
     public double getAmount() {
         return amount;

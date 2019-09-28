@@ -24,7 +24,7 @@ public class TestProviderWallet {
 
         ProviderWallet aProviderWallet = ProviderWalletFactory.createProviderWalletWithAmount(200.0);
         aProviderWallet.takeCredit(100.0);
-        assertEquals(100.0, aProviderWallet.getAmount(), 0.0);
+        assertEquals(100.0, aProviderWallet.checkCredit(), 0.0);
     }
 
     @Test(expected = CantTakeCreditException.class)

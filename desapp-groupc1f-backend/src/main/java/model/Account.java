@@ -4,7 +4,7 @@ import utilities.Entity;
 
 public class Account extends Entity {
 
-    public String userName;
+    private String userName;
     private String name;
     private String surname;
     private String email;
