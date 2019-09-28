@@ -8,7 +8,7 @@ public abstract class User extends Entity {
 	private RegisterType typeRegister;
 	private Account acount;
 	private UserType userType;
-	private Wallet aWallet = new ProviderWallet();
+	private Wallet aWallet;
 	private String tokenTPA;	//(identificador logueo Google)
 	
 	

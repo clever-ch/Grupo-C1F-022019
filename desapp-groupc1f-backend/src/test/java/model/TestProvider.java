@@ -1,15 +1,22 @@
 package model;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertSame;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
+
+import constants.RegisterType;
+import constants.UserType;
 import model.FoodService;
 import model.Provider;
 import model.OrderHistory;
+import model.factories.AccountFactory;
 import model.factories.FoodServiceFactory;
 import model.factories.OrderHistoryFactory;
 import model.factories.ProviderFactory;
+import model.factories.ProviderWalletFactory;
 
 public class TestProvider  {
 	
@@ -37,6 +44,16 @@ public class TestProvider  {
 	
 	@Test
 	public void testProviderAsUserRegisterOK() {
-		//TODO
+		
+		Provider aProv = ProviderFactory.aProvider();
+		aProv.setTypeRegister(RegisterType.TPA);
+		aProv.setAcount(AccountFactory.anyAccount());
+		aProv.setUserType(UserType.PROVIDER);
+		aProv.setaWallet(ProviderWalletFactory.anyProviderWallet());
+		
+		assertEquals(aProv.getTypeRegister(), RegisterType.TPA);
+		assertEquals(aProv.getUserType(), UserType.PROVIDER);
+		assertNotNull(aProv.getAcount());
+		assertNotNull(aProv.getaWallet());
 	}
 }
