@@ -11,9 +11,12 @@ import org.junit.Test;
 
 import constants.Category;
 import constants.ForeignExchange;
+import constants.MenuState;
+import constants.ScoreState;
 import exceptions.OfferRegistrationException;
 import model.factories.MenuFactory;
 import model.factories.OfferFactory;
+import model.factories.ScoreFactory;
 
 public class TestMenu {
 
@@ -518,5 +521,39 @@ public class TestMenu {
 		aMenu.registerOffer(otherOffer);
 		
 		assertTrue(aMenu.getOffers().size() == 2);
+	}
+	
+	@Test
+	public void testMenuIsEnabled() {
+		Menu aMenu = MenuFactory.anyMenu();
+		aMenu.setMenuState(MenuState.Enabled);
+		
+		assertTrue(aMenu.isEnabled());
+	}
+	
+	@Test
+	public void testMenuIsDisabled() {
+		Menu aMenu = MenuFactory.anyMenu();
+		aMenu.setMenuState(MenuState.Disabled);
+		
+		assertFalse(aMenu.isEnabled());
+	}
+	
+	@Test
+	public void testMenuHasMenuScorePending() {
+		MenuScore menuScore = ScoreFactory.anyMenuScore();
+		menuScore.setScoreState(ScoreState.Pending);
+		
+		Menu aMenu = MenuFactory.anyMenu();
+		aMenu.addMenuScore(menuScore);
+		
+		assertTrue(aMenu.hasMenuScorePending());
+	}
+	
+	@Test
+	public void testMenuNotHaveMenuScorePending() {
+		Menu aMenu = MenuFactory.anyMenu();
+		
+		assertFalse(aMenu.hasMenuScorePending());
 	}
 }

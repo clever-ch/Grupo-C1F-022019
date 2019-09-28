@@ -4,14 +4,17 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 
+import constants.ScoreState;
 import exceptions.DuplicateOrderException;
 import exceptions.DuplicateOrderHistoryException;
 import model.Customer;
 import model.Order;
 import model.OrderHistory;
 import model.factories.CustomerFactory;
+import model.factories.MenuFactory;
 import model.factories.OrderFactory;
 import model.factories.OrderHistoryFactory;
+import model.factories.OrderItemFactory;
 
 public class TestCustomer {
 
@@ -93,5 +96,35 @@ public class TestCustomer {
 		OrderHistory sameOrderHistory = OrderHistoryFactory.createOrderHistoryWithId(1);
 		
 		anyCustomer.registerOrderHistoryIfApply(sameOrderHistory);
+	}
+	
+	@Test
+	public void testCustomerHasPendingScore() {
+		MenuScore menuScore = new MenuScore();
+		menuScore.setScoreState(ScoreState.Pending);
+		
+		Menu menu = MenuFactory.anyMenu();
+		menu.addMenuScore(menuScore);
+		
+		OrderItem orderItem = OrderItemFactory.anyOrderItem();
+		orderItem.setMenu(menu);
+		
+		Order aOrder = OrderFactory.anyOrder();
+		aOrder.addOrderItems(orderItem);
+		
+		Customer anyCustomer = CustomerFactory.anyCustomer();
+		anyCustomer.addOrder(aOrder);
+		
+		assertTrue(anyCustomer.hasPendingScore());
+	}
+	
+	@Test
+	public void testCustomerHasNoPendingScore() {
+		Order aOrder = OrderFactory.anyOrder();
+		
+		Customer anyCustomer = CustomerFactory.anyCustomer();
+		anyCustomer.addOrder(aOrder);
+		
+		assertFalse(anyCustomer.hasPendingScore());
 	}
 }

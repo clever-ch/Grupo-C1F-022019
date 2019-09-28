@@ -81,4 +81,13 @@ public class Order extends Entity {
 	public void setDeliveryState(DeliveryState deliveryState) {
 		this.deliveryState = deliveryState;
 	}
+	
+	public boolean hasItemWithPendingScore() {
+		boolean result = false;
+		
+		for (OrderItem orderItem : orderItems)
+			result = result | orderItem.getMenu().hasMenuScorePending();
+		
+		return result;
+	}
 }

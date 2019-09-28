@@ -5,6 +5,8 @@ import static org.junit.Assert.assertFalse;
 import java.util.Calendar;
 import org.junit.Test;
 import constants.DeliveryState;
+import constants.ScoreState;
+import model.factories.MenuFactory;
 import model.factories.OrderFactory;
 import model.factories.OrderItemFactory;
 
@@ -99,5 +101,39 @@ public class TestOrder {
 		aOrder.setDeliveredDate(today.getTime());
 		
 		assertTrue(aOrder.orderDatesAreValid());
+	}
+	
+	@Test
+	public void testOrderHasItemWithPendingScore() {
+		MenuScore menuScore = new MenuScore();
+		menuScore.setScoreState(ScoreState.Pending);
+		
+		Menu menu = MenuFactory.anyMenu();
+		menu.addMenuScore(menuScore);
+		
+		OrderItem orderItem = OrderItemFactory.anyOrderItem();
+		orderItem.setMenu(menu);
+		
+		Order aOrder = OrderFactory.anyOrder();
+		aOrder.addOrderItems(orderItem);
+		
+		assertTrue(aOrder.hasItemWithPendingScore());
+	}
+	
+	@Test
+	public void testOrderHasNoItemWithPendingScore() {
+		MenuScore menuScore = new MenuScore();
+		menuScore.setScoreState(ScoreState.Punctuated);
+		
+		Menu menu = MenuFactory.anyMenu();
+		menu.addMenuScore(menuScore);
+		
+		OrderItem orderItem = OrderItemFactory.anyOrderItem();
+		orderItem.setMenu(menu);
+		
+		Order aOrder = OrderFactory.anyOrder();
+		aOrder.addOrderItems(orderItem);
+		
+		assertFalse(aOrder.hasItemWithPendingScore());
 	}
 }

@@ -1,10 +1,16 @@
 package model;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
+import java.util.List;
 
 import org.junit.Test;
 
+import constants.MenuState;
 import model.factories.FoodServiceFactory;
+import model.factories.MenuFactory;
 
 public class TestFoodService {
 	
@@ -34,5 +40,44 @@ public class TestFoodService {
 		assertEquals("emp.com", aFoodSer.getWebSite());
 		
 	}
-
+	
+	@Test
+	public void testFoodServiceHasMenuEnabled() {
+		Menu menuEnabled = MenuFactory.anyMenu();
+		menuEnabled.setMenuState(MenuState.Enabled);
+		
+		FoodService aFoodService = FoodServiceFactory.aFoodService();
+		aFoodService.addServiceMenu(menuEnabled);
+		
+		assertTrue(aFoodService.numberMenusEnabled() == 1);
+	}
+	
+	@Test
+	public void testFoodServiceHasNoMenuEnabled() {
+		FoodService aFoodService = FoodServiceFactory.aFoodService();
+		
+		assertTrue(aFoodService.numberMenusEnabled() == 0);
+	}
+	
+	@Test
+	public void testFoodServiceMeetsMaxNumberMenusEnabled() {
+		final int NUMBER_MENUS_ENABLED = 10;
+		List<Menu> menusEnabled = MenuFactory.createMenusWithState(NUMBER_MENUS_ENABLED, MenuState.Enabled);
+		
+		FoodService aFoodService = FoodServiceFactory.aFoodService();
+		aFoodService.setSetServiceMenues(menusEnabled);
+		
+		assertTrue(aFoodService.meetsMaxNumberMenusEnabled());		
+	}
+	
+	@Test
+	public void testFoodServiceNotMeetsMaxNumberMenusEnabled() {
+		final int NUMBER_MENUS_ENABLED = 21;
+		List<Menu> menusEnabled = MenuFactory.createMenusWithState(NUMBER_MENUS_ENABLED, MenuState.Enabled);
+		
+		FoodService aFoodService = FoodServiceFactory.aFoodService();
+		aFoodService.setSetServiceMenues(menusEnabled);
+		
+		assertFalse(aFoodService.meetsMaxNumberMenusEnabled());		
+	}
 }
