@@ -2,5 +2,7 @@ package constants;
 
 public enum MenuState {
 	Delivered,
-	Pending
+	Pending,
+	Enabled,
+	Disabled
 }

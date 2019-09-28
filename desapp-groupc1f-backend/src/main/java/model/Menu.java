@@ -7,6 +7,7 @@ import java.util.Date;
 import java.util.List;
 import constants.Category;
 import constants.MenuState;
+import constants.ScoreState;
 import exceptions.OfferRegistrationException;
 import utilities.Entity;
 
@@ -206,5 +207,18 @@ public class Menu extends Entity {
 			this.offers.add(offer);
 		else
 			throw new OfferRegistrationException("Ya existe una oferta similar."); 
+	}
+	
+	public boolean isEnabled() {
+		return this.menuState.equals(MenuState.Enabled);
+	}
+	
+	public boolean hasMenuScorePending() {
+		boolean hasScorePending = false;
+		
+		for (MenuScore score : menuScore)
+			hasScorePending = hasScorePending | score.getScoreState().equals(ScoreState.Pending);
+		
+		return hasScorePending;
 	}
 }
