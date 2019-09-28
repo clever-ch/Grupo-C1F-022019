@@ -1,31 +1,34 @@
 package model;
 
-import java.sql.Time;
+import java.time.DateTimeException;
+import java.time.DayOfWeek;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
-
-import constants.Days;
 import utilities.Entity;
 
 public class ServiceHours extends Entity {
-	private Days day;
-	private List<Time> hours = new ArrayList<Time>();
+	private DayOfWeek day;
+	private List<LocalTime> hours = new ArrayList<LocalTime>();
 	
 	
-	public Days getDay() {
+	public DayOfWeek getDay() {
 		return day;
 	}
 	
-	public void setDay(Days day) {
+	public void setDay(DayOfWeek day) {
 		this.day = day;
 	}
 
-	public List<Time> getHours() {
+	public List<LocalTime> getHours() {
 		return hours;
 	}
 
-	public void addHour(Time hour) {
+	public void addHour(LocalTime hour) {
 		this.hours.add(hour);
 	}
-
+	
+	public boolean isHourValidToAdd(LocalTime hour) throws DateTimeException{
+		return !this.hours.contains(hour);
+	}
 }
