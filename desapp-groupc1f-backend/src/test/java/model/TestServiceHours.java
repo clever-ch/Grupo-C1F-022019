@@ -1,6 +1,7 @@
 package model;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertFalse;
 import java.time.DateTimeException;
 import java.time.DayOfWeek;
 import java.time.LocalTime;
