@@ -6,6 +6,7 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 
 import constants.ScoreState;
+import model.factories.ProviderFactory;
 import model.factories.ScoreFactory;
 
 public class TestFoodServiceScore {
@@ -32,7 +33,7 @@ public class TestFoodServiceScore {
 	
 	@Test
 	public void testFoodServiceScoreUserIsValid() {
-		Provider provider = new Provider();			//TODO: Usar FactoryProvider cuando se mergee
+		Provider provider = ProviderFactory.aProvider();
 		
 		FoodServiceScore aFoodServiceScore = ScoreFactory.anyFoodServiceScore();
 		aFoodServiceScore.setUser(provider);
@@ -65,7 +66,7 @@ public class TestFoodServiceScore {
 	public void testFoodServiceScoreFullDataIsValid() {
 		final int SCORE_VALUE = 1;
 		final ScoreState SCORE_STATE = ScoreState.Pending;
-		Provider provider = new Provider();					//TODO: Usar FactoryProvider cuando se mergee
+		Provider provider = ProviderFactory.aProvider();
 		
 		FoodServiceScore aFoodServiceScore = ScoreFactory.createFullFoodServiceScore(SCORE_VALUE, SCORE_STATE, provider);
 		
@@ -75,7 +76,7 @@ public class TestFoodServiceScore {
 	@Test
 	public void testFoodServiceScoreValueDataNotComplete() {
 		final ScoreState SCORE_STATE = ScoreState.Pending;
-		Provider provider = new Provider();					//TODO: Usar FactoryProvider cuando se mergee
+		Provider provider = ProviderFactory.aProvider();
 		
 		FoodServiceScore aFoodServiceScore = ScoreFactory.anyFoodServiceScore();
 		aFoodServiceScore.setScoreState(SCORE_STATE);
@@ -87,7 +88,7 @@ public class TestFoodServiceScore {
 	@Test
 	public void testFoodServiceScoreStateDataNotComplete() {
 		final int SCORE_VALUE = 1;
-		Provider provider = new Provider();					//TODO: Usar FactoryProvider cuando se mergee
+		Provider provider = ProviderFactory.aProvider();
 		
 		FoodServiceScore aFoodServiceScore = ScoreFactory.anyFoodServiceScore();
 		aFoodServiceScore.setScoreValue(SCORE_VALUE);
