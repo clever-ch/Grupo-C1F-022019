@@ -23,7 +23,6 @@ public class TestAccount {
     @Test
     public void testIsEmptyUserName() {
     	Account aAccount = AccountFactory.createAccountWithUsername("INC");
-    	System.out.println(aAccount.getUserName());
     	assertFalse(aAccount.isEmptyUserName());
     }
     

@@ -12,6 +12,21 @@ public class DeliveryInfo extends Entity {
 	private List<Time> hoursAttention = new ArrayList<Time>();
 	private boolean hasDelivery;
 	
+	public boolean isValidDeliveryInfo() {
+		return hasListAttention()
+				& hasShifts();
+	}
+
+	public boolean hasListAttention() {
+		return this.shiftsAvailable.isEmpty() | this.shiftsAvailable != null;
+	}
+
+
+	public boolean hasShifts() {
+		return this.hoursAttention.isEmpty() | this.hoursAttention != null;
+	}
+
+
 	public List<Shift> getShiftAvailable() {
 		return shiftsAvailable;
 	}
