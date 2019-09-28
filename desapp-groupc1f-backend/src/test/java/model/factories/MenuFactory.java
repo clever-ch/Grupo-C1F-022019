@@ -1,10 +1,12 @@
 package model.factories;
 
 import java.sql.Time;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 import constants.Category;
+import constants.MenuState;
 import model.Menu;
 import model.Offer;
 
@@ -35,5 +37,18 @@ public class MenuFactory {
 		anyMenu.setMaximunSales(maximunSales);
 		
 		return anyMenu;
+	}
+	
+	public static List<Menu> createMenusWithState(int nMenus, MenuState menuState) {
+		List<Menu> menus = new ArrayList<Menu>();
+		
+		for (int i = 0; i < nMenus; i++) {
+			Menu newMenu = anyMenu();
+			newMenu.setMenuState(menuState);
+			
+			menus.add(newMenu);
+		}
+		
+		return menus;
 	}
 }
