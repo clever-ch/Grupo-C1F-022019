@@ -55,4 +55,13 @@ public class Customer extends User {
 		else
 			addOrderHistory(oHistory);
 	}
+	
+	public boolean hasPendingScore() {
+		boolean result = false;
+		
+		for (Order order : orders)
+			result = result | order.hasItemWithPendingScore();
+		
+		return result;
+	}
 }
