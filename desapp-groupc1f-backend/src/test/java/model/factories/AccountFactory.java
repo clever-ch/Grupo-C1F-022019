@@ -25,8 +25,51 @@ public class AccountFactory {
 
     public static Account createAccountWithUsername(String username){
         Account newAccount = new Account();
-        newAccount.setSurname(username);
+        newAccount.setUserName(username);
 
         return newAccount;
     }
+
+	public static Account createAccountWithName(String name) {
+		Account newAccount = new Account();
+		newAccount.setName(name);
+		
+		return newAccount;
+	}
+
+	public static Account createAccountWithSurname(String surname) {
+		Account newAccount = new Account();
+		newAccount.setSurname(surname);
+		
+		return newAccount;
+	}
+
+	public static Account createAccountWithLocation(String location) {
+		Account newAccount = new Account();
+		newAccount.setLocation(location);
+		
+		return newAccount;
+	}
+
+	public static Account createAccountWithPhone(int i) {
+		Account newAccount = new Account();
+		newAccount.setPhone(i);
+		
+		return newAccount;
+	}
+
+	public static Account createAccountWithEmailValid(String email) {
+		Account newAccount = new Account();
+		newAccount.setEmail(email);
+		
+		return newAccount;
+	}
+
+	public static Account createAccountWithDirection(String dir) {
+		Account newAccount = new Account();
+		newAccount.setDirection(dir);
+		
+		return newAccount;
+	}
+
 }

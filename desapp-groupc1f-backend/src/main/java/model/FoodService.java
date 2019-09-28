@@ -20,7 +20,70 @@ public class FoodService extends Entity {
 	private List<FoodServiceScore> serviceScores = new ArrayList<FoodServiceScore>();
 	private int maxNumberMenus;
 	
+	public boolean isValidFoodService() {
+		return !isEmptyServiceName()
+				& !isEmptyServiceLocation()
+				& !isEmptyServiceAddress()
+				& !isEmptyLocationPointM()
+				& hasDescrption()
+				& hasWebSiteValid()
+				& hasEmail()
+				& hasPhoneValid()
+				& hasAListOfServiceHours()
+				& hasDeliveryLocation()
+				& hasMenues()
+				& hasMaxNumberMenuesValid();
+	}
 	
+	public boolean isEmptyServiceName() {
+		return this.serviceName == "" | this.serviceName == null;
+	}
+
+	public boolean isEmptyServiceLocation() {
+		return this.serviceLocation == "" | this.serviceLocation == null;
+
+	}
+
+	public boolean isEmptyServiceAddress() {
+		return this.serviceAddress == "" | this.serviceAddress == null;
+	}
+
+	public boolean isEmptyLocationPointM() {
+		return this.locationPointMap == "" | this.locationPointMap == null;
+	}
+
+	public boolean hasDescrption() {
+		return this.serviceDescription != "" | this.serviceDescription != null;
+	}
+
+	public boolean hasWebSiteValid() {
+		return this.webSite != "" | this.webSite != null;
+	}
+
+	public boolean hasEmail() {
+		return this.email != "" | this.email != null;
+	}
+
+	public boolean hasPhoneValid() {
+		return this.phone != "" | this.phone != null;
+	}
+
+	public boolean hasAListOfServiceHours() {
+		return this.serviceHours.isEmpty() | this.serviceHours != null;
+	}
+
+	public boolean hasDeliveryLocation() {
+		return this.deliveryLocations != "" | this.deliveryLocations != null;
+	}
+
+	public boolean hasMenues() {
+		return this.serviceMenues.isEmpty() | this.serviceMenues != null;
+	}
+
+	public boolean hasMaxNumberMenuesValid() {
+		return this.maxNumberMenus != 0 ;
+	}
+
 	public String getServiceName() {
 		return serviceName;
 	}

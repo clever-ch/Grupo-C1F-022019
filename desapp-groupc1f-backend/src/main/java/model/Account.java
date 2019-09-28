@@ -22,32 +22,32 @@ public class Account extends Entity {
     			& hasValidDirection();
     }
 
-    private boolean hasValidDirection() {
+    public boolean hasValidDirection() {
     	return this.direction != "" | this.direction != null;
 	}
 
-	private boolean hasValidLocation() {
+	public boolean hasValidLocation() {
 		return this.location != "" | this.location != null;
 	}
 
-	private boolean isEmptyPhone() {
-		return this.phone != 0;
+	public boolean isEmptyPhone() {
+		return this.phone == 0;
 	}
 
-	private boolean hasAEmailValid() {
+	public boolean hasAEmailValid() {
 		return this.email != "" | this.email != null;
 	}
 
-	private boolean isEmptySurname() {
-		return this.surname != "" | this.surname != null;
+	public boolean isEmptySurname() {
+		return this.surname == "" | this.surname == null;
 	}
 
-	private boolean isEmptyName() {
-		return this.name != "" | this.name != null;
+	public boolean isEmptyName() {
+		return this.name == "" | this.name == null;
 	}
 
-	private boolean isEmptyUserName() {
-		return this.userName != "" | this.userName != null;
+	public boolean isEmptyUserName() {
+		return this.userName == "" | this.userName == null;
 	}
 
 	public String getUserName() {
