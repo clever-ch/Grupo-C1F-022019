@@ -8,11 +8,49 @@ public class Account extends Entity {
     private String name;
     private String surname;
     private String email;
-    private int phone;
+    private int phone = 0;
     private String location;
     private String direction;
+    
+    public boolean isValidAccount() {
+    	return !isEmptyUserName()
+    			& !isEmptyName()
+    			& !isEmptySurname()
+    			& hasAEmailValid()
+    			& !isEmptyPhone()
+    			& hasValidLocation()
+    			& hasValidDirection();
+    }
 
-    public String getUserName() {
+    private boolean hasValidDirection() {
+    	return this.direction != "" | this.direction != null;
+	}
+
+	private boolean hasValidLocation() {
+		return this.location != "" | this.location != null;
+	}
+
+	private boolean isEmptyPhone() {
+		return this.phone != 0;
+	}
+
+	private boolean hasAEmailValid() {
+		return this.email != "" | this.email != null;
+	}
+
+	private boolean isEmptySurname() {
+		return this.surname != "" | this.surname != null;
+	}
+
+	private boolean isEmptyName() {
+		return this.name != "" | this.name != null;
+	}
+
+	private boolean isEmptyUserName() {
+		return this.userName != "" | this.userName != null;
+	}
+
+	public String getUserName() {
         return userName;
     }
 
