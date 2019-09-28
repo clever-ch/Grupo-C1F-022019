@@ -5,6 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 import constants.ScoreState;
+import model.factories.ProviderFactory;
 import model.factories.ScoreFactory;
 
 public class TestMenuScore {
@@ -31,7 +32,7 @@ public class TestMenuScore {
 	
 	@Test
 	public void testaMenuScoreUserIsValid() {
-		Provider provider = new Provider();					//TODO: Usar FactoryProvider cuando se mergee
+		Provider provider = ProviderFactory.aProvider();
 		
 		MenuScore aMenuScore = ScoreFactory.anyMenuScore();
 		aMenuScore.setUser(provider);
@@ -64,7 +65,7 @@ public class TestMenuScore {
 	public void testMenuScoreFullDataIsValid() {
 		final int SCORE_VALUE = 1;
 		final ScoreState SCORE_STATE = ScoreState.Pending;
-		Provider provider = new Provider();					//TODO: Usar FactoryProvider cuando se mergee
+		Provider provider = ProviderFactory.aProvider();
 		
 		MenuScore aMenuScore = ScoreFactory.createFullMenuScore(SCORE_VALUE, SCORE_STATE, provider);
 		
@@ -74,7 +75,7 @@ public class TestMenuScore {
 	@Test
 	public void testMenuScoreValueDataNotComplete() {
 		final ScoreState SCORE_STATE = ScoreState.Pending;
-		Provider provider = new Provider();					//TODO: Usar FactoryProvider cuando se mergee
+		Provider provider = ProviderFactory.aProvider();
 		
 		MenuScore aMenuScore = ScoreFactory.anyMenuScore();
 		aMenuScore.setScoreState(SCORE_STATE);
@@ -86,7 +87,7 @@ public class TestMenuScore {
 	@Test
 	public void testMenuScoreStateDataNotComplete() {
 		final int SCORE_VALUE = 1;
-		Provider provider = new Provider();					//TODO: Usar FactoryProvider cuando se mergee
+		Provider provider = ProviderFactory.aProvider();
 		
 		MenuScore aMenuScore = ScoreFactory.anyMenuScore();
 		aMenuScore.setScoreValue(SCORE_VALUE);
