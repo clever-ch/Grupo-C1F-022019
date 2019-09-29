@@ -3,8 +3,6 @@ package model;
 import model.Account;
 
 import model.factories.AccountFactory;
-
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
@@ -21,20 +19,20 @@ public class TestAccount {
     }
 
     @Test
-    public void testIsEmptyUserName() {
+    public void testNotIsEmptyUserName() {
     	Account aAccount = AccountFactory.createAccountWithUsername("INC");
     	assertFalse(aAccount.isEmptyUserName());
     }
     
     @Test
-    public void testIsEmptyName() {
+    public void testNotIsEmptyName() {
     	Account aAccount = AccountFactory.createAccountWithName("Ignacio");
     	
     	assertFalse(aAccount.isEmptyName());
     }
     
     @Test
-    public void isEmptySurname() {
+    public void testNotIsEmptySurname() {
     	Account aAccount = AccountFactory.createAccountWithSurname("Crovara");
         
     	assertFalse(aAccount.isEmptySurname());

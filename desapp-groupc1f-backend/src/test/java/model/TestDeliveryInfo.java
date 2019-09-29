@@ -1,11 +1,8 @@
 package model;
 
 import static org.junit.Assert.assertTrue;
-
-import java.sql.Time;
-
+import java.time.LocalTime;
 import org.junit.Test;
-
 import constants.Shift;
 import model.factories.DeliveryInfoFactory;
 
@@ -20,8 +17,10 @@ public class TestDeliveryInfo {
 	
 	@Test
 	public void testHasListAttention() {
+		final LocalTime HOUR_TO_ADD = LocalTime.of(10, 00);
+		
 		DeliveryInfo aDelivery = DeliveryInfoFactory.anyDeliveryInfo();
-		aDelivery.setHourAttention(new Time(0));
+		aDelivery.setHourAttention(HOUR_TO_ADD);
 		
 		assertTrue(aDelivery.hasListAttention());
 	}
