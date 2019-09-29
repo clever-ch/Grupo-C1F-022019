@@ -1,15 +1,14 @@
 package model;
 
-import java.sql.Time;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
-
 import constants.Shift;
 import utilities.Entity;
 
 public class DeliveryInfo extends Entity {
 	private List<Shift> shiftsAvailable = new ArrayList<Shift>();
-	private List<Time> hoursAttention = new ArrayList<Time>();
+	private List<LocalTime> hoursAttention = new ArrayList<LocalTime>();
 	private boolean hasDelivery;
 	
 	public boolean isValidDeliveryInfo() {
@@ -35,11 +34,11 @@ public class DeliveryInfo extends Entity {
 		this.shiftsAvailable.add(shiftAvailables);
 	}
 
-	public List<Time> getHoursAttention() {
+	public List<LocalTime> getHoursAttention() {
 		return hoursAttention;
 	}
 
-	public void setHourAttention(Time hour) {
+	public void setHourAttention(LocalTime hour) {
 		this.hoursAttention.add(hour);
 	}
 
