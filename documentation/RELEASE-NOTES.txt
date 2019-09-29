@@ -1,0 +1,21 @@
+====== RELEASE NOTES  ==========
+
+Universidad Nacional de Quilmes
+Desarrollo de Aplicaciones
+Viendas Ya
+
+	
+---------------------------------------------------------------------
+RELEASE 1.0
+---------------------------------------------------------------------
+NEW FEATURES:
+* Creación repositorio GitHub (Backend y Frontend)
+* Modelo completo
+* Tests del modelo
+* Configuración de herramientas de integración, deploy continuo y revisión de código con Travis, Codacy y Heroku.
+* Frontend con Angular
+* Integración API Google Maps
+
+NOTES:
+* Validaciones de funcionalidad por JS y Frontend
+* A futuro se planea cambiar la API de Google Maps por una librería gratuita y open source
