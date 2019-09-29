@@ -1,11 +1,7 @@
 package model.factories;
 
-import java.util.List;
 
 import model.FoodService;
-import model.FoodServiceScore;
-import model.Menu;
-import model.ServiceHours;
 
 public class FoodServiceFactory {
 	
