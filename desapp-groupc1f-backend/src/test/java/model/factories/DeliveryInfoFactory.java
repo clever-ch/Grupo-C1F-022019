@@ -1,7 +1,6 @@
 package model.factories;
 
-import java.sql.Time;
-
+import java.time.LocalTime;
 import constants.Shift;
 import model.DeliveryInfo;
 
@@ -12,9 +11,11 @@ public class DeliveryInfoFactory {
 	}
 	
 	public static DeliveryInfo aDeliveryInfoComplete(){
+		final LocalTime HOUR_TO_ADD = LocalTime.of(10, 00);
+		
 		DeliveryInfo aDeliveryInfo = new DeliveryInfo();
 		aDeliveryInfo.setHasDelivery(true);
-		aDeliveryInfo.setHourAttention(new Time(0));
+		aDeliveryInfo.setHourAttention(HOUR_TO_ADD);
 		aDeliveryInfo.addShiftAvailable(Shift.Morning);
 		
 		return aDeliveryInfo;
