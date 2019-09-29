@@ -1,6 +1,5 @@
 package model;
 
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
@@ -11,34 +10,108 @@ import org.junit.Test;
 import constants.MenuState;
 import model.factories.FoodServiceFactory;
 import model.factories.MenuFactory;
+import model.factories.ServiceHoursFactory;
 
 public class TestFoodService {
 	
 	@Test
-	public void testCreateFoodServiceOK() {
+	public void testIsValidFoodService() {
+		
+		FoodService aFoodSer = FoodServiceFactory.aFoodServiceComplete("Empanadas", "Mitre", "mitre", "0.0", 
+				"local de comidas", "emp.com","alvaro@gmail.com", "234", "Mitre", 4);
+		
+		assertTrue(aFoodSer.isValidFoodService());
+		
+	}
+	
+	@Test
+	public void testIsEmptyServiceName() {
+		FoodService aFoodSer = FoodServiceFactory.aFoodService();
+		
+		assertTrue(aFoodSer.isEmptyServiceName());
+	}	
+	
+	@Test
+	public void testHasEmail() {
 		
 		FoodService aFoodSer = FoodServiceFactory.aFoodService();
-		aFoodSer.setServiceName("Empanadas");
-		assertEquals("Empanadas", aFoodSer.getServiceName());
 		aFoodSer.setEmail("alvaro@gmail.com");
-		assertEquals("alvaro@gmail.com", aFoodSer.getEmail());
-		aFoodSer.setDeliveryLocations("Mitre");
-		assertEquals("Mitre", aFoodSer.getDeliveryLocations());
-		aFoodSer.setLocationPointMap(".");
-		assertEquals(".", aFoodSer.getLocationPointMap());
-		aFoodSer.setMaxNumberMenus(6);
-		assertEquals(6, aFoodSer.getMaxNumberMenus());
-		aFoodSer.setPhone("234");
-		assertEquals("234", aFoodSer.getPhone());
-		aFoodSer.setServiceAddress("mitre");
-		assertEquals("mitre", aFoodSer.getServiceAddress());
-		aFoodSer.setServiceDescription("local de comidas");
-		assertEquals("local de comidas", aFoodSer.getServiceDescription());
-		aFoodSer.setServiceLocation("Quilmes");
-		assertEquals("Quilmes", aFoodSer.getServiceLocation());
-		aFoodSer.setWebSite("emp.com");
-		assertEquals("emp.com", aFoodSer.getWebSite());
+		assertTrue(aFoodSer.hasEmail());
 		
+	}
+	
+	@Test
+	public void testHasDeliveryLocation() {
+		
+		FoodService aFoodSer = FoodServiceFactory.aFoodService();
+		aFoodSer.setDeliveryLocations("Mitre");
+		assertTrue(aFoodSer.hasDeliveryLocation());
+	}
+	
+	@Test
+	public void testIsEmptyLocationPointM() {
+		FoodService aFoodSer = FoodServiceFactory.aFoodService();
+		
+		assertTrue(aFoodSer.isEmptyLocationPointM());
+	}
+	
+	@Test
+	public void testHasMaxNumberMenuesValid() {
+		
+		FoodService aFoodSer = FoodServiceFactory.aFoodService();
+		aFoodSer.setMaxNumberMenus(6);
+		assertTrue(aFoodSer.hasMaxNumberMenuesValid());	
+	}
+	
+	@Test
+	public void testHasPhoneValid() {
+		FoodService aFoodSer = FoodServiceFactory.aFoodService();
+
+		aFoodSer.setPhone("234");
+		assertTrue(aFoodSer.hasPhoneValid());
+	}
+
+	@Test
+	public void testIsEmptyServiceAddress() {
+		FoodService aFoodSer = FoodServiceFactory.aFoodService();
+		
+		assertTrue(aFoodSer.isEmptyServiceAddress());
+	}
+	
+	@Test
+	public void testHasDescrption() {
+		FoodService aFoodSer = FoodServiceFactory.aFoodService();
+		
+		aFoodSer.setServiceDescription("local de comidas");
+		assertTrue(aFoodSer.hasDescrption());
+	}
+	
+	@Test
+	public void testIsEmptyServiceLocation() {
+		FoodService aFoodSer = FoodServiceFactory.aFoodService();
+		assertTrue(aFoodSer.isEmptyServiceLocation());
+	}
+
+	@Test
+	public void testHasWebSiteValid() {
+		FoodService aFoodSer = FoodServiceFactory.aFoodService();
+		aFoodSer.setWebSite("emp.com");
+		assertTrue(aFoodSer.hasWebSiteValid());
+	}
+	
+	@Test
+	public void testHasAListOfServiceHours() {
+		FoodService aFoodSer = FoodServiceFactory.aFoodService();
+		aFoodSer.addServiceHours(ServiceHoursFactory.anyServiceHours());
+		
+		assertTrue(aFoodSer.hasAListOfServiceHours());
+	}
+	
+	@Test
+	public void testHasMenues() {
+		FoodService aFoodSer = FoodServiceFactory.aFoodService();
+		aFoodSer.addServiceMenu(MenuFactory.anyMenu());
+		assertTrue(aFoodSer.hasMenues());
 	}
 	
 	@Test

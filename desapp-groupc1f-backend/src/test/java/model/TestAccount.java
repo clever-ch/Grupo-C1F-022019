@@ -5,24 +5,67 @@ import model.Account;
 import model.factories.AccountFactory;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
 public class TestAccount {
 
     @Test
-    public void testCreationAccountCorrectFields(){
+    public void testIsValidAccount(){
         Account aAccount = AccountFactory.createAccountComplete("inc", "Ignacio", "Crovara",
                 "inc@gmail.com", 42322344, "Quilmes", "Mitre");
-        assertEquals("inc", aAccount.getUserName());
-        assertEquals("Ignacio", aAccount.getName());
-        assertEquals("Crovara", aAccount.getSurname());
-        assertEquals("inc@gmail.com", aAccount.getEmail());
-        assertEquals(42322344, aAccount.getPhone());
-        assertEquals("Quilmes", aAccount.getLocation());
-        assertEquals("Mitre", aAccount.getDirection());
+        
+        assertTrue(aAccount.isValidAccount());
     }
 
-
+    @Test
+    public void testIsEmptyUserName() {
+    	Account aAccount = AccountFactory.createAccountWithUsername("INC");
+    	assertFalse(aAccount.isEmptyUserName());
+    }
+    
+    @Test
+    public void testIsEmptyName() {
+    	Account aAccount = AccountFactory.createAccountWithName("Ignacio");
+    	
+    	assertFalse(aAccount.isEmptyName());
+    }
+    
+    @Test
+    public void isEmptySurname() {
+    	Account aAccount = AccountFactory.createAccountWithSurname("Crovara");
+        
+    	assertFalse(aAccount.isEmptySurname());
+    }
+    
+    @Test
+    public void testHasAEmailValid() {
+    	Account aAccount = AccountFactory.createAccountWithEmailValid("inc@gmail.com");
+    	
+    	assertTrue(aAccount.hasAEmailValid());
+    }
+    
+    @Test
+    public void testIsntEmptyPhone() {
+    	Account aAccount = AccountFactory.createAccountWithPhone(42322344);
+    	
+    	assertFalse(aAccount.isEmptyPhone());
+    }
+    
+    @Test
+    public void testHasValidLocation() {
+    	Account aAccount = AccountFactory.createAccountWithLocation("Quilmes");
+        
+    	assertTrue(aAccount.hasValidLocation());
+    }
+    
+    @Test
+    public void testHasValidDirection() {
+    	Account aAccount = AccountFactory.createAccountWithDirection("Mitre");
+    	
+    	assertTrue(aAccount.hasValidDirection());
+}
 
 }
