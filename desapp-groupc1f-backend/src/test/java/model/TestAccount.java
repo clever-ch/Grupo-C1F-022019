@@ -64,6 +64,15 @@ public class TestAccount {
     	Account aAccount = AccountFactory.createAccountWithDirection("Mitre");
     	
     	assertTrue(aAccount.hasValidDirection());
-}
-
+    }
+    
+    @Test
+    public void testAccountHasName() {
+    	final String ACCOUNT_NAME = "Name";
+    	
+    	Account anyAccount = AccountFactory.anyAccount();
+    	anyAccount.setName(ACCOUNT_NAME);
+    	
+    	assertTrue(anyAccount.getName().equals(ACCOUNT_NAME));
+    }
 }
