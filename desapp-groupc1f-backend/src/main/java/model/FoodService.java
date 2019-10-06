@@ -2,7 +2,8 @@ package model;
 
 import java.util.ArrayList;
 import java.util.List;
-
+import exceptions.DuplicateMenuException;
+import exceptions.NumberOfMenusEnabledException;
 import utilities.Entity;
 
 public class FoodService extends Entity {
@@ -25,7 +26,7 @@ public class FoodService extends Entity {
 				& !isEmptyServiceLocation()
 				& !isEmptyServiceAddress()
 				& !isEmptyLocationPointM()
-				& hasDescrption()
+				& hasDescription()
 				& hasWebSiteValid()
 				& hasEmail()
 				& hasPhoneValid()
@@ -52,7 +53,7 @@ public class FoodService extends Entity {
 		return this.locationPointMap == "" | this.locationPointMap == null;
 	}
 
-	public boolean hasDescrption() {
+	public boolean hasDescription() {
 		return this.serviceDescription != "" | this.serviceDescription != null;
 	}
 
@@ -204,4 +205,28 @@ public class FoodService extends Entity {
 	public void setSetServiceMenues(List<Menu> menues) {
 		this.serviceMenues = menues;
 	}
+	
+	public boolean containsMenu(Menu menu) {
+		boolean contains = false;
+		
+		for (Menu m : this.serviceMenues)
+			contains = contains | m.isTheSameMenu(menu);
+		
+		return contains;
+	}
+	
+	public void registerMenu(Menu menu) throws NumberOfMenusEnabledException, DuplicateMenuException {
+		if (!meetsMaxNumberMenusEnabled())
+			throw new NumberOfMenusEnabledException("El proveedor contiene el número máximo de menús permitidos");
+		else
+			if (containsMenu(menu))
+				throw new DuplicateMenuException("El menú ya se encuentra registrado");
+			else
+				addServiceMenu(menu);
+	}
+	
+	public boolean isTheSameFoodService(FoodService foodService) {
+		return this.getId() == foodService.getId() 
+				| this.serviceName.equals(foodService.getServiceName());
+	} 
 }
