@@ -2,11 +2,8 @@ package model;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
-
 import java.util.List;
-
 import org.junit.Test;
-
 import constants.MenuState;
 import model.factories.FoodServiceFactory;
 import model.factories.MenuFactory;
@@ -79,11 +76,11 @@ public class TestFoodService {
 	}
 	
 	@Test
-	public void testHasDescrption() {
+	public void testHashasDescription() {
 		FoodService aFoodSer = FoodServiceFactory.aFoodService();
 		
 		aFoodSer.setServiceDescription("local de comidas");
-		assertTrue(aFoodSer.hasDescrption());
+		assertTrue(aFoodSer.hasDescription());
 	}
 	
 	@Test
