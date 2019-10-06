@@ -28,7 +28,14 @@ public class ServiceHours extends Entity {
 		this.hours.add(hour);
 	}
 	
-	public boolean isHourValidToAdd(LocalTime hour) throws DateTimeException{
+	public boolean isHourValidToAdd(LocalTime hour){
 		return !this.hours.contains(hour);
+	}
+	
+	public void registerHour(LocalTime hour) throws DateTimeException {
+		if (isHourValidToAdd(hour))
+			throw new DateTimeException("El horario ya fue registrado");
+		else
+			addHour(hour);
 	}
 }
