@@ -221,4 +221,9 @@ public class Menu extends Entity {
 		
 		return hasScorePending;
 	}
+	
+	public boolean isTheSameMenu(Menu menu) {
+		return this.menuName.equals(menu.getMenuName()) 
+				| this.getId() == menu.getId();
+	}
 }
