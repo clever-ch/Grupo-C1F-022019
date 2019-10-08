@@ -11,6 +11,7 @@ import constants.ScoreState;
 import exceptions.OfferRegistrationException;
 import utilities.Entity;
 
+@javax.persistence.Entity
 public class Menu extends Entity {
 	private String menuName;
 	private String description;
