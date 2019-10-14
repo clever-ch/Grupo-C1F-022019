@@ -1,0 +1,1 @@
+insert into Menu values ('Menu1');
