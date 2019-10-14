@@ -5,6 +5,9 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import javax.persistence.Column;
+import javax.persistence.Table;
+
 import constants.Category;
 import constants.MenuState;
 import constants.ScoreState;
@@ -13,18 +16,43 @@ import utilities.Entity;
 
 @javax.persistence.Entity
 public class Menu extends Entity {
+	
 	private String menuName;
+	
+	//@Column(name = "Description", nullable = true)
 	private String description;
+	
+	//@Column(name = "IdCategory", nullable = false)
 	private List<Category> categories = new ArrayList<Category>();
+	
+	//@Column(name = "DeliveryPrice", nullable = false)
 	private double deliveryPrice;
+	
+	//@Column(name = "ValidFromDate", nullable = false)
 	private Date validFromDate = Calendar.getInstance().getTime();
+	
+	//@Column(name = "ValidToDate", nullable = false)
 	private Date validToDate = Calendar.getInstance().getTime();
+	
+	//@Column(name = "IdDeliveryInfo", nullable = false)
 	private DeliveryInfo deliveryInfo;
+	
+	//@Column(name = "AvgDeliveryTime", nullable = false)
 	private Time avgDeliveryTime;
+	
+	//@Column(name = "Price", nullable = false)
 	private double price = 0;
+	
+	//@Column(name = "IdOffer", nullable = false)
 	private List<Offer> offers = new ArrayList<Offer>();
+	
+	//@Column(name = "MaximunSales", nullable = false)
 	private int maximunSales;
+	
+	//@Column(name = "MenuState", nullable = false)
 	private MenuState menuState;
+	
+	//@Column(name = "IdMenuScore", nullable = false)
 	private List<MenuScore> menuScore = new ArrayList<MenuScore>();
 	
 	public boolean isValidMenu() {
