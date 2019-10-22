@@ -1,12 +1,9 @@
 package model;
 
-import exceptions.CantTakeCreditException;
-import model.ProviderWallet;
-
+import root.exceptions.CantTakeCreditException;
+import root.model.ProviderWallet;
 import model.factories.ProviderWalletFactory;
-
 import static org.junit.Assert.assertEquals;
-
 import org.junit.Test;
 
 public class TestProviderWallet {

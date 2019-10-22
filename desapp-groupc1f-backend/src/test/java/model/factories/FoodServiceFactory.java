@@ -1,7 +1,6 @@
 package model.factories;
 
-
-import model.FoodService;
+import root.model.FoodService;
 
 public class FoodServiceFactory {
 	

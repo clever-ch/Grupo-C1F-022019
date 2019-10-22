@@ -1,6 +1,6 @@
 package model.factories;
 
-import model.CustomerWallet;
+import root.model.CustomerWallet;
 
 public class CustomerWalletFactory {
 

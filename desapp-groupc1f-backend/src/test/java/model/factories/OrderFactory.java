@@ -1,7 +1,7 @@
 package model.factories;
 
-import model.Order;
-import model.OrderItem;
+import root.model.Order;
+import root.model.OrderItem;
 
 public class OrderFactory {
 	

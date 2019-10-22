@@ -1,9 +1,9 @@
 package model.factories;
 
-import constants.ScoreState;
-import model.FoodServiceScore;
-import model.MenuScore;
-import model.User;
+import root.constants.ScoreState;
+import root.model.FoodServiceScore;
+import root.model.MenuScore;
+import root.model.User;
 
 public class ScoreFactory {
 

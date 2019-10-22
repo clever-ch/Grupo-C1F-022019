@@ -1,6 +1,6 @@
 package model.factories;
 
-import model.Account;
+import root.model.Account;
 
 public class AccountFactory {
 

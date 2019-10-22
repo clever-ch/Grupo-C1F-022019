@@ -1,6 +1,6 @@
 package model.factories;
 
-import model.ServiceHours;
+import root.model.ServiceHours;
 
 public class ServiceHoursFactory {
 	

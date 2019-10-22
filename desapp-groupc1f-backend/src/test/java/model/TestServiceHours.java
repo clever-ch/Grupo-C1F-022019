@@ -7,6 +7,7 @@ import java.time.DayOfWeek;
 import java.time.LocalTime;
 import org.junit.Test;
 import model.factories.ServiceHoursFactory;
+import root.model.ServiceHours;
 
 public class TestServiceHours {
 

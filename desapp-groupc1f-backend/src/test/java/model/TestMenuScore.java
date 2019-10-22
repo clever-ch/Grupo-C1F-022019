@@ -3,7 +3,9 @@ package model;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertFalse;
 import org.junit.Test;
-import constants.ScoreState;
+import root.constants.ScoreState;
+import root.model.MenuScore;
+import root.model.Provider;
 import model.factories.ProviderFactory;
 import model.factories.ScoreFactory;
 

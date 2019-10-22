@@ -4,14 +4,12 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertSame;
 import static org.junit.Assert.assertTrue;
-
 import org.junit.Test;
-
-import constants.RegisterType;
-import constants.UserType;
-import model.FoodService;
-import model.Provider;
-import model.OrderHistory;
+import root.constants.RegisterType;
+import root.constants.UserType;
+import root.model.FoodService;
+import root.model.Provider;
+import root.model.OrderHistory;
 import model.factories.AccountFactory;
 import model.factories.FoodServiceFactory;
 import model.factories.OrderHistoryFactory;
@@ -49,7 +47,7 @@ public class TestProvider  {
 		aProv.setTypeRegister(RegisterType.TPA);
 		aProv.setAcount(AccountFactory.anyAccount());
 		aProv.setUserType(UserType.PROVIDER);
-		aProv.setaWallet(ProviderWalletFactory.anyProviderWallet());
+		aProv.setaProviderWallet(ProviderWalletFactory.anyProviderWallet());
 		
 		assertEquals(aProv.getTypeRegister(), RegisterType.TPA);
 		assertEquals(aProv.getUserType(), UserType.PROVIDER);

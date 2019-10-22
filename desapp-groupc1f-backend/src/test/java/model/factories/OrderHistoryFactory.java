@@ -1,6 +1,6 @@
 package model.factories;
 
-import model.OrderHistory;
+import root.model.OrderHistory;
 
 public class OrderHistoryFactory {
 	

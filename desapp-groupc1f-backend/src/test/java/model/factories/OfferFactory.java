@@ -1,7 +1,7 @@
 package model.factories;
 
-import constants.ForeignExchange;
-import model.Offer;
+import root.constants.ForeignExchange;
+import root.model.Offer;
 
 public class OfferFactory {
 	

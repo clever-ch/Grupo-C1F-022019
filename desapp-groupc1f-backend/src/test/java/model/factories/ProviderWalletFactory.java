@@ -1,6 +1,6 @@
 package model.factories;
 
-import model.ProviderWallet;
+import root.model.ProviderWallet;
 
 public class ProviderWalletFactory {
 

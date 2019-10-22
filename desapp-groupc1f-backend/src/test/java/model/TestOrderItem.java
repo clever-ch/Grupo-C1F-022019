@@ -5,6 +5,8 @@ import static org.junit.Assert.assertFalse;
 import org.junit.Test;
 import model.factories.MenuFactory;
 import model.factories.OrderItemFactory;
+import root.model.Menu;
+import root.model.OrderItem;
 
 public class TestOrderItem {
 

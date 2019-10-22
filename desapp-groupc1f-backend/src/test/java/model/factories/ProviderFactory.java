@@ -1,6 +1,6 @@
 package model.factories;
 
-import model.Provider;
+import root.model.Provider;
 
 public class ProviderFactory {
 

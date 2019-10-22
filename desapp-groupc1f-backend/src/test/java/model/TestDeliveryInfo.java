@@ -3,7 +3,8 @@ package model;
 import static org.junit.Assert.assertTrue;
 import java.time.LocalTime;
 import org.junit.Test;
-import constants.Shift;
+import root.constants.Shift;
+import root.model.DeliveryInfo;
 import model.factories.DeliveryInfoFactory;
 
 public class TestDeliveryInfo {

@@ -1,6 +1,6 @@
 package model.factories;
 
-import model.Customer;
+import root.model.Customer;
 
 public class CustomerFactory {
 	

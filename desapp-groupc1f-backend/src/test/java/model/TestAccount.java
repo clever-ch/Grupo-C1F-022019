@@ -1,12 +1,10 @@
 package model;
 
-import model.Account;
-
-import model.factories.AccountFactory;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
-
 import org.junit.Test;
+import model.factories.AccountFactory;
+import root.model.Account;
 
 public class TestAccount {
 

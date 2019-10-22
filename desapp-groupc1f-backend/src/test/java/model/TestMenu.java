@@ -6,14 +6,15 @@ import java.sql.Time;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
-
 import org.junit.Test;
-
-import constants.Category;
-import constants.ForeignExchange;
-import constants.MenuState;
-import constants.ScoreState;
-import exceptions.OfferRegistrationException;
+import root.constants.Category;
+import root.constants.ForeignExchange;
+import root.constants.MenuState;
+import root.constants.ScoreState;
+import root.exceptions.OfferRegistrationException;
+import root.model.Menu;
+import root.model.MenuScore;
+import root.model.Offer;
 import model.factories.MenuFactory;
 import model.factories.OfferFactory;
 import model.factories.ScoreFactory;

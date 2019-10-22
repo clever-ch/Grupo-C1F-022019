@@ -2,7 +2,8 @@ package model;
 
 import static org.junit.Assert.*;
 import org.junit.Test;
-import constants.ForeignExchange;
+import root.constants.ForeignExchange;
+import root.model.Offer;
 import model.factories.OfferFactory;
 
 public class TestOffer {

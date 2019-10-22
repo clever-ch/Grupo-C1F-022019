@@ -1,11 +1,8 @@
 package model;
 
-import model.CustomerWallet;
-
+import root.model.CustomerWallet;
 import model.factories.CustomerWalletFactory;
-
 import static org.junit.Assert.assertEquals;
-
 import org.junit.Test;
 
 public class TestCustomerWallet {
