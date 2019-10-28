@@ -13,7 +13,7 @@ public abstract class Score extends Entity {
 	private ScoreState scoreState;
 	
 	@OneToOne
-	private User user;
+	private Customer user;
 	
 	public int getScoreValue() {
 		return this.scoreValue;
@@ -31,11 +31,11 @@ public abstract class Score extends Entity {
 		this.scoreState = state;
 	}
 	
-	public User getUser() {
+	public Customer getUser() {
 		return this.user;
 	}
 	
-	public void setUser(User user) {
+	public void setUser(Customer user) {
 		this.user = user;
 	}
 	
