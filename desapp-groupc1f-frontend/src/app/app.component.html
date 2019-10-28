@@ -18,10 +18,11 @@
   </li>
 </ul>
 
+<div class="map"
+  leaflet
+  (leafletMapReady)="onMapReady($event)"
+  [leafletOptions]="options"
+  [leafletLayersControl]="layersControl">
+</div>
+
 <router-outlet></router-outlet>
-
-<h1>Prueba HTML</h1>
-
-<agm-map [latitude]="lat" [longitude]="lng">
-  <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
-</agm-map>
