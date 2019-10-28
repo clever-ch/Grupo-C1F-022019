@@ -1,7 +1,6 @@
 package root.model;
 
 import javax.persistence.OneToOne;
-
 import root.constants.UserType;
 import root.utilities.Entity;
 
