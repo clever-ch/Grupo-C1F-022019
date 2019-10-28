@@ -1,9 +1,9 @@
 package model.factories;
 
 import root.constants.ScoreState;
+import root.model.Customer;
 import root.model.FoodServiceScore;
 import root.model.MenuScore;
-import root.model.User;
 
 public class ScoreFactory {
 
@@ -12,7 +12,7 @@ public class ScoreFactory {
 		return new FoodServiceScore();
 	}
 	
-	public static FoodServiceScore createFullFoodServiceScore(int value, ScoreState state, User user) {
+	public static FoodServiceScore createFullFoodServiceScore(int value, ScoreState state, Customer user) {
 		FoodServiceScore aFoodServiceScore = anyFoodServiceScore();
 		aFoodServiceScore.setScoreValue(value);
 		aFoodServiceScore.setScoreState(state);
@@ -27,7 +27,7 @@ public class ScoreFactory {
 		return new MenuScore();
 	}
 	
-	public static MenuScore createFullMenuScore(int value, ScoreState state, User user) {
+	public static MenuScore createFullMenuScore(int value, ScoreState state, Customer user) {
 		MenuScore aMenuScore = anyMenuScore();
 		aMenuScore.setScoreValue(value);
 		aMenuScore.setScoreState(state);
