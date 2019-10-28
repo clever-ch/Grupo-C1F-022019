@@ -6,9 +6,11 @@ import java.util.List;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.OneToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import root.constants.DeliveryState;
 import root.utilities.Entity;
-import java.time.LocalTime;
+import java.sql.Time;
 
 @javax.persistence.Entity
 public class Order extends Entity {
@@ -16,9 +18,14 @@ public class Order extends Entity {
 	@OneToMany
 	private List<OrderItem> orderItems = new ArrayList<OrderItem>();	
 	private boolean hasDelivery;
+	
+	@Temporal(TemporalType.DATE)
 	private Date creationDate;
+	
+	@Temporal(TemporalType.DATE)
 	private Date deliveredDate;
-	private LocalTime deliveryTime;
+	
+	private Time deliveryTime;
 	
 	@Enumerated(EnumType.STRING)
 	private DeliveryState deliveryState;
@@ -71,11 +78,11 @@ public class Order extends Entity {
 		this.deliveredDate = deliveredDate;
 	}
 
-	public LocalTime getDeliveryTime() {
+	public Time getDeliveryTime() {
 		return deliveryTime;
 	}
 
-	public void setDeliveryTime(LocalTime deliveryTime) {
+	public void setDeliveryTime(Time deliveryTime) {
 		this.deliveryTime = deliveryTime;
 	}
 
