@@ -4,9 +4,9 @@ import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertFalse;
 import org.junit.Test;
 import root.constants.ScoreState;
+import root.model.Customer;
 import root.model.MenuScore;
-import root.model.Provider;
-import model.factories.ProviderFactory;
+import model.factories.CustomerFactory;
 import model.factories.ScoreFactory;
 
 public class TestMenuScore {
@@ -33,10 +33,10 @@ public class TestMenuScore {
 	
 	@Test
 	public void testaMenuScoreUserIsValid() {
-		Provider provider = ProviderFactory.aProvider();
+		Customer customer = CustomerFactory.anyCustomer();
 		
 		MenuScore aMenuScore = ScoreFactory.anyMenuScore();
-		aMenuScore.setUser(provider);
+		aMenuScore.setUser(customer);
 		
 		assertTrue(aMenuScore.hasUserValid());
 	}
@@ -66,9 +66,9 @@ public class TestMenuScore {
 	public void testMenuScoreFullDataIsValid() {
 		final int SCORE_VALUE = 1;
 		final ScoreState SCORE_STATE = ScoreState.Pending;
-		Provider provider = ProviderFactory.aProvider();
+		Customer customer = CustomerFactory.anyCustomer();
 		
-		MenuScore aMenuScore = ScoreFactory.createFullMenuScore(SCORE_VALUE, SCORE_STATE, provider);
+		MenuScore aMenuScore = ScoreFactory.createFullMenuScore(SCORE_VALUE, SCORE_STATE, customer);
 		
 		assertTrue(aMenuScore.fullDataIsValid());
 	}
@@ -76,11 +76,11 @@ public class TestMenuScore {
 	@Test
 	public void testMenuScoreValueDataNotComplete() {
 		final ScoreState SCORE_STATE = ScoreState.Pending;
-		Provider provider = ProviderFactory.aProvider();
+		Customer customer = CustomerFactory.anyCustomer();
 		
 		MenuScore aMenuScore = ScoreFactory.anyMenuScore();
 		aMenuScore.setScoreState(SCORE_STATE);
-		aMenuScore.setUser(provider);
+		aMenuScore.setUser(customer);
 		
 		assertFalse(aMenuScore.fullDataIsValid());
 	}
@@ -88,11 +88,11 @@ public class TestMenuScore {
 	@Test
 	public void testMenuScoreStateDataNotComplete() {
 		final int SCORE_VALUE = 1;
-		Provider provider = ProviderFactory.aProvider();
+		Customer customer = CustomerFactory.anyCustomer();
 		
 		MenuScore aMenuScore = ScoreFactory.anyMenuScore();
 		aMenuScore.setScoreValue(SCORE_VALUE);
-		aMenuScore.setUser(provider);
+		aMenuScore.setUser(customer);
 		
 		assertFalse(aMenuScore.fullDataIsValid());
 	}
