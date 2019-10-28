@@ -3,6 +3,8 @@ package root.model;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.persistence.Column;
 import javax.persistence.ElementCollection;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -17,6 +19,7 @@ public class DeliveryInfo extends Entity{
 	private List<Shift> shiftsAvailable = new ArrayList<Shift>();
 	
 	@ElementCollection
+	@Column(nullable = false)
 	private List<LocalTime> hoursAttention = new ArrayList<LocalTime>();
 	private boolean hasDelivery;
 	
