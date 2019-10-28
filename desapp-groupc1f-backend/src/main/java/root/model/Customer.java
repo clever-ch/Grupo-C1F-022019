@@ -2,6 +2,8 @@ package root.model;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.persistence.Column;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
@@ -18,6 +20,7 @@ public class Customer extends User {
     private List<Order> orders = new ArrayList<Order>();
 
 	@OneToMany
+	@Column(nullable = true)
     private List<OrderHistory> orderHistory = new ArrayList<OrderHistory>();
     
 	public List<Order> getOrders() {
