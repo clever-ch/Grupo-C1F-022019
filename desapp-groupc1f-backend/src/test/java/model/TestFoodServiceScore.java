@@ -4,9 +4,9 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 import root.constants.ScoreState;
+import root.model.Customer;
 import root.model.FoodServiceScore;
-import root.model.Provider;
-import model.factories.ProviderFactory;
+import model.factories.CustomerFactory;
 import model.factories.ScoreFactory;
 
 public class TestFoodServiceScore {
@@ -33,10 +33,10 @@ public class TestFoodServiceScore {
 	
 	@Test
 	public void testFoodServiceScoreUserIsValid() {
-		Provider provider = ProviderFactory.aProvider();
+		Customer customer = CustomerFactory.anyCustomer();
 		
 		FoodServiceScore aFoodServiceScore = ScoreFactory.anyFoodServiceScore();
-		aFoodServiceScore.setUser(provider);
+		aFoodServiceScore.setUser(customer);
 		
 		assertTrue(aFoodServiceScore.hasUserValid());
 	}
@@ -66,9 +66,9 @@ public class TestFoodServiceScore {
 	public void testFoodServiceScoreFullDataIsValid() {
 		final int SCORE_VALUE = 1;
 		final ScoreState SCORE_STATE = ScoreState.Pending;
-		Provider provider = ProviderFactory.aProvider();
+		Customer customer = CustomerFactory.anyCustomer();
 		
-		FoodServiceScore aFoodServiceScore = ScoreFactory.createFullFoodServiceScore(SCORE_VALUE, SCORE_STATE, provider);
+		FoodServiceScore aFoodServiceScore = ScoreFactory.createFullFoodServiceScore(SCORE_VALUE, SCORE_STATE, customer);
 		
 		assertTrue(aFoodServiceScore.fullDataIsValid());
 	}
@@ -76,11 +76,11 @@ public class TestFoodServiceScore {
 	@Test
 	public void testFoodServiceScoreValueDataNotComplete() {
 		final ScoreState SCORE_STATE = ScoreState.Pending;
-		Provider provider = ProviderFactory.aProvider();
+		Customer customer = CustomerFactory.anyCustomer();
 		
 		FoodServiceScore aFoodServiceScore = ScoreFactory.anyFoodServiceScore();
 		aFoodServiceScore.setScoreState(SCORE_STATE);
-		aFoodServiceScore.setUser(provider);
+		aFoodServiceScore.setUser(customer);
 		
 		assertFalse(aFoodServiceScore.fullDataIsValid());
 	}
@@ -88,11 +88,11 @@ public class TestFoodServiceScore {
 	@Test
 	public void testFoodServiceScoreStateDataNotComplete() {
 		final int SCORE_VALUE = 1;
-		Provider provider = ProviderFactory.aProvider();
+		Customer customer = CustomerFactory.anyCustomer();
 		
 		FoodServiceScore aFoodServiceScore = ScoreFactory.anyFoodServiceScore();
 		aFoodServiceScore.setScoreValue(SCORE_VALUE);
-		aFoodServiceScore.setUser(provider);
+		aFoodServiceScore.setUser(customer);
 		
 		assertFalse(aFoodServiceScore.fullDataIsValid());
 	}
