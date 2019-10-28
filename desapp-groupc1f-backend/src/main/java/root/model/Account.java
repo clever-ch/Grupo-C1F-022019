@@ -1,16 +1,31 @@
 package root.model;
 
+import javax.persistence.Column;
+
 import root.utilities.Entity;
 
 @javax.persistence.Entity
 public class Account extends Entity {
 
+	@Column(nullable=false)
     private String userName;
+	
+	@Column(nullable=false)
     private String name;
+	
+	@Column(nullable=false)
     private String surname;
+	
+	@Column(nullable=false)
     private String email;
+	
+	@Column(nullable=false)
     private int phone = 0;
+	
+	@Column(nullable=false)
     private String location;
+	
+	@Column(nullable=false)
     private String direction;
     
     public boolean isValidAccount() {
