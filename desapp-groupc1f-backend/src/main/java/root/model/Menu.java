@@ -10,6 +10,8 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import root.constants.Category;
 import root.constants.MenuState;
@@ -27,11 +29,16 @@ public class Menu extends Entity {
 	@Enumerated(EnumType.STRING)
 	private List<Category> categories = new ArrayList<Category>();
 	private double deliveryPrice;
+	
+	@Temporal(TemporalType.DATE)
 	private Date validFromDate = Calendar.getInstance().getTime();
+	
+	@Temporal(TemporalType.DATE)
 	private Date validToDate = Calendar.getInstance().getTime();
 	
 	@OneToOne
 	private DeliveryInfo deliveryInfo;
+	
 	private Time avgDeliveryTime;
 	private double price = 0;
 	
