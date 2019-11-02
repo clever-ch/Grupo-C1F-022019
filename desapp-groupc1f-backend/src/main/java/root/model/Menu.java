@@ -22,6 +22,9 @@ import root.utilities.Entity;
 @javax.persistence.Entity
 public class Menu extends Entity {
 	
+	private static final int minOffersMenu = 1;
+	private static final int minCategoriesMenu = 1;
+	
 	private String menuName;
 	private String description;
 
@@ -66,7 +69,7 @@ public class Menu extends Entity {
 	}
 	
 	public boolean hasMinimunOffers() {
-		return this.offers.size() >= getModelConstants().minOffersMenu();
+		return this.offers.size() >= minOffersMenu;
 	}
 	
 	public boolean hasAvgDeliveryTime() {
@@ -74,7 +77,7 @@ public class Menu extends Entity {
 	}
 	
 	public boolean hasMinimunCategories() {
-		return this.categories.size() >= getModelConstants().minCategoriesMenu();
+		return this.categories.size() >= minCategoriesMenu;
 	}
 	
 	public boolean isEmptyDescription() {
