@@ -8,7 +8,7 @@ public class AccountFactory {
         return new Account();
     }
 
-    public static Account createAccountComplete(String username, String name, String surname, String email, int phone,
+    public static Account createAccountComplete(String username, String name, String surname, String email, String phone,
                                                 String loc, String dir){
         Account newAccount = new Account();
         newAccount.setSurname(surname);
@@ -51,7 +51,7 @@ public class AccountFactory {
 		return newAccount;
 	}
 
-	public static Account createAccountWithPhone(int i) {
+	public static Account createAccountWithPhone(String i) {
 		Account newAccount = new Account();
 		newAccount.setPhone(i);
 		
