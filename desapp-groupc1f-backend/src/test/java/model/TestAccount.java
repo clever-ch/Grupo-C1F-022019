@@ -11,7 +11,7 @@ public class TestAccount {
     @Test
     public void testIsValidAccount(){
         Account aAccount = AccountFactory.createAccountComplete("inc", "Ignacio", "Crovara",
-                "inc@gmail.com", 42322344, "Quilmes", "Mitre");
+                "inc@gmail.com", "42322344", "Quilmes", "Mitre");
         
         assertTrue(aAccount.isValidAccount());
     }
@@ -45,7 +45,7 @@ public class TestAccount {
     
     @Test
     public void testIsntEmptyPhone() {
-    	Account aAccount = AccountFactory.createAccountWithPhone(42322344);
+    	Account aAccount = AccountFactory.createAccountWithPhone("42322344");
     	
     	assertFalse(aAccount.isEmptyPhone());
     }
