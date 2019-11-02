@@ -10,6 +10,8 @@ import root.utilities.Entity;
 @javax.persistence.Entity
 public class FoodService extends Entity {
 	
+	private static final int numberMenusEnabled = 20;
+	
 	private String serviceName;
 	private String serviceLocation;
 	private String serviceAddress;
@@ -208,7 +210,7 @@ public class FoodService extends Entity {
 	}
 	
 	public boolean meetsMaxNumberMenusEnabled() {
-		return numberMenusEnabled() <= getModelConstants().numberMenusEnabled();
+		return numberMenusEnabled() <= numberMenusEnabled;
 	}
 	
 	public void setSetServiceMenues(List<Menu> menues) {
