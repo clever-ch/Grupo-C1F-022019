@@ -4,18 +4,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
-import javax.persistence.Transient;
-import root.constants.ModelConstants;
 
 @MappedSuperclass
 public abstract class Entity {
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long id;
-	
-	@Transient
-	private ModelConstants modelConstants = new ModelConstants();
 	
 	public long getId() {
 		return this.id;
@@ -23,9 +18,5 @@ public abstract class Entity {
 	
 	public void setId(long id) {
 		this.id = id;
-	}
-	
-	public ModelConstants getModelConstants() {
-		return this.modelConstants;
 	}
 }
