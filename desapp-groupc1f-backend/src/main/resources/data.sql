@@ -1,6 +1,7 @@
 --SECCIÓN CUENTAS USUARIOS 
-insert into Account values (1, 'usCust', 'Pepe', 'ApellidoPepe', 'pepe@gmail.com', 112233, 'Berazategui', 'calle falsa 123');
-insert into Account values (2, 'usProv', 'Jose', 'ApellidoJose', 'jose@gmail.com', 11223344, 'Quilmes', 'calle falsa 123');
+
+insert into Account	values(1, 'calle falsa 123', 'pepe@gmail.com', 'Berazategui', 'Pepe', '112233', 'ApellidoPepe', 'usCust');
+insert into Account values (2, 'usProv', 'Jose', 'ApellidoJose', 'jose@gmail.com', '11223344', 'Quilmes', 'calle falsa 123');
 
 
 --SECCIÓN BILLETERAS
