@@ -20,7 +20,7 @@ public class Account extends Entity {
     private String email;
 	
 	@Column(nullable=false)
-    private int phone = 0;
+    private String phone = "0";
 	
 	@Column(nullable=false)
     private String location;
@@ -47,7 +47,7 @@ public class Account extends Entity {
 	}
 
 	public boolean isEmptyPhone() {
-		return this.phone == 0;
+		return this.phone.equals("");
 	}
 
 	public boolean hasAEmailValid() {
@@ -98,11 +98,11 @@ public class Account extends Entity {
         this.email = email;
     }
 
-    public int getPhone() {
+    public String getPhone() {
         return phone;
     }
 
-    public void setPhone(int phone) {
+    public void setPhone(String phone) {
         this.phone = phone;
     }
 
