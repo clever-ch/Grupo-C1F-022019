@@ -1,5 +1,6 @@
 package root.constants;
 
+
 public class ModelConstants {
 	
 	private int minCategoriesMenu = 1;
