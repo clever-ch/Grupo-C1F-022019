@@ -62,7 +62,7 @@ public class TestMenu {
 		
 		Menu aMenu = MenuFactory.createWithCompleteData("Name","Description",categories,today.getTime(),tomorrow.getTime(),avgTime,offers,10);
 		
-		assertTrue(aMenu.isValidMenu());
+		assertTrue(aMenu.itIsValidMenu());
 	}
 	
 	@Test
@@ -82,7 +82,7 @@ public class TestMenu {
 		
 		Menu aMenu = MenuFactory.createWithCompleteData("","Description",categories,today.getTime(),tomorrow.getTime(),avgTime,offers,10);
 		
-		assertFalse(aMenu.isValidMenu());
+		assertFalse(aMenu.itIsValidMenu());
 	}
 	
 	@Test
@@ -102,7 +102,7 @@ public class TestMenu {
 		
 		Menu aMenu = MenuFactory.createWithCompleteData("Name","",categories,today.getTime(),tomorrow.getTime(),avgTime,offers,10);
 		
-		assertFalse(aMenu.isValidMenu());
+		assertFalse(aMenu.itIsValidMenu());
 	}
 	
 	@Test
@@ -121,7 +121,7 @@ public class TestMenu {
 		
 		Menu aMenu = MenuFactory.createWithCompleteData("Name","Desc",categories,today.getTime(),tomorrow.getTime(),avgTime,offers,10);
 		
-		assertFalse(aMenu.isValidMenu());
+		assertFalse(aMenu.itIsValidMenu());
 	}
 	
 	@Test
@@ -141,7 +141,7 @@ public class TestMenu {
 		
 		Menu aMenu = MenuFactory.createWithCompleteData("Name","Desc",categories,tomorrow.getTime(),today.getTime(),avgTime,offers,10);
 		
-		assertFalse(aMenu.isValidMenu());
+		assertFalse(aMenu.itIsValidMenu());
 	}
 	
 	@Test
@@ -161,7 +161,7 @@ public class TestMenu {
 		
 		Menu aMenu = MenuFactory.createWithCompleteData("Name","Desc",categories,today.getTime(),tomorrow.getTime(),avgTime,offers,10);
 		
-		assertFalse(aMenu.isValidMenu());
+		assertFalse(aMenu.itIsValidMenu());
 	}
 	
 	@Test
@@ -181,7 +181,7 @@ public class TestMenu {
 		
 		Menu aMenu = MenuFactory.createWithCompleteData("Name","Desc",categories,today.getTime(),tomorrow.getTime(),avgTime,offers,0);
 		
-		assertFalse(aMenu.isValidMenu());
+		assertFalse(aMenu.itIsValidMenu());
 	}
 	
 	@Test
