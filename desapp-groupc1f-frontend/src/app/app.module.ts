@@ -7,12 +7,18 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AccountListComponent } from './account-list/account-list.component';
 import { CreateAccountComponent } from './create-account/create-account.component';
+import { AccountDetailsComponent } from './account-details/account-details.component';
+import { UpdateAccountComponent } from './update-account/update-account.component';
+import { MenuListComponent } from './components/menu-list/menu-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AccountListComponent,
-    CreateAccountComponent
+    CreateAccountComponent,
+    AccountDetailsComponent,
+    UpdateAccountComponent,
+    MenuListComponent
   ],
   imports: [
     BrowserModule,
