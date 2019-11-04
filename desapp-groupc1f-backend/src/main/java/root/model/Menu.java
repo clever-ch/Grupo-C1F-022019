@@ -53,7 +53,7 @@ public class Menu extends Entity {
 	@OneToMany
 	private List<MenuScore> menuScore = new ArrayList<MenuScore>();
 	
-	public boolean isValidMenu() {
+	public boolean itIsValidMenu() {
 		return !isEmptyName() 
 				& !isEmptyDescription()
 				& hasMinimunCategories()
