@@ -12,6 +12,8 @@ const routes: Routes = [
   { path: 'add', component: CreateAccountComponent },
   { path: 'details/:id', component: AccountDetailsComponent },
   { path: 'update/:id', component: UpdateAccountComponent },
+  //{ path: 'menuDetails/:id', component: MenuDetailsComponent },
+  //{ path: 'menuUpdate/:id', component: UpdateMenuComponent },
   { path: 'menus', component: MenuListComponent },
 ];
 
