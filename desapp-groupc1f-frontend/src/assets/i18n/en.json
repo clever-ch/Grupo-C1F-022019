@@ -1,0 +1,41 @@
+{
+    "home": {
+        "title" : "Lunch Right Now!",
+        "text"  : "This is an application to request different menus quickly and easily."
+    },
+
+    "accountList" : {
+        "title" : "Account List",
+        "username" : "Username",
+        "email" : "Email",
+        "name" : "Name",
+        "surname" : "Surname",
+        "actions" : "Actions"
+    },
+
+    "addAccount" : {
+        "title" : "Add Account",
+        "subtitle" : "Create Account",
+        "Id" : "ID",
+        "username" : "Username",
+        "email" : "Email",
+        "name" : "Name",
+        "surname" : "Surname",
+        "phone" : "Phone",
+        "location" : "Location",
+        "direction" : "Direction",
+        "submitButton" : "Submit",
+        "submitOk" : "You submitted successfully!"
+    },
+
+    "menuList" : {
+        "title" : "Menu List",
+        "menuName" : "Menu Name",
+        "description" : "Description",
+        "price" : "Price",
+        "validFrom" : "Valid from date",
+        "validTo" : "Valid to date",
+        "deliveryPrice" : "Delivery Price",
+        "avgDeliTime" : "Avg Delivery Time"
+    }
+}

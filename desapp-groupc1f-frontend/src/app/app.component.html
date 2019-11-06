@@ -1,14 +1,16 @@
 <nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+  <button (click)="useLanguage('en')">EN</button>
+  <button (click)="useLanguage('es')">ES</button>
   <!-- Links -->
   <ul class="navbar-nav">
     <li class="nav-item">
-        <a routerLink="accounts" class="nav-link" routerLinkActive="active">Account List</a>
+        <a routerLink="accounts" class="nav-link" routerLinkActive="active">{{'accountList.title' | translate }}</a>
     </li>
     <li class="nav-item">
-        <a routerLink="add" class="nav-link" routerLinkActive="active">Add Account</a>
+        <a routerLink="add" class="nav-link" routerLinkActive="active">{{'addAccount.title' | translate }}</a>
     </li>
     <li class="nav-item">
-        <a routerLink="menus" class="nav-link" routerLinkActive="active">Menu List</a>
+        <a routerLink="menus" class="nav-link" routerLinkActive="active">{{'menuList.title' | translate }}</a>
     </li>
   </ul>
 </nav>
@@ -16,8 +18,10 @@
 
 <div class="container">
   <br>
-  <h2 style="text-align: center;">{{title}}</h2>
-  <hr>  
+  <h2 style="text-align: center;">{{'home.title' | translate }}</h2>
+  <hr>
+  <h3 style="text-align: center;">{{'home.text' | translate }}</h3>
+  <br>
   <div class="card">
     <div class="card-body">
   <router-outlet></router-outlet>

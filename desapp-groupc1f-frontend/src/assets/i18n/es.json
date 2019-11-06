@@ -1,0 +1,41 @@
+{
+    "home" : {
+        "title" : "Viandas Ya!",
+        "text"  : "Esta es una aplicación para solicitar distintos menues de forma rápida y sencilla."
+    },
+
+    "accountList" : {
+        "title" : "Listado de cuentas",
+        "username" : "Nombre de usuario",
+        "email" : "Email",
+        "name" : "Nombre",
+        "surname" : "Apellido",
+        "actions" : "Acciones"
+    },
+
+    "addAccount" : {
+        "title" : "Agregar Cuenta",
+        "subtitle" : "Crear Cuenta",
+        "Id" : "ID",
+        "username" : "Nombre de Usuario",
+        "email" : "Email",
+        "name" : "Nombre",
+        "surname" : "Apellido",
+        "phone" : "Telefono",
+        "location" : "Ubicación",
+        "direction" : "Dirección",
+        "submitButton" : "Registrarme",
+        "submitOk" : "Usted ha sido registrado exitosamente"
+    },
+
+    "menuList" : {
+        "title" : "Lista de menus",
+        "menuName" : "Nombre de Menu",
+        "description" : "Descripción",
+        "price" : "Precio",
+        "validFrom" : "Valido desde",
+        "validTo" : "Valido hasta",
+        "deliveryPrice" : "Precio del delivery",
+        "avgDeliTime" : "Avg Tiempo delivery"
+    }
+}
