@@ -10,6 +10,9 @@ import { CreateAccountComponent } from './create-account/create-account.componen
 import { AccountDetailsComponent } from './account-details/account-details.component';
 import { UpdateAccountComponent } from './update-account/update-account.component';
 import { MenuListComponent } from './components/menu-list/menu-list.component';
+import { MenuDetailsComponent } from './components/menu-details/menu-details.component';
+import { CreateMenuComponent } from './components/create-menu/create-menu.component';
+import { UpdateMenuComponent } from './components/update-menu/update-menu.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +21,10 @@ import { MenuListComponent } from './components/menu-list/menu-list.component';
     CreateAccountComponent,
     AccountDetailsComponent,
     UpdateAccountComponent,
-    MenuListComponent
+    MenuListComponent,
+    MenuDetailsComponent,
+    CreateMenuComponent,
+    UpdateMenuComponent
   ],
   imports: [
     BrowserModule,
