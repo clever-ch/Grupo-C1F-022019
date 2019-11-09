@@ -1,0 +1,54 @@
+<h3>Update Menu</h3>
+<div [hidden]="submitted" style="width: 400px;">
+  <form (ngSubmit)="onSubmit()">
+
+    <div class="form-group">
+      <label for="name">Menu Name</label>
+      <input type="text" class="form-control" id="menuNameId" required [(ngModel)]="menu.menuName" name="impMenuName">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Description</label>
+      <input type="text" class="form-control" id="descriptionId" required [(ngModel)]="menu.description"
+        name="impDescription">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Price</label>
+      <input type="text" class="form-control" id="priceId" required [(ngModel)]="menu.price" name="impPrice">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Valid From Date</label>
+      <input type="text" class="form-control" id="validFromDateId" required [(ngModel)]="menu.validFromDate"
+        name="impValidFromDate">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Valid To Date</label>
+      <input type="text" class="form-control" id="validToDateId" required [(ngModel)]="menu.validToDate"
+        name="impValidToDate">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Delivery Price</label>
+      <input type="text" class="form-control" id="deliveryPriceId" required [(ngModel)]="menu.deliveryPrice"
+        name="impDeliveryPrice">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Average Delivery Time</label>
+      <input type="text" class="form-control" id="avgDeliveryTimeId" required [(ngModel)]="menu.avgDeliveryTime"
+        name="impAvgDeliveryTime">
+    </div>
+  </form>
+  <br>
+  <div class="row">
+    <div class="col-md-6">
+      <button type="submit" class="btn btn-success">Submit</button>
+    </div>
+    <div class="col-md-6">
+      <button (click)="menuList()" class="btn btn-secondary">Cancel</button><br>
+    </div>
+  </div>
+</div>
