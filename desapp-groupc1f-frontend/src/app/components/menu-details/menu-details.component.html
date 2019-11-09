@@ -1,0 +1,30 @@
+<h2>Menu Details</h2>
+
+<hr />
+<div *ngIf="menu">
+  <div>
+    <label><b>Menu Name: </b></label> {{menu.menuName}}
+  </div>
+  <div>
+    <label><b>Description: </b></label> {{menu.description}}
+  </div>
+  <div>
+    <label><b>Price: </b></label> {{menu.price}}
+  </div>
+  <div>
+    <label><b>Valid From Date: </b></label> {{menu.validFromDate}}
+  </div>
+  <div>
+    <label><b>Valid To Date: </b></label> {{menu.validToDate}}
+  </div>
+  <div>
+    <label><b>Delivery Price: </b></label> {{menu.deliveryPrice}}
+  </div>
+  <div>
+    <label><b>Average Delivery Time: </b></label> {{menu.avgDeliveryTime}}
+  </div>
+</div>
+
+<br>
+<br>
+<button (click)="list()" class="btn btn-primary">Back to Menu List</button><br>
