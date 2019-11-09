@@ -42,4 +42,8 @@ export class UpdateAccountComponent implements OnInit {
   gotoList() {
     this.router.navigate(['/accounts']);
   }
+
+  accountList() {
+    this.router.navigate(['accounts']);
+  }
 }
