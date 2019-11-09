@@ -28,7 +28,7 @@ export class CreateAccountComponent implements OnInit {
     this.accountService.createAccount(this.account)
       .subscribe(data => console.log(data), error => console.log(error));
     this.account = new Account();
-    this.gotoList();
+    this.accountList();
   }
 
   onSubmit() {
@@ -36,7 +36,7 @@ export class CreateAccountComponent implements OnInit {
     this.save();    
   }
 
-  gotoList() {
+  accountList() {
     this.router.navigate(['/accounts']);
   }
 
