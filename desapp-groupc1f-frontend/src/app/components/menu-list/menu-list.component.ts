@@ -11,7 +11,7 @@ import { Menu } from "src/app/model/menu";
 })
 export class MenuListComponent implements OnInit {
 
-  menu: Observable<Menu[]>;
+  menus: Observable<Menu[]>;
 
   constructor(private menuService: MenuService,
     private router: Router) {}
@@ -21,15 +21,15 @@ export class MenuListComponent implements OnInit {
   }
 
   reloadData() {
-    this.menu = this.menuService.getMenuList();
+    this.menus = this.menuService.getMenuList();
   }
 
   menuDetails(id: number){
-    this.router.navigate(['details', id]);
+    this.router.navigate(['menuDetails', id]);
   }
 
   updateMenu(id: number){
-    this.router.navigate(['update', id]);
+    this.router.navigate(['menuUpdate', id]);
   }
 
   deleteMenu(id: number) {
