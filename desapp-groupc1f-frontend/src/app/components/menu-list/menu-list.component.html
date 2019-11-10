@@ -26,9 +26,9 @@
             <td>{{menu.validToDate}}</td>
             <td>{{menu.deliveryPrice}}</td>
             <td>{{menu.avgDeliveryTime}}</td>
-            <td><button (click)="deleteMenu(menu.id)" class="btn btn-danger">Delete</button>
-                <button (click)="updateMenu(menu.id)" class="btn btn-info" style="margin-left: 10px">Update</button>
-                <button (click)="menuDetails(menu.id)" class="btn btn-info" style="margin-left: 10px">Details</button>
+            <td><button (click)="deleteMenu(menu.id)" class="btn btn-danger">{{'menuList.delete' | translate}}</button>
+                <button (click)="updateMenu(menu.id)" class="btn btn-info" style="margin-left: 10px">{{'menuList.update' | translate}}</button>
+                <button (click)="menuDetails(menu.id)" class="btn btn-info" style="margin-left: 10px">{{'menuList.details' | translate}}</button>
             </td>
           </tr>
         </tbody>

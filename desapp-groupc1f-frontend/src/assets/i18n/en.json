@@ -10,7 +10,10 @@
         "email" : "Email",
         "name" : "Name",
         "surname" : "Surname",
-        "actions" : "Actions"
+        "actions" : "Actions",
+        "delete" : "Delete",
+        "update" : "Update",
+        "details" : "Details"
     },
 
     "addAccount" : {
@@ -25,6 +28,7 @@
         "location" : "Location",
         "direction" : "Direction",
         "submitButton" : "Submit",
+        "cancel" : "Cancel",
         "submitOk" : "You submitted successfully!"
     },
 
@@ -36,6 +40,73 @@
         "validFrom" : "Valid from date",
         "validTo" : "Valid to date",
         "deliveryPrice" : "Delivery Price",
-        "avgDeliTime" : "Avg Delivery Time"
+        "avgDeliTime" : "Avg Delivery Time",
+        "delete" : "Delete",
+        "update" : "Update",
+        "details" : "Details"
+    },
+
+    "createMenu" : {
+        "title" : "Create Menu",
+        "menuName" : "Menu Name",
+        "description" : "Description",
+        "price" : "Price",
+        "validFrom" : "Valid from date",
+        "validTo" : "Valid to date",
+        "deliveryPrice" : "Delivery Price",
+        "avgDeliTime" : "Avg Delivery Time",
+        "submitButton" : "Submit",
+        "cancel" : "Cancel",
+        "submitOk" : "You submitted successfully!"
+    },
+
+    "accountDetail" : {
+        "title" : "Account Details",
+        "username" : "Username: ",
+        "name" : "Name: ",
+        "surname" : "Surname: ",
+        "email" : "Email: ",
+        "phone" : "Phone: ",
+        "location" : "Location: ",
+        "direction" : "Direction: ",
+        "back" : "Back to Account List"
+    },
+
+    "menuDetails" : {
+        "title" : "Menu Details",
+        "menuName" : "Menu Name: ",
+        "description" : "Description: ",
+        "price" : "Price: ",
+        "validFrom" : "Valid from date: ",
+        "validTo" : "Valid to date: ",
+        "deliveryPrice" : "Delivery Price: ",
+        "avgDeliTime" : "Avg Delivery Time: ",
+        "back" : "Back to Menu List"
+    },
+
+    "updateMenu" : {
+        "title" : "Update Menu",
+        "menuName" : "Menu Name",
+        "description" : "Description",
+        "price" : "Price",
+        "validFrom" : "Valid from date",
+        "validTo" : "Valid to date",
+        "deliveryPrice" : "Delivery Price",
+        "avgDeliTime" : "Avg Delivery Time",
+        "submitButton" : "Submit",
+        "cancel" : "Cancel"
+    },
+
+    "updateAccount" : {
+        "title" : "Update Account",
+        "username" : "Username",
+        "email" : "Email",
+        "name" : "Name",
+        "surname" : "Surname",
+        "phone" : "Phone",
+        "location" : "Location",
+        "direction" : "Direction",
+        "submitButton" : "Submit",
+        "cancel" : "Cancel"
     }
 }

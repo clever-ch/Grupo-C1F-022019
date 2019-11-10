@@ -10,7 +10,10 @@
         "email" : "Email",
         "name" : "Nombre",
         "surname" : "Apellido",
-        "actions" : "Acciones"
+        "actions" : "Acciones",
+        "delete" : "Eliminar",
+        "update" : "Actualizar",
+        "details" : "Detalles"
     },
 
     "addAccount" : {
@@ -25,6 +28,7 @@
         "location" : "Ubicación",
         "direction" : "Dirección",
         "submitButton" : "Registrarme",
+        "cancel" : "Cancelar",
         "submitOk" : "Usted ha sido registrado exitosamente"
     },
 
@@ -36,6 +40,73 @@
         "validFrom" : "Valido desde",
         "validTo" : "Valido hasta",
         "deliveryPrice" : "Precio del delivery",
-        "avgDeliTime" : "Avg Tiempo delivery"
+        "avgDeliTime" : "Avg Tiempo delivery",
+        "delete" : "Eliminar",
+        "update" : "Actualizar",
+        "details" : "Detalles"
+    },
+
+    "createMenu" : {
+        "title" : "Agregar menu",
+        "menuName" : "Nombre de Menu",
+        "description" : "Descripción",
+        "price" : "Precio",
+        "validFrom" : "Valido desde",
+        "validTo" : "Valido hasta",
+        "deliveryPrice" : "Precio del delivery",
+        "avgDeliTime" : "Avg Tiempo delivery",
+        "submitButton" : "Registrarme",
+        "cancel" : "Cancelar",
+        "submitOk" : "Usted ha sido registrado exitosamente"
+    },
+
+    "accountDetail" : {
+        "title" : "Detalles de cuenta",
+        "username" : "Nombre de usuario: ",
+        "name" : "Nombre: ",
+        "surname" : "Apellido: ",
+        "email" : "Email: ",
+        "phone" : "Telefono: ",
+        "location" : "Ubicación: ",
+        "direction" : "Dirección: ",
+        "back" : "Volver a listado de cuentas"
+    },
+
+    "menuDetails" : {
+        "title" : "Detalle del menu",
+        "menuName" : "Nombre de Menu: ",
+        "description" : "Descripción: ",
+        "price" : "Precio: ",
+        "validFrom" : "Valido desde: ",
+        "validTo" : "Valido hasta: ",
+        "deliveryPrice" : "Precio del delivery: ",
+        "avgDeliTime" : "Avg Delivery Time: ",
+        "back" : "Volver al listado de menus"
+    },
+
+    "updateMenu" : {
+        "title" : "Actualizar Menu",
+        "menuName" : "Nombre de Menu",
+        "description" : "Descripción",
+        "price" : "Precio",
+        "validFrom" : "Valido desde",
+        "validTo" : "Valido hasta",
+        "deliveryPrice" : "Precio del delivery",
+        "avgDeliTime" : "Avg Tiempo delivery",
+        "submitButton" : "Actualizar",
+        "cancel" : "Cancelar"
+    },
+
+    "updateAccount" : {
+        "title" : "Actualizar cuenta",
+        "username" : "Nombre de Usuario",
+        "email" : "Email",
+        "name" : "Nombre",
+        "surname" : "Apellido",
+        "phone" : "Telefono",
+        "location" : "Ubicación",
+        "direction" : "Dirección",
+        "submitButton" : "Actualizar",
+        "cancel" : "Cancelar"
     }
 }

@@ -1,30 +1,30 @@
-<h2>Menu Details</h2>
+<h2>{{'menuDetails.title' | translate}}</h2>
 
 <hr />
 <div *ngIf="menu">
   <div>
-    <label><b>Menu Name: </b></label> {{menu.menuName}}
+    <label><b>{{'menuDetails.menuName' | translate}}</b></label> {{menu.menuName}}
   </div>
   <div>
-    <label><b>Description: </b></label> {{menu.description}}
+    <label><b>{{'menuDetails.description' | translate}}</b></label> {{menu.description}}
   </div>
   <div>
-    <label><b>Price: </b></label> {{menu.price}}
+    <label><b>{{'menuDetails.price' | translate}}</b></label> {{menu.price}}
   </div>
   <div>
-    <label><b>Valid From Date: </b></label> {{menu.validFromDate}}
+    <label><b>{{'menuDetails.validFromDate' | translate}}</b></label> {{menu.validFromDate}}
   </div>
   <div>
-    <label><b>Valid To Date: </b></label> {{menu.validToDate}}
+    <label><b>{{'menuDetails.validToDate' | translate}}</b></label> {{menu.validToDate}}
   </div>
   <div>
-    <label><b>Delivery Price: </b></label> {{menu.deliveryPrice}}
+    <label><b>{{'menuDetails.deliveryPrice' | translate}}</b></label> {{menu.deliveryPrice}}
   </div>
   <div>
-    <label><b>Average Delivery Time: </b></label> {{menu.avgDeliveryTime}}
+    <label><b>{{'menuDetails.avgDeliTime' | translate}}</b></label> {{menu.avgDeliveryTime}}
   </div>
 </div>
 
 <br>
 <br>
-<button (click)="list()" class="btn btn-primary">Back to Menu List</button><br>
+<button (click)="list()" class="btn btn-primary">{{'menuDetails.back' | translate}}</button><br>

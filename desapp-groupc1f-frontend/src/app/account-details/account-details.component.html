@@ -1,30 +1,30 @@
-<h2>Account Details</h2>
+<h2>{{'accountDetail.title' | translate}}</h2>
 
 <hr />
 <div *ngIf="account">
   <div>
-    <label><b>UserName: </b></label> {{account.userName}}
+    <label><b>{{'accountDetail.userName' | translate}}</b></label> {{account.userName}}
   </div>
   <div>
-    <label><b>Name: </b></label> {{account.name}}
+    <label><b>{{'accountDetail.name' | translate}}</b></label> {{account.name}}
   </div>
   <div>
-    <label><b>Surname: </b></label> {{account.surname}}
+    <label><b>{{'accountDetail.surname' | translate}}</b></label> {{account.surname}}
   </div>
   <div>
-    <label><b>Email: </b></label> {{account.email}}
+    <label><b>{{'accountDetail.email' | translate}}</b></label> {{account.email}}
   </div>
   <div>
-    <label><b>Phone: </b></label> {{account.phone}}
+    <label><b>{{'accountDetail.phone' | translate}}</b></label> {{account.phone}}
   </div>
   <div>
-    <label><b>Location: </b></label> {{account.location}}
+    <label><b>{{'accountDetail.location' | translate}}</b></label> {{account.location}}
   </div>
   <div>
-    <label><b>Direction: </b></label> {{account.direction}}
+    <label><b>{{'accountDetail.direction' | translate}}</b></label> {{account.direction}}
   </div>
 </div>
 
 <br>
 <br>
-<button (click)="list()" class="btn btn-primary">Back to Account List</button><br>
+<button (click)="list()" class="btn btn-primary">{{'accountDetail.back' | translate}}</button><br>
