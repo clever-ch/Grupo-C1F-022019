@@ -5,6 +5,9 @@ import { CreateAccountComponent } from './create-account/create-account.componen
 import { AccountDetailsComponent } from './account-details/account-details.component';
 import { UpdateAccountComponent } from './update-account/update-account.component';
 import { MenuListComponent } from './components/menu-list/menu-list.component';
+import { MenuDetailsComponent } from './components/menu-details/menu-details.component';
+import { UpdateMenuComponent } from './components/update-menu/update-menu.component';
+import { CreateMenuComponent } from './components/create-menu/create-menu.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'account', pathMatch: 'full' },
@@ -12,7 +15,10 @@ const routes: Routes = [
   { path: 'add', component: CreateAccountComponent },
   { path: 'details/:id', component: AccountDetailsComponent },
   { path: 'update/:id', component: UpdateAccountComponent },
+  { path: 'menuUpdate/:id', component: UpdateMenuComponent },
   { path: 'menus', component: MenuListComponent },
+  { path: 'menuDetails/:id', component: MenuDetailsComponent },
+  { path: 'addMenu', component: CreateMenuComponent },
 ];
 
 @NgModule({
