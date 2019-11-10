@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MenuService } from 'src/app/services/menu-service/menu.service';
 import { Menu } from 'src/app/model/menu';
 import { Router } from '@angular/router';
+import { DeliveryInfo } from 'src/app/model/delivery-info'
 
 @Component({
   selector: 'app-create-menu',
@@ -11,6 +12,7 @@ import { Router } from '@angular/router';
 export class CreateMenuComponent implements OnInit {
 
   menu: Menu = new Menu();
+  deliveryInfo: DeliveryInfo = new DeliveryInfo();
   submitted = false;
 
   constructor(private menuService: MenuService,
@@ -25,6 +27,7 @@ export class CreateMenuComponent implements OnInit {
   }
 
   save() {
+    this.menu.deliveryInfo = this.deliveryInfo;
     this.menuService.createMenu(this.menu)
       .subscribe(data => console.log(data), error => console.log(error));
     this.menu = new Menu();
