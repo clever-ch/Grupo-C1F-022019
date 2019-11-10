@@ -15,31 +15,53 @@
 
     <div class="form-group">
       <label for="name">Price</label>
-      <input type="text" class="form-control" id="priceId" required [(ngModel)]="menu.price" name="impPrice">
+      <input type='number' step='0.01' min="0" value='0.00' placeholder='0.00' class="form-control" id="priceId"
+        required [(ngModel)]="menu.price" name="impPrice">
+    </div>
+<!---->
+    <div class="form-group">
+      <label for="name">Shifts Available</label>
+      <input type="text" class="form-control" id="menuNameId" required [(ngModel)]="deliveryInfo.shiftsAvailable" name="impshiftsAvailable">
     </div>
 
     <div class="form-group">
-      <label for="name">Valid From Date</label>
-      <input type="text" class="form-control" id="validFromDateId" required [(ngModel)]="menu.validFromDate"
-        name="impValidFromDate">
+      <label for="name">Hours Attention</label>
+      <input type="text" class="form-control" id="menuNameId" required [(ngModel)]="deliveryInfo.hoursAttention" name="imphoursAttention">
     </div>
 
     <div class="form-group">
-      <label for="name">Valid To Date</label>
-      <input type="text" class="form-control" id="validToDateId" required [(ngModel)]="menu.validToDate"
-        name="impValidToDate">
+      <label for="name">Has Delivery</label>
+      <input type="text" class="form-control" id="menuNameId" required [(ngModel)]="deliveryInfo.hasDelivery" name="imphasDelivery">
+    </div>
+<!---->
+    <div class="form-group">
+      <label for="validFromDate"> Valid From Date </label>
+      <input id="validFromDateId" name="impValidFromDate" required [(ngModel)]="menu.validFromDate" type="date"
+        bsDatepicker class="form-control">
+    </div>
+
+    <div class="form-group">
+      <label for="validToDate"> Valid To Date </label>
+      <input id="validToDateId" name="impValidToDate" required [(ngModel)]="menu.validToDate" type="date"
+        class="form-control">
     </div>
 
     <div class="form-group">
       <label for="name">Delivery Price</label>
-      <input type="text" class="form-control" id="deliveryPriceId" required [(ngModel)]="menu.deliveryPrice"
-        name="impDeliveryPrice">
+      <input type="number" step=".01" min="0" value='0.00' placeholder='0.00' class="form-control" id="deliveryPriceId"
+        required [(ngModel)]="menu.deliveryPrice" name="impDeliveryPrice">
     </div>
 
     <div class="form-group">
       <label for="name">Average Delivery Time</label>
       <input type="text" class="form-control" id="avgDeliveryTimeId" required [(ngModel)]="menu.avgDeliveryTime"
         name="impAvgDeliveryTime">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Maximun sales per day</label>
+      <input type="number" class="form-control" id="maxSalesId" required [(ngModel)]="menu.maximunSales"
+        name="impMaxSales">
     </div>
   </form>
   <br>
