@@ -40,7 +40,7 @@
         "validFrom" : "Valido desde",
         "validTo" : "Valido hasta",
         "deliveryPrice" : "Precio del delivery",
-        "avgDeliTime" : "Avg Tiempo delivery",
+        "avgDeliTime" : "Tiempo promedio de entrega",
         "delete" : "Eliminar",
         "update" : "Actualizar",
         "details" : "Detalles"
@@ -51,10 +51,14 @@
         "menuName" : "Nombre de Menu",
         "description" : "Descripción",
         "price" : "Precio",
+        "shiftavai" : "Turnos Disponibles",
+        "hoursattention" : "Horario de atención",
+        "hasDelivery" : "Tiene Delivery",
         "validFrom" : "Valido desde",
         "validTo" : "Valido hasta",
         "deliveryPrice" : "Precio del delivery",
-        "avgDeliTime" : "Avg Tiempo delivery",
+        "avgDeliTime" : "Tiempo promedio de entrega",
+        "maxSalesPerDay" : "Ventas máximas por día",
         "submitButton" : "Registrarme",
         "cancel" : "Cancelar",
         "submitOk" : "Usted ha sido registrado exitosamente"
@@ -80,7 +84,7 @@
         "validFrom" : "Valido desde: ",
         "validTo" : "Valido hasta: ",
         "deliveryPrice" : "Precio del delivery: ",
-        "avgDeliTime" : "Avg Delivery Time: ",
+        "avgDeliTime" : "Tiempo promedio de entrega: ",
         "back" : "Volver al listado de menus"
     },
 
@@ -92,7 +96,7 @@
         "validFrom" : "Valido desde",
         "validTo" : "Valido hasta",
         "deliveryPrice" : "Precio del delivery",
-        "avgDeliTime" : "Avg Tiempo delivery",
+        "avgDeliTime" : "Tiempo promedio de entrega",
         "submitButton" : "Actualizar",
         "cancel" : "Cancelar"
     },

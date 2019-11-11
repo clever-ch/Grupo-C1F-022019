@@ -1,4 +1,5 @@
 import { Time } from '@angular/common';
+import { DeliveryInfo } from 'src/app/model/delivery-info'
 
 export class Menu {
     id: number;
@@ -10,4 +11,6 @@ export class Menu {
     validToDate: Date;
     deliveryPrice: number;
     avgDeliveryTime: Time;
+    categories: Array<string>;
+    deliveryInfo: DeliveryInfo;
 }

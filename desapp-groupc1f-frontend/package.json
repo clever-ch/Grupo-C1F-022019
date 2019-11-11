@@ -21,6 +21,7 @@
     "@angular/platform-browser-dynamic": "~8.2.13",
     "@angular/router": "~8.2.13",
     "@asymmetrik/ngx-leaflet": "^5.0.2",
+    "@ng-bootstrap/ng-bootstrap": "^5.1.4",
     "@ngx-translate/core": "^11.0.1",
     "@ngx-translate/http-loader": "^4.0.0",
     "@types/leaflet": "^1.5.5",
@@ -28,6 +29,8 @@
     "core-js": "^2.5.4",
     "jquery": "^3.4.1",
     "leaflet": "^1.5.1",
+    "ng-multiselect-dropdown": "^0.2.6",
+    "ngx-bootstrap": "^5.2.0",
     "popper.js": "^1.14.7",
     "rxjs": "^6.5.3",
     "tslib": "^1.9.0",
@@ -53,5 +56,8 @@
     "ts-node": "~7.0.0",
     "tslint": "~5.11.0",
     "typescript": "~3.5.3"
+  },
+  "comment": {
+    "rxjs": "~6.3.3"
   }
 }
