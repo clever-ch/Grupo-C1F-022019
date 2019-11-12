@@ -1,0 +1,120 @@
+{
+    "home" : {
+        "title" : "Viandas Ya!",
+        "text"  : "Esta es una aplicación para solicitar distintos menues de forma rápida y sencilla.",
+        "search" : "Buscar"
+    },
+
+    "accountList" : {
+        "title" : "Listado de cuentas",
+        "username" : "Nombre de usuario",
+        "email" : "Email",
+        "name" : "Nombre",
+        "surname" : "Apellido",
+        "actions" : "Acciones",
+        "delete" : "Eliminar",
+        "update" : "Actualizar",
+        "details" : "Detalles"
+    },
+
+    "addAccount" : {
+        "title" : "Agregar Cuenta",
+        "subtitle" : "Crear Cuenta",
+        "Id" : "ID",
+        "username" : "Nombre de Usuario",
+        "email" : "Email",
+        "name" : "Nombre",
+        "surname" : "Apellido",
+        "phone" : "Telefono",
+        "location" : "Ubicación",
+        "direction" : "Dirección",
+        "submitButton" : "Registrarme",
+        "cancel" : "Cancelar",
+        "submitOk" : "Usted ha sido registrado exitosamente"
+    },
+
+    "menuList" : {
+        "title" : "Lista de menus",
+        "menuName" : "Nombre de Menu",
+        "description" : "Descripción",
+        "price" : "Precio",
+        "validFrom" : "Valido desde",
+        "validTo" : "Valido hasta",
+        "deliveryPrice" : "Precio del delivery",
+        "avgDeliTime" : "Tiempo promedio de entrega",
+        "delete" : "Eliminar",
+        "update" : "Actualizar",
+        "details" : "Detalles"
+    },
+
+    "createMenu" : {
+        "title" : "Agregar menu",
+        "menuName" : "Nombre de Menu",
+        "description" : "Descripción",
+        "enterDesc" : "Ingrese una descripción",
+        "price" : "Precio",
+        "shiftavai" : "Turnos Disponibles",
+        "hoursattention" : "Horario de atención",
+        "categories" : "Categorias",
+        "selectCate" : "Seleccionar categoría",
+        "hasDelivery" : "Tiene Delivery",
+        "validFrom" : "Valido desde",
+        "validTo" : "Valido hasta",
+        "deliveryPrice" : "Precio del delivery",
+        "avgDeliTime" : "Tiempo promedio de entrega",
+        "maxSalesPerDay" : "Ventas máximas por día",
+        "submitButton" : "Crear menu",
+        "cancel" : "Cancelar",
+        "submitOk" : "El menu se creo correctamente"
+    },
+
+    "accountDetail" : {
+        "title" : "Detalles de cuenta",
+        "username" : "Nombre de usuario: ",
+        "name" : "Nombre: ",
+        "surname" : "Apellido: ",
+        "email" : "Email: ",
+        "phone" : "Telefono: ",
+        "location" : "Ubicación: ",
+        "direction" : "Dirección: ",
+        "back" : "Volver a listado de cuentas"
+    },
+
+    "menuDetails" : {
+        "title" : "Detalle del menu",
+        "menuName" : "Nombre de Menu: ",
+        "description" : "Descripción: ",
+        "price" : "Precio: ",
+        "validFrom" : "Valido desde: ",
+        "validTo" : "Valido hasta: ",
+        "deliveryPrice" : "Precio del delivery: ",
+        "avgDeliTime" : "Tiempo promedio de entrega: ",
+        "back" : "Volver al listado de menus"
+    },
+
+    "updateMenu" : {
+        "title" : "Actualizar Menu",
+        "menuName" : "Nombre de Menu",
+        "description" : "Descripción",
+        "price" : "Precio",
+        "validFrom" : "Valido desde",
+        "validTo" : "Valido hasta",
+        "deliveryPrice" : "Precio del delivery",
+        "avgDeliTime" : "Tiempo promedio de entrega",
+        "submitButton" : "Actualizar",
+        "cancel" : "Cancelar"
+    },
+
+    "updateAccount" : {
+        "title" : "Actualizar cuenta",
+        "username" : "Nombre de Usuario",
+        "email" : "Email",
+        "name" : "Nombre",
+        "surname" : "Apellido",
+        "phone" : "Telefono",
+        "location" : "Ubicación",
+        "direction" : "Dirección",
+        "submitButton" : "Actualizar",
+        "cancel" : "Cancelar"
+    }
+}

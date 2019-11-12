@@ -1,16 +1,16 @@
 <div class="panel panel-primary">
   <div class="panel-heading">
-    <h2>Account List</h2>
+    <h2>{{'accountList.title' | translate}}</h2>
   </div>
   <div class="panel-body">
     <table class="table table-striped">
       <thead>
         <tr>
-          <th>UserName</th>
-          <th>Name</th>
-          <th>Surname</th>
-          <th>Email</th>
-          <th>Actions</th>
+          <th>{{'accountList.username' | translate}}</th>
+          <th>{{'accountList.name' | translate}}</th>
+          <th>{{'accountList.surname' | translate}}</th>
+          <th>{{'accountList.email' | translate}}</th>
+          <th>{{'accountList.actions' | translate}}</th>
         </tr>
       </thead>
       <tbody>
@@ -19,9 +19,9 @@
           <td>{{account.name}}</td>
           <td>{{account.surname}}</td>
           <td>{{account.eMail}}</td>
-          <td><button (click)="deleteAccount(account.id)" class="btn btn-danger">Delete</button>
-              <button (click)="updateAccount(account.id)" class="btn btn-info" style="margin-left: 10px">Update</button>
-              <button (click)="accountDetails(account.id)" class="btn btn-info" style="margin-left: 10px">Details</button>
+          <td><button (click)="deleteAccount(account.id)" class="btn btn-danger">{{'accountList.delete' | translate}}</button>
+              <button (click)="updateAccount(account.id)" class="btn btn-info" style="margin-left: 10px">{{'accountList.update' | translate}}</button>
+              <button (click)="accountDetails(account.id)" class="btn btn-info" style="margin-left: 10px">{{'accountList.details' | translate}}</button>
           </td>
         </tr>
       </tbody>
