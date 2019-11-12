@@ -63,9 +63,9 @@
         "deliveryPrice" : "Delivery Price",
         "avgDeliTime" : "Avg Delivery Time",
         "maxSalesPerDay" : "Maximun sales per day",
-        "submitButton" : "Submit",
+        "submitButton" : "Add Menu",
         "cancel" : "Cancel",
-        "submitOk" : "You submitted successfully!"
+        "submitOk" : "The menu has been created successfully!"
     },
 
     "accountDetail" : {
