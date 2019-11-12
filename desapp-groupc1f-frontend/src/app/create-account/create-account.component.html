@@ -2,10 +2,10 @@
 <div [hidden]="submitted" style="width: 400px;">
   <form (ngSubmit)="onSubmit()">
 
-      <div class="form-group">
-          <label for="name">{{'addAccount.Id' | translate}}</label>
-          <input type="int" class="form-control" id="pruebaId" required [(ngModel)]="account.id" name="id">
-        </div>
+    <div class="form-group">
+      <label for="name">{{'addAccount.Id' | translate}}</label>
+      <input type="int" class="form-control" id="pruebaId" required [(ngModel)]="account.id" name="id">
+    </div>
 
 
     <div class="form-group">
@@ -40,19 +40,20 @@
 
     <div class="form-group">
       <label for="name">{{'addAccount.direction' | translate }}</label>
-      <input type="text" class="form-control" id="directionId" required [(ngModel)]="account.direction" name="direction">
+      <input type="text" class="form-control" id="directionId" required [(ngModel)]="account.direction"
+        name="direction">
     </div>
 
+    <br>
+    <div class="row">
+      <div class="col-md-6">
+        <button type="submit" class="btn btn-success">{{'addAccount.submitButton' | translate }}</button>
+      </div>
+      <div class="col-md-6">
+        <button (click)="accountList()" class="btn btn-secondary">{{'addAccount.cancel' | translate}}</button><br>
+      </div>
+    </div>
   </form>
-  <br>
-  <div class="row">
-    <div class="col-md-6">
-      <button type="submit" class="btn btn-success">{{'addAccount.submitButton' | translate }}</button>
-    </div>
-    <div class="col-md-6">
-      <button (click)="accountList()" class="btn btn-secondary">{{'addAccount.cancel' | translate}}</button><br>
-    </div>
-  </div>
 </div>
 
 <div [hidden]="!submitted">
@@ -60,4 +61,3 @@
   <h4>{{'addAccount.submitOk' | translate }}</h4>
   <!-- <button class="btn btn-success" (click)="newEmployee()">Add</button> -->
 </div>
-

@@ -12,8 +12,8 @@
 
         <div class="col-md-6">
           <label for="name">{{'createMenu.description' | translate}}</label>
-          <textarea class="form-control" placeholder="{{'createMenu.enterDesc' | translate}}" [(ngModel)]="menu.description"
-            [maxlength]="maxChars"></textarea>
+          <textarea class="form-control" placeholder="{{'createMenu.enterDesc' | translate}}"
+            [(ngModel)]="menu.description" [maxlength]="maxChars"></textarea>
         </div>
       </div>
     </div>
@@ -27,9 +27,9 @@
         </div>
 
         <div class="col-md-6">
-            <label for="name">{{'createMenu.hasDelivery' | translate}}</label>
-            <input type="checkbox" name="chkHasDelivery" [(ngModel)]="deliveryInfo.hasDelivery">
-            <!-- <input type="text" class="form-control" id="menuNameId" required [(ngModel)]="deliveryInfo.hasDelivery"
+          <label for="name">{{'createMenu.hasDelivery' | translate}}</label>
+          <input type="checkbox" name="chkHasDelivery" [(ngModel)]="deliveryInfo.hasDelivery">
+          <!-- <input type="text" class="form-control" id="menuNameId" required [(ngModel)]="deliveryInfo.hasDelivery"
               disabled="true" name="imphasDelivery"> -->
         </div>
       </div>
@@ -53,8 +53,9 @@
 
     <div class="form-group">
       <label for="name">{{'createMenu.categories' | translate}}</label>
-      <ng-multiselect-dropdown placeholder="{{'createMenu.selectCate' | translate}}" [data]="ddlCategories" [(ngModel)]="selectedItems"
-        [settings]="dropdownSettings" (onSelect)="onItemSelect($event)" (onDeSelect)="onItemDeSelect($event)">
+      <ng-multiselect-dropdown placeholder="{{'createMenu.selectCate' | translate}}" [data]="ddlCategories"
+        [(ngModel)]="selectedItems" [settings]="dropdownSettings" (onSelect)="onItemSelect($event)"
+        (onDeSelect)="onItemDeSelect($event)">
       </ng-multiselect-dropdown>
     </div>
 
@@ -91,16 +92,16 @@
       <input type="number" class="form-control" id="maxSalesId" required [(ngModel)]="menu.maximunSales"
         name="impMaxSales">
     </div>
+    <br>
+    <div class="row">
+      <div class="col-md-6">
+        <button type="submit" class="btn btn-success">{{'createMenu.submitButton' | translate}}</button>
+      </div>
+      <div class="col-md-6">
+        <button (click)="menuList()" class="btn btn-secondary">{{'createMenu.cancel' | translate}}</button><br>
+      </div>
+    </div>
   </form>
-  <br>
-  <div class="row">
-    <div class="col-md-6">
-      <button type="submit" class="btn btn-success">{{'createMenu.submitButton' | translate}}</button>
-    </div>
-    <div class="col-md-6">
-      <button (click)="menuList()" class="btn btn-secondary">{{'createMenu.cancel' | translate}}</button><br>
-    </div>
-  </div>
 </div>
 
 <div [hidden]="!submitted">
