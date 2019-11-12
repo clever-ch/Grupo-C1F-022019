@@ -91,16 +91,16 @@
       <input type="number" class="form-control" id="maxSalesId" required [(ngModel)]="menu.maximunSales"
         name="impMaxSales">
     </div>
+    <br>
+    <div class="row">
+      <div class="col-md-6">
+        <button type="submit" class="btn btn-success">Submit</button>
+      </div>
+      <div class="col-md-6">
+        <button (click)="menuList()" class="btn btn-secondary">Cancel</button><br>
+      </div>
+    </div>
   </form>
-  <br>
-  <div class="row">
-    <div class="col-md-6">
-      <button type="submit" class="btn btn-success">Submit</button>
-    </div>
-    <div class="col-md-6">
-      <button (click)="menuList()" class="btn btn-secondary">Cancel</button><br>
-    </div>
-  </div>
 </div>
 
 <div [hidden]="!submitted">
