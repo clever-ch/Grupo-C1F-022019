@@ -1,18 +1,18 @@
-<h3>Create Menu</h3>
+<h3>{{'createMenu.title' | translate}}</h3>
 <div [hidden]="submitted">
   <form (ngSubmit)="onSubmit()">
 
     <div class="form-group">
       <div class="row">
         <div class="col-md-6">
-          <label for="name">Menu Name</label>
+          <label for="name">{{'createMenu.menuName' | translate}}</label>
           <input type="text" class="form-control" id="menuNameId" required [(ngModel)]="menu.menuName"
             name="impMenuName">
         </div>
 
         <div class="col-md-6">
-          <label for="name">Description</label>
-          <textarea class="form-control" placeholder="Enter a description" [(ngModel)]="menu.description"
+          <label for="name">{{'createMenu.description' | translate}}</label>
+          <textarea class="form-control" placeholder="{{'createMenu.enterDesc' | translate}}" [(ngModel)]="menu.description"
             [maxlength]="maxChars"></textarea>
         </div>
       </div>
@@ -21,13 +21,13 @@
     <div class="form-group">
       <div class="row">
         <div class="col-md-6">
-          <label for="name">Price</label>
+          <label for="name">{{'createMenu.price' | translate}}</label>
           <input type='number' step='0.01' min="0" value='0.00' placeholder='0.00' class="form-control" id="priceId"
             required [(ngModel)]="menu.price" name="impPrice">
         </div>
 
         <div class="col-md-6">
-            <label for="name">Has Delivery</label>
+            <label for="name">{{'createMenu.hasDelivery' | translate}}</label>
             <input type="checkbox" name="chkHasDelivery" [(ngModel)]="deliveryInfo.hasDelivery">
             <!-- <input type="text" class="form-control" id="menuNameId" required [(ngModel)]="deliveryInfo.hasDelivery"
               disabled="true" name="imphasDelivery"> -->
@@ -38,13 +38,13 @@
     <div class="form-group">
       <div class="row">
         <div class="col-md-6">
-          <label for="name">Delivery Price</label>
+          <label for="name">{{'createMenu.deliveryPrice' | translate}}</label>
           <input type="number" step=".01" min="0" value='0.00' placeholder='0.00' class="form-control"
             id="deliveryPriceId" required [(ngModel)]="menu.deliveryPrice" name="impDeliveryPrice">
         </div>
 
         <div class="col-md-6">
-          <label for="name">Average Delivery Time</label>
+          <label for="name">{{'createMenu.avgDeliTime' | translate}}</label>
           <input type="text" class="form-control" id="avgDeliveryTimeId" required [(ngModel)]="menu.avgDeliveryTime"
             name="impAvgDeliveryTime">
         </div>
@@ -52,20 +52,20 @@
     </div>
 
     <div class="form-group">
-      <label for="name">Categories</label>
-      <ng-multiselect-dropdown [placeholder]="'Select Category'" [data]="ddlCategories" [(ngModel)]="selectedItems"
+      <label for="name">{{'createMenu.categories' | translate}}</label>
+      <ng-multiselect-dropdown placeholder="{{'createMenu.selectCate' | translate}}" [data]="ddlCategories" [(ngModel)]="selectedItems"
         [settings]="dropdownSettings" (onSelect)="onItemSelect($event)" (onDeSelect)="onItemDeSelect($event)">
       </ng-multiselect-dropdown>
     </div>
 
     <div class="form-group">
-      <label for="name">Shifts Available</label>
+      <label for="name">{{'createMenu.shiftavai' | translate}}</label>
       <input type="text" class="form-control" id="menuNameId" required [(ngModel)]="deliveryInfo.shiftsAvailable"
         name="impshiftsAvailable">
     </div>
 
     <div class="form-group">
-      <label for="name">Hours Attention</label>
+      <label for="name">{{'createMenu.hoursattention' | translate}}</label>
       <input type="text" class="form-control" id="menuNameId" required [(ngModel)]="deliveryInfo.hoursAttention"
         name="imphoursAttention">
     </div>
@@ -73,13 +73,13 @@
     <div class="form-group">
       <div class="row">
         <div class="col-md-6">
-          <label for="validFromDate"> Valid From Date </label>
+          <label for="validFromDate"> {{'createMenu.validFrom' | translate}} </label>
           <input id="validFromDateId" name="impValidFromDate" required [(ngModel)]="menu.validFromDate" type="date"
             bsDatepicker class="form-control">
         </div>
 
         <div class="col-md-6">
-          <label for="validToDate"> Valid To Date </label>
+          <label for="validToDate"> {{'createMenu.validTo' | translate}} </label>
           <input id="validToDateId" name="impValidToDate" required [(ngModel)]="menu.validToDate" type="date"
             class="form-control">
         </div>
@@ -87,7 +87,7 @@
     </div>
 
     <div class="form-group">
-      <label for="name">Maximun sales per day</label>
+      <label for="name">{{'createMenu.maxSalesPerDay' | translate}}</label>
       <input type="number" class="form-control" id="maxSalesId" required [(ngModel)]="menu.maximunSales"
         name="impMaxSales">
     </div>
@@ -95,14 +95,14 @@
   <br>
   <div class="row">
     <div class="col-md-6">
-      <button type="submit" class="btn btn-success">Submit</button>
+      <button type="submit" class="btn btn-success">{{'createMenu.submitButton' | translate}}</button>
     </div>
     <div class="col-md-6">
-      <button (click)="menuList()" class="btn btn-secondary">Cancel</button><br>
+      <button (click)="menuList()" class="btn btn-secondary">{{'createMenu.cancel' | translate}}</button><br>
     </div>
   </div>
 </div>
 
 <div [hidden]="!submitted">
-  <h4>You submitted successfully!</h4>
+  <h4>{{'createMenu.submitOk' | translate}}</h4>
 </div>

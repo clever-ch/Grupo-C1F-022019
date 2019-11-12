@@ -1,19 +1,20 @@
 <div class="panel panel-primary">
     <div class="panel-heading">
-      <h2>Menu List</h2>
+      <h2>{{ 'menuList.title' | translate }}</h2>
     </div>
     <div class="panel-body">
       <table class="table table-striped">
         <thead>
           <tr>
-            <th>Menu Name</th>
-            <th>Description</th>
-            <th>Price</th>
-            <th>Valid from date</th>
-            <th>Valid to date</th>
-            <th>Delivery Price</th>
-            <th>Avg delivery time</th>
-            <th>Actions</th>
+
+            <th>{{ 'menuList.menuName' | translate }}</th>
+            <th>{{ 'menuList.description' | translate }}</th>
+            <th>{{ 'menuList.price' | translate }}</th>
+            <th>{{ 'menuList.validFrom' | translate }}</th>
+            <th>{{ 'menuList.validTo' | translate }}</th>
+            <th>{{ 'menuList.deliveryPrice' | translate }}</th>
+            <th>{{ 'menuList.avgDeliTime' | translate }}</th>
+
           </tr>
         </thead>
         <tbody>
@@ -25,9 +26,11 @@
             <td>{{menu.validToDate}}</td>
             <td>{{menu.deliveryPrice}}</td>
             <td>{{menu.avgDeliveryTime}}</td>
-            <td><button (click)="deleteMenu(menu.id)" class="btn btn-danger">Delete</button>
-                <button (click)="updateMenu(menu.id)" class="btn btn-info">Update</button>
-                <button (click)="menuDetails(menu.id)" class="btn btn-info">Details</button>
+
+            <td><button (click)="deleteMenu(menu.id)" class="btn btn-danger">{{'menuList.delete' | translate}}</button>
+                <button (click)="updateMenu(menu.id)" class="btn btn-info" style="margin-left: 10px">{{'menuList.update' | translate}}</button>
+                <button (click)="menuDetails(menu.id)" class="btn btn-info" style="margin-left: 10px">{{'menuList.details' | translate}}</button>
+
             </td>
           </tr>
         </tbody>

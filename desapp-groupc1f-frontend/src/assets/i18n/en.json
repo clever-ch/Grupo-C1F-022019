@@ -1,0 +1,120 @@
+{
+    "home": {
+        "title" : "Lunch Right Now!",
+        "text"  : "This is an application to request different menus quickly and easily.",
+        "search" : "Search"
+    },
+
+    "accountList" : {
+        "title" : "Account List",
+        "username" : "Username",
+        "email" : "Email",
+        "name" : "Name",
+        "surname" : "Surname",
+        "actions" : "Actions",
+        "delete" : "Delete",
+        "update" : "Update",
+        "details" : "Details"
+    },
+
+    "addAccount" : {
+        "title" : "Add Account",
+        "subtitle" : "Create Account",
+        "Id" : "ID",
+        "username" : "Username",
+        "email" : "Email",
+        "name" : "Name",
+        "surname" : "Surname",
+        "phone" : "Phone",
+        "location" : "Location",
+        "direction" : "Direction",
+        "submitButton" : "Submit",
+        "cancel" : "Cancel",
+        "submitOk" : "You submitted successfully!"
+    },
+
+    "menuList" : {
+        "title" : "Menu List",
+        "menuName" : "Menu Name",
+        "description" : "Description",
+        "price" : "Price",
+        "validFrom" : "Valid from date",
+        "validTo" : "Valid to date",
+        "deliveryPrice" : "Delivery Price",
+        "avgDeliTime" : "Avg Delivery Time",
+        "delete" : "Delete",
+        "update" : "Update",
+        "details" : "Details"
+    },
+
+    "createMenu" : {
+        "title" : "Create Menu",
+        "menuName" : "Menu Name",
+        "description" : "Description",
+        "enterDesc" : "Enter a description",
+        "price" : "Price",
+        "shiftavai" : "Shifts Available",
+        "hoursattention" : "Hours Attention",
+        "categories" : "Categories",
+        "selectCate" : "Select Category",
+        "hasDelivery" : "Has Delivery",
+        "validFrom" : "Valid from date",
+        "validTo" : "Valid to date",
+        "deliveryPrice" : "Delivery Price",
+        "avgDeliTime" : "Avg Delivery Time",
+        "maxSalesPerDay" : "Maximun sales per day",
+        "submitButton" : "Submit",
+        "cancel" : "Cancel",
+        "submitOk" : "You submitted successfully!"
+    },
+
+    "accountDetail" : {
+        "title" : "Account Details",
+        "username" : "Username: ",
+        "name" : "Name: ",
+        "surname" : "Surname: ",
+        "email" : "Email: ",
+        "phone" : "Phone: ",
+        "location" : "Location: ",
+        "direction" : "Direction: ",
+        "back" : "Back to Account List"
+    },
+
+    "menuDetails" : {
+        "title" : "Menu Details",
+        "menuName" : "Menu Name: ",
+        "description" : "Description: ",
+        "price" : "Price: ",
+        "validFrom" : "Valid from date: ",
+        "validTo" : "Valid to date: ",
+        "deliveryPrice" : "Delivery Price: ",
+        "avgDeliTime" : "Avg Delivery Time: ",
+        "back" : "Back to Menu List"
+    },
+
+    "updateMenu" : {
+        "title" : "Update Menu",
+        "menuName" : "Menu Name",
+        "description" : "Description",
+        "price" : "Price",
+        "validFrom" : "Valid from date",
+        "validTo" : "Valid to date",
+        "deliveryPrice" : "Delivery Price",
+        "avgDeliTime" : "Avg Delivery Time",
+        "submitButton" : "Submit",
+        "cancel" : "Cancel"
+    },
+
+    "updateAccount" : {
+        "title" : "Update Account",
+        "username" : "Username",
+        "email" : "Email",
+        "name" : "Name",
+        "surname" : "Surname",
+        "phone" : "Phone",
+        "location" : "Location",
+        "direction" : "Direction",
+        "submitButton" : "Submit",
+        "cancel" : "Cancel"
+    }
+}
