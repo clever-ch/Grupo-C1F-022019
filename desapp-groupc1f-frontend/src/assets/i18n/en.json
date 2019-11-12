@@ -1,7 +1,8 @@
 {
     "home": {
         "title" : "Lunch Right Now!",
-        "text"  : "This is an application to request different menus quickly and easily."
+        "text"  : "This is an application to request different menus quickly and easily.",
+        "search" : "Search"
     },
 
     "accountList" : {

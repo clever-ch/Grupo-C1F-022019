@@ -1,7 +1,8 @@
 {
     "home" : {
         "title" : "Viandas Ya!",
-        "text"  : "Esta es una aplicación para solicitar distintos menues de forma rápida y sencilla."
+        "text"  : "Esta es una aplicación para solicitar distintos menues de forma rápida y sencilla.",
+        "search" : "Buscar"
     },
 
     "accountList" : {
