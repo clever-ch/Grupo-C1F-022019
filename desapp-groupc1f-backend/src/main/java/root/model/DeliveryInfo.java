@@ -21,6 +21,8 @@ public class DeliveryInfo extends Entity{
 	@ElementCollection
 	@Column(nullable = false)
 	private List<LocalTime> hoursAttention = new ArrayList<LocalTime>();
+	
+	@Column(nullable = false)
 	private boolean hasDelivery;
 	
 	public boolean isValidDeliveryInfo() {
