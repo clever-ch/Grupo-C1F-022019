@@ -25,6 +25,7 @@ RELEASE 2.0
 ---------------------------------------------------------------------
 NEW FEATURES:
 * Estado de build en "Verde"
+* Integration Leaflet
 * Persistencia de datos
 * Datos "fake" para probar la aplicación
 * I18n- US_ES
