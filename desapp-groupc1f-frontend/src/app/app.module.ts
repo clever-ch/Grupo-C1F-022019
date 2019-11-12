@@ -13,6 +13,7 @@ import { MenuListComponent } from './components/menu-list/menu-list.component';
 import { MenuDetailsComponent } from './components/menu-details/menu-details.component';
 import { CreateMenuComponent } from './components/create-menu/create-menu.component';
 import { UpdateMenuComponent } from './components/update-menu/update-menu.component';
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { UpdateMenuComponent } from './components/update-menu/update-menu.compon
     LeafletModule.forRoot(),
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgMultiSelectDropDownModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
