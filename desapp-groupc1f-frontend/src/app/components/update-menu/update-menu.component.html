@@ -41,14 +41,14 @@
       <input type="text" class="form-control" id="avgDeliveryTimeId" required [(ngModel)]="menu.avgDeliveryTime"
         name="impAvgDeliveryTime">
     </div>
+    <br>
+    <div class="row">
+      <div class="col-md-6">
+        <button type="submit" class="btn btn-success">{{'updateMenu.submitButton' | translate}}</button>
+      </div>
+      <div class="col-md-6">
+        <button (click)="menuList()" class="btn btn-secondary">{{'updateMenu.cancel' | translate}}</button><br>
+      </div>
+    </div>
   </form>
-  <br>
-  <div class="row">
-    <div class="col-md-6">
-      <button type="submit" class="btn btn-success">{{'updateMenu.submitButton' | translate}}</button>
-    </div>
-    <div class="col-md-6">
-      <button (click)="menuList()" class="btn btn-secondary">{{'updateMenu.cancel' | translate}}</button><br>
-    </div>
-  </div>
 </div>

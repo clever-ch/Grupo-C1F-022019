@@ -32,14 +32,14 @@
       <input type="text" class="form-control" id="directionId" required [(ngModel)]="account.direction"
         name="direction">
     </div>
+    <br>
+    <div class="row">
+      <div class="col-md-6">
+        <button type="submit" class="btn btn-success">{{'updateAccount.submitButton' | translate}}</button>
+      </div>
+      <div class="col-md-6">
+        <button (click)="accountList()" class="btn btn-secondary">{{'updateAccount.cancel' | translate}}</button><br>
+      </div>
+    </div>
   </form>
-  <br>
-  <div class="row">
-    <div class="col-md-6">
-      <button type="submit" class="btn btn-success">{{'updateAccount.submitButton' | translate}}</button>
-    </div>
-    <div class="col-md-6">
-      <button (click)="accountList()" class="btn btn-secondary">{{'updateAccount.cancel' | translate}}</button><br>
-    </div>
-  </div>
 </div>

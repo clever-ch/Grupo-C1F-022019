@@ -63,9 +63,9 @@
         "deliveryPrice" : "Precio del delivery",
         "avgDeliTime" : "Tiempo promedio de entrega",
         "maxSalesPerDay" : "Ventas máximas por día",
-        "submitButton" : "Registrarme",
+        "submitButton" : "Crear menu",
         "cancel" : "Cancelar",
-        "submitOk" : "Usted ha sido registrado exitosamente"
+        "submitOk" : "El menu se creo correctamente"
     },
 
     "accountDetail" : {

@@ -16,6 +16,8 @@ public class TestOrderHistory {
 	public void testCreationOrderHistoryOk() {
 		
 		OrderHistory aOrderHis = OrderHistoryFactory.anyOrderHistory();
+		aOrderHis.setUserType(UserType.CUSTOMER);
+		
 		Customer aCustomer = CustomerFactory.anyCustomer();
 		UserType userType = UserType.CUSTOMER;
 		Order aOrder = OrderFactory.anyOrder();

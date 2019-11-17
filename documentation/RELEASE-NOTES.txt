@@ -19,3 +19,27 @@ NEW FEATURES:
 NOTES:
 * Validaciones de funcionalidad por JS y Frontend
 * A futuro se planea cambiar la API de Google Maps por una librería gratuita y open source
+
+---------------------------------------------------------------------
+RELEASE 2.0
+---------------------------------------------------------------------
+NEW FEATURES:
+* Estado de build en "Verde"
+* Integration Leaflet
+* Persistencia de datos
+* Datos "fake" para probar la aplicación
+* I18n- US_ES
+* Implementación de Layout de backend según la arquitectura definida
+* Implementación del tier de Presentación como aplicación independiente
+
+FUNCTIONALITY:
+* ABM Account
+* Preview Account
+* Update and Delete Menu
+* Preview Menu
+
+NOTES:
+* Pending implementation: Carga/retiro de crédito
+* Pending implementation: Busqueda de Menu
+* Pending implementation: Comprar 1 menu
+* Error: Input validations (JS and code)
