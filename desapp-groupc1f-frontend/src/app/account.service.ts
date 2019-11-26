@@ -15,8 +15,8 @@ export class AccountService {
     return this.http.get(`${this.baseUrl}/${id}`);
   }
 
-  getAccountList(): Observable<any> {
-    return this.http.get(`${this.baseUrl}`);
+  getAccountList(page: number, size: number, order: string, asc: boolean): Observable<any> {
+    return this.http.get<any>(this.baseUrl + '?' + `page=${page}&size=${size}&order=${order}&asc=${asc}`);
   }
 
   createAccount(account: Object): Observable<Object> {
@@ -30,4 +30,5 @@ export class AccountService {
   deleteAccount(id: number): Observable<any> {
     return this.http.delete(`${this.baseUrl}/${id}`, { responseType: 'text' });
   }
+
 }

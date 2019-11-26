@@ -116,5 +116,11 @@
         "direction" : "Direction",
         "submitButton" : "Submit",
         "cancel" : "Cancel"
+    },
+
+    "validation" : {
+        "fieldRequired" : "This field is required.",
+        "minLength" : "At least 6 characters.",
+        "patternEmail" : "The email is incorrect. It must contain '@' and .com"
     }
 }

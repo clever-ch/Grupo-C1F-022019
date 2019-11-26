@@ -18,7 +18,7 @@ const routes: Routes = [
   { path: 'menuUpdate/:id', component: UpdateMenuComponent },
   { path: 'menus', component: MenuListComponent },
   { path: 'menuDetails/:id', component: MenuDetailsComponent },
-  { path: 'addMenu', component: CreateMenuComponent },
+  { path: 'addMenu', component: CreateMenuComponent }
 ];
 
 @NgModule({
