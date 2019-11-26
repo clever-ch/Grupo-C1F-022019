@@ -11,8 +11,9 @@ import root.repository.AccountRepository;
 @Service
 @Transactional
 public class AccountService {
-	 	@Autowired
-	    AccountRepository accountRepository;
+	 	
+		@Autowired
+	    private AccountRepository accountRepository;
 
 	    public Page<Account> paginas(Pageable pageable){
 	        return accountRepository.findAll(pageable);
