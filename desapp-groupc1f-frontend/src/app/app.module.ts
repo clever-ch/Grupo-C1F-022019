@@ -19,6 +19,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,7 +48,7 @@ import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
       }
     }),
     BrowserAnimationsModule,
-    NgMultiSelectDropDownModule.forRoot()
+    NgMultiSelectDropDownModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]

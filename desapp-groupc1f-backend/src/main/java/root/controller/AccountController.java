@@ -1,7 +1,6 @@
 package root.controller;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +17,13 @@ import org.springframework.web.bind.annotation.RestController;
 import root.controller.exception.ResourceNotFoundException;
 import root.model.Account;
 import root.repository.AccountRepository;
+import root.service.AccountService;
+
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
@@ -26,10 +32,22 @@ public class AccountController {
 	
 	@Autowired
 	private AccountRepository accountRepository;
-	
+	@Autowired
+    private AccountService accountService;	
+
 	@GetMapping("/accounts")
-	public List<Account> getAllAccounts() {
-		return accountRepository.findAll();
+	public ResponseEntity<Page<Account>> paginas(
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "5") int size,
+            @RequestParam(defaultValue = "name") String order,
+            @RequestParam(defaultValue = "true") boolean asc
+    ){
+		Page<Account> account = accountService.paginas(
+                PageRequest.of(page, size, Sort.by(order)));
+        if(!asc)
+        	account = accountService.paginas(
+                    PageRequest.of(page, size, Sort.by(order).descending()));
+        return new ResponseEntity<Page<Account>>(account, HttpStatus.OK);
 	}
 	
 	@PostMapping("/accounts")
@@ -43,6 +61,7 @@ public class AccountController {
 		Account account = accountRepository.findById(accountId)
 				.orElseThrow(() -> new ResourceNotFoundException("Account not found for this id :: " + accountId));
 		return ResponseEntity.ok().body(account);
+		
 	}
 	
 	@PutMapping("/accounts/{id}")

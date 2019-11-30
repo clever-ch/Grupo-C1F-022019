@@ -1,31 +1,66 @@
 <h3>{{'addAccount.subtitle' | translate}}</h3>
 <div [hidden]="submitted" style="width: 400px;">
-  <form (ngSubmit)="onSubmit()">
+
+  <form (ngSubmit)="onSubmit(accountForm)" #accountForm="ngForm" novalidate="">
 
     <div class="form-group">
       <label for="name">{{'addAccount.Id' | translate}}</label>
       <input type="int" class="form-control" id="pruebaId" required [(ngModel)]="account.id" name="id">
     </div>
 
+    <div class="form-group">
+      <label for="name">{{'addAccount.Id' | translate}}</label>
+      <input type="int" class="form-control" id="pruebaId" required [(ngModel)]="account.id" name="id">
+    </div>
 
     <div class="form-group">
       <label for="name">{{'addAccount.username' | translate }}</label>
-      <input type="text" class="form-control" id="userNameId" required [(ngModel)]="account.userName" name="userName">
+      <input type="text" class="form-control" id="userNameId" required [(ngModel)]="account.userName" name="userName"
+        #name="ngModel" minlength="6">
+      <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+        <div *ngIf="name.errors?.required">
+          {{'validation.fieldRequired' | translate }}
+        </div>
+        <div *ngIf="name.errors?.minlength">
+          {{'validation.minLength' | translate }}
+        </div>
+      </div>
     </div>
 
     <div class="form-group">
-      <label for="name">{{'addAccount.email' | translate }}</label>
-      <input type="text" class="form-control" id="emailId" required [(ngModel)]="account.email" name="eMail">
+      <label for="email"> {{'addAccount.email' | translate }}</label>
+      <input type="text" class="form-control" id="emailId" required [(ngModel)]="account.email" name="eMail"
+        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" #email=ngModel>
+      <div [hidden]="email.valid || email.pristine" class="alert alert-danger">
+        <div *ngIf="name.errors?.required">
+          {{'validation.fieldRequired' | translate }}
+        </div>
+        <div *ngIf="email.errors?.pattern">
+          {{'validation.patternEmail' | translate }}
+        </div>
+      </div>
     </div>
 
     <div class="form-group">
-      <label for="name">{{'addAccount.name' | translate }}</label>
-      <input type="text" class="form-control" id="nameId" required [(ngModel)]="account.name" name="name">
+      <label for="nameAc">{{'addAccount.name' | translate }}</label>
+      <input type="text" class="form-control" id="nameId" required [(ngModel)]="account.name" name="name"
+        #nameAc="ngModel">
+      <div [hidden]="nameAc.valid || nameAc.pristine" class="alert alert-danger">
+        <div *ngIf="nameAc.errors?.required">
+          {{'validation.fieldRequired' | translate }}
+        </div>
+      </div>
     </div>
 
     <div class="form-group">
-      <label for="name">{{'addAccount.surname' | translate }}</label>
-      <input type="text" class="form-control" id="surnameId" required [(ngModel)]="account.surname" name="surname">
+      <label for="surname">{{'addAccount.surname' | translate }}</label>
+      <input type="text" class="form-control" id="surnameId" required [(ngModel)]="account.surname" name="surname"
+        #surname="ngModel">
+      <div [hidden]="surname.valid || surname.pristine" class="alert alert-danger">
+        <div *ngIf="surname.errors?.required">
+          {{'validation.fieldRequired' | translate }}
+        </div>
+      </div>
     </div>
 
     <div class="form-group">
@@ -34,30 +69,39 @@
     </div>
 
     <div class="form-group">
-      <label for="name">{{'addAccount.location' | translate }}</label>
-      <input type="text" class="form-control" id="locationId" required [(ngModel)]="account.location" name="location">
+      <label for="locationAcc">{{'addAccount.location' | translate }}</label>
+      <input type="text" class="form-control" id="locationId" required [(ngModel)]="account.location" name="location"
+        #locationAcc="ngModel">
+      <div [hidden]="locationAcc.valid || locationAcc.pristine" class="alert alert-danger">
+        <div *ngIf="locationAcc.errors?.required">
+          {{'validation.fieldRequired' | translate }}
+        </div>
+      </div>
     </div>
 
     <div class="form-group">
-      <label for="name">{{'addAccount.direction' | translate }}</label>
-      <input type="text" class="form-control" id="directionId" required [(ngModel)]="account.direction"
-        name="direction">
-    </div>
-
-    <br>
-    <div class="row">
-      <div class="col-md-6">
-        <button type="submit" class="btn btn-success">{{'addAccount.submitButton' | translate }}</button>
-      </div>
-      <div class="col-md-6">
-        <button (click)="accountList()" class="btn btn-secondary">{{'addAccount.cancel' | translate}}</button><br>
+      <label for="directionAcc">{{'addAccount.direction' | translate }}</label>
+      <input type="text" class="form-control" id="directionId" required [(ngModel)]="account.direction" name="direction"
+        #directionAcc="ngModel">
+      <div [hidden]="directionAcc.valid || directionAcc.pristine" class="alert alert-danger">
+        <div *ngIf="directionAcc.errors?.required">
+          {{'validation.fieldRequired' | translate }}
+        </div>
       </div>
     </div>
-  </form>
+</div>
+<br>
+<div class="row">
+  <div class="col-md-6">
+    <button type="submit" class="btn btn-success">{{'addAccount.submitButton' | translate }}</button>
+  </div>
+  <div class="col-md-6">
+    <button (click)="accountList()" class="btn btn-secondary">{{'addAccount.cancel' | translate}}</button><br>
+  </div>
+</div>
+</form>
 </div>
 
 <div [hidden]="!submitted">
-
   <h4>{{'addAccount.submitOk' | translate }}</h4>
-  <!-- <button class="btn btn-success" (click)="newEmployee()">Add</button> -->
 </div>

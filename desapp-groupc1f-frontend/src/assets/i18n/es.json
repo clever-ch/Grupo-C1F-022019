@@ -116,5 +116,11 @@
         "direction" : "Dirección",
         "submitButton" : "Actualizar",
         "cancel" : "Cancelar"
+    },
+
+    "validation" : {
+        "fieldRequired" : "Este campo es requerido.",
+        "minLength" : "Por lo menos 6 caracteres.",
+        "patternEmail" : "El email es incorrecto. Debe contener @ y .com"
     }
 }
