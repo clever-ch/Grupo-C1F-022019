@@ -1,30 +1,38 @@
 package root.model;
 
 import javax.persistence.Column;
-
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import root.utilities.Entity;
 
 @javax.persistence.Entity
 public class Account extends Entity {
-
+	
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(nullable=false)
     private String userName;
 	
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(nullable=false)
     private String name;
 	
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(nullable=false)
     private String surname;
 	
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(nullable=false)
     private String email;
 	
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(nullable=false)
     private String phone = "0";
 	
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(nullable=false)
     private String location;
 	
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(nullable=false)
     private String direction;
     

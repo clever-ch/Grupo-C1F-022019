@@ -3,7 +3,6 @@
 insert into Account	values (1, 'calle falsa 123', 'pepe@gmail.com', 'Berazategui', 'Pepe', '112233', 'ApellidoPepe', 'usCust');
 insert into Account values (2, 'calle falsa 123', 'jose@gmail.com', 'Quilmes', 'Jose','11223344', 'ApellidoJose', 'usProv');
 
-
 --SECCIÓN BILLETERAS
 insert into CUSTOMER_WALLET values (1, 100.0);
 insert into PROVIDER_WALLET values (1, 10.0);

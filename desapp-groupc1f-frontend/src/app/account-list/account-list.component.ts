@@ -4,6 +4,7 @@ import { Account } from "./../account";
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
+
 @Component({
   selector: 'app-account-list',
   templateUrl: './account-list.component.html',
@@ -12,6 +13,15 @@ import { Router } from '@angular/router';
 export class AccountListComponent implements OnInit {
 
   accounts: Observable<Account[]>;
+  totalPages: Array<number>;
+
+  page = 0;
+  size = 5;
+  order = 'name';
+  asc = true;
+
+  isFirst = false;
+  isLast = false;
 
   constructor(private accountService: AccountService,
     private router: Router) {}
@@ -21,7 +31,46 @@ export class AccountListComponent implements OnInit {
   }
 
   reloadData() {
-    this.accounts = this.accountService.getAccountList();
+    this.accountService.getAccountList(this.page, this.size, this.order, this.asc).subscribe(
+      data => {
+        console.log(data);
+        this.accounts = data.content;
+        this.isFirst = data.first;
+        this.isLast = data.last;
+        this.totalPages = new Array(data.totalPages);
+      },
+      err => {
+        console.log(err.error);
+      }
+    );
+  }
+  sort(): void {
+    this.asc = !this.asc;
+    this.reloadData();
+  }
+
+  rewind(): void {
+    if (!this.isFirst) {
+      this.page--;
+      this.reloadData();
+    }
+  }
+
+  forward(): void {
+    if (!this.isLast) {
+      this.page++;
+      this.reloadData();
+    }
+  }
+
+  setPage(page: number): void {
+    this.page = page;
+    this.reloadData();
+  }
+
+  setOrder(order: string): void {
+    this.order = order;
+    this.reloadData();
   }
 
   accountDetails(id: number){
@@ -41,4 +90,5 @@ export class AccountListComponent implements OnInit {
         },
         error => console.log(error));
   }
+  
 }
