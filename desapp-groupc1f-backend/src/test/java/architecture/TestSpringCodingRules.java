@@ -1,0 +1,52 @@
+package architecture;
+
+import com.tngtech.archunit.core.domain.JavaClasses;
+import com.tngtech.archunit.core.importer.ClassFileImporter;
+import com.tngtech.archunit.lang.ArchRule;
+import com.tngtech.archunit.lang.syntax.ArchRuleDefinition;
+import org.junit.Test;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+public class TestSpringCodingRules {
+
+	JavaClasses classes = new ClassFileImporter().importClasspath();
+	
+	@Test
+	public void springSingletonComponentsShouldOnlyHaveFinalFields() {
+		ArchRule rule = ArchRuleDefinition.classes()
+				.that().areAnnotatedWith(Service.class)
+				.or().areAnnotatedWith(Component.class)
+				.and().areNotAnnotatedWith(ConfigurationProperties.class)
+				.or().areAnnotatedWith(Controller.class)
+				.or().areAnnotatedWith(RestController.class)
+				.should().haveSimpleNameEndingWith("Controller").orShould().haveSimpleNameEndingWith("Service");
+		rule.check(classes);
+	}
+
+	@Test
+	public void allPublicMethodsInsideAControllerAreAnnotatedWithAnyRequestMappingAnnotations() {
+		ArchRule rule = ArchRuleDefinition.methods()
+			    .that().arePublic()
+			    .and().areDeclaredInClassesThat()
+			          .resideInAPackage("..root.controller..")
+			    .and().areDeclaredInClassesThat()
+			          .haveSimpleNameEndingWith("Controller")
+			    .and().areDeclaredInClassesThat()
+			         .areAnnotatedWith(RestController.class)
+			    .should().beAnnotatedWith(RequestMapping.class)
+			    .orShould().beAnnotatedWith(GetMapping.class)
+			    .orShould().beAnnotatedWith(PostMapping.class)
+			    .orShould().beAnnotatedWith(DeleteMapping.class)
+				.orShould().beAnnotatedWith(PutMapping.class);
+		rule.check(classes);
+	}
+}

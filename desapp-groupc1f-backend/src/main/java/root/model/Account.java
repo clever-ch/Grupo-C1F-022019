@@ -3,6 +3,9 @@ package root.model;
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+
+import org.springframework.stereotype.Service;
+
 import root.utilities.Entity;
 
 @javax.persistence.Entity
