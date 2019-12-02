@@ -3,6 +3,11 @@
   <form (ngSubmit)="onSubmit()">
 
     <div class="form-group">
+      <label for="name">Id</label>
+      <input type="int" class="form-control" id="pruebaId" required [(ngModel)]="menu.id" name="id">
+    </div>
+
+    <div class="form-group">
       <div class="row">
         <div class="col-md-6">
           <label for="name">{{'createMenu.menuName' | translate}}</label>
@@ -28,9 +33,8 @@
 
         <div class="col-md-6">
           <label for="name">{{'createMenu.hasDelivery' | translate}}</label>
-          <input type="checkbox" name="chkHasDelivery" [(ngModel)]="deliveryInfo.hasDelivery">
-          <!-- <input type="text" class="form-control" id="menuNameId" required [(ngModel)]="deliveryInfo.hasDelivery"
-              disabled="true" name="imphasDelivery"> -->
+          <input type="checkbox" name="chkHasDelivery" [(ngModel)]="deliveryInfo.hasDelivery" data-md-icheck
+            (change)="chkHasDeliveryEvent($event)">
         </div>
       </div>
     </div>
@@ -45,30 +49,38 @@
 
         <div class="col-md-6">
           <label for="name">{{'createMenu.avgDeliTime' | translate}}</label>
-          <input type="text" class="form-control" id="avgDeliveryTimeId" required [(ngModel)]="menu.avgDeliveryTime"
+          <input type="time" class="form-control" id="avgDeliveryTimeId" required [(ngModel)]="menu.avgDeliveryTime"
             name="impAvgDeliveryTime">
         </div>
       </div>
     </div>
 
     <div class="form-group">
+        <label for="name">IdDeliveryInfo</label>
+        <input type="int" class="form-control" id="pruebaDelInfoId" required [(ngModel)]="deliveryInfo.id" name="iddelInf">
+      </div>
+
+    <div class="form-group">
       <label for="name">{{'createMenu.categories' | translate}}</label>
       <ng-multiselect-dropdown placeholder="{{'createMenu.selectCate' | translate}}" [data]="ddlCategories"
-        [(ngModel)]="selectedItems" [settings]="dropdownSettings" (onSelect)="onItemSelect($event)"
+        [(ngModel)]="selectedCategories" [settings]="dropdownSettings" (onSelect)="onItemSelect($event)"
         (onDeSelect)="onItemDeSelect($event)">
       </ng-multiselect-dropdown>
     </div>
 
     <div class="form-group">
       <label for="name">{{'createMenu.shiftavai' | translate}}</label>
-      <input type="text" class="form-control" id="menuNameId" required [(ngModel)]="deliveryInfo.shiftsAvailable"
-        name="impshiftsAvailable">
+      <ng-multiselect-dropdown placeholder="Select Shift" [data]="ddlShifts" [(ngModel)]="selectedShifts"
+        [settings]="dropdownSettings" (onSelect)="onShiftSelect($event)" (onDeSelect)="onShiftDeSelect($event)">
+      </ng-multiselect-dropdown>
     </div>
 
     <div class="form-group">
       <label for="name">{{'createMenu.hoursattention' | translate}}</label>
-      <input type="text" class="form-control" id="menuNameId" required [(ngModel)]="deliveryInfo.hoursAttention"
-        name="imphoursAttention">
+      <ng-multiselect-dropdown placeholder="Select hours attention" [data]="ddlhsAttention"
+        [(ngModel)]="selectedhsAttention" [settings]="dropdownSettings" (onSelect)="onHourSelect($event)"
+        (onDeSelect)="onHourDeSelect($event)">
+      </ng-multiselect-dropdown>
     </div>
 
     <div class="form-group">
