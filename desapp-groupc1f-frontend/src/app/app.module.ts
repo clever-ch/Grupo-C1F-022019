@@ -1,10 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { AppComponent } from './app.component';
+
 import { FormsModule } from '@angular/forms';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+
+import { LeafletModule } from '@asymmetrik/ngx-leaflet';
+
 import { AccountListComponent } from './account-list/account-list.component';
 import { CreateAccountComponent } from './create-account/create-account.component';
 import { AccountDetailsComponent } from './account-details/account-details.component';
@@ -18,6 +21,7 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
+import { SignInComponent } from './components/sign-in/sign-in.component';
 
 
 @NgModule({
@@ -30,7 +34,8 @@ import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
     MenuListComponent,
     MenuDetailsComponent,
     CreateMenuComponent,
-    UpdateMenuComponent
+    UpdateMenuComponent,
+    SignInComponent
   ],
   imports: [
     BrowserModule,
