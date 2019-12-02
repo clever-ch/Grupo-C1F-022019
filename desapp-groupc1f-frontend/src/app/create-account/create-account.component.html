@@ -9,11 +9,6 @@
     </div>
 
     <div class="form-group">
-      <label for="name">{{'addAccount.Id' | translate}}</label>
-      <input type="int" class="form-control" id="pruebaId" required [(ngModel)]="account.id" name="id">
-    </div>
-
-    <div class="form-group">
       <label for="name">{{'addAccount.username' | translate }}</label>
       <input type="text" class="form-control" id="userNameId" required [(ngModel)]="account.userName" name="userName"
         #name="ngModel" minlength="6">
