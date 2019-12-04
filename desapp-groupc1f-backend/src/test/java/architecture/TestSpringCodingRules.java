@@ -1,13 +1,8 @@
 package architecture;
 
-import com.tngtech.archunit.core.domain.JavaClasses;
-import com.tngtech.archunit.core.importer.ClassFileImporter;
 import com.tngtech.archunit.lang.ArchRule;
 import com.tngtech.archunit.lang.syntax.ArchRuleDefinition;
 import org.junit.Test;
-import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,22 +11,24 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-public class TestSpringCodingRules {
-
-	JavaClasses classes = new ClassFileImporter().importClasspath();
+public class TestSpringCodingRules extends TestArchitecture {
 	
 	@Test
-	public void springSingletonComponentsShouldOnlyHaveFinalFields() {
+	public void classesThatAreAnnotatedAsRestControllerEndWithTheNameController() {
 		ArchRule rule = ArchRuleDefinition.classes()
-				.that().areAnnotatedWith(Service.class)
-				.or().areAnnotatedWith(Component.class)
-				.and().areNotAnnotatedWith(ConfigurationProperties.class)
-				.or().areAnnotatedWith(Controller.class)
-				.or().areAnnotatedWith(RestController.class)
-				.should().haveSimpleNameEndingWith("Controller").orShould().haveSimpleNameEndingWith("Service");
+				.that().areAnnotatedWith(RestController.class)
+				.should().haveSimpleNameEndingWith("Controller");
 		rule.check(classes);
 	}
-
+	
+	@Test
+	public void classesThatAreAnnotatedAsServiceEndWithTheNameService() {
+		ArchRule rule = ArchRuleDefinition.classes()
+				.that().areAnnotatedWith(Service.class)
+				.should().haveSimpleNameEndingWith("Service");
+		rule.check(classes);
+	}
+	
 	@Test
 	public void allPublicMethodsInsideAControllerAreAnnotatedWithAnyRequestMappingAnnotations() {
 		ArchRule rule = ArchRuleDefinition.methods()

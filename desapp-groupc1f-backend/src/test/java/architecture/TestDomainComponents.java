@@ -1,15 +1,11 @@
 package architecture;
 
-import com.tngtech.archunit.core.domain.JavaClasses;
-import com.tngtech.archunit.core.importer.ClassFileImporter;
 import com.tngtech.archunit.lang.ArchRule;
 import com.tngtech.archunit.lang.syntax.ArchRuleDefinition;
 import org.junit.Test;
 
-public class TestDomainComponents {
-	
-	JavaClasses classes = new ClassFileImporter().importClasspath();
-	
+public class TestDomainComponents extends TestArchitecture  {
+
 	@Test
 	public void serviceClassesShouldOnlyBeAccessedByControllers() {
 		ArchRule rule = ArchRuleDefinition.classes()

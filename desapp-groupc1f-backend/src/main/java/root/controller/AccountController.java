@@ -3,6 +3,9 @@ package root.controller;
 import java.util.HashMap;
 import java.util.Map;
 import javax.validation.Valid;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -34,7 +37,9 @@ public class AccountController {
 	private AccountRepository accountRepository;
 	@Autowired
     private AccountService accountService;	
-
+	
+	private static final Logger LOG = LoggerFactory.getLogger(AccountController.class);
+	
 	@GetMapping("/accounts")
 	public ResponseEntity<Page<Account>> paginas(
             @RequestParam(defaultValue = "0") int page,
@@ -47,19 +52,29 @@ public class AccountController {
         if(!asc)
         	account = accountService.paginas(
                     PageRequest.of(page, size, Sort.by(order).descending()));
+        LOG.info("Successful access to the user list");
         return new ResponseEntity<Page<Account>>(account, HttpStatus.OK);
+        
 	}
 	
 	@PostMapping("/accounts")
 	public Account createAccount(@Valid @RequestBody Account account) {
-		return accountRepository.save(account);
+		if (account.isValidAccount()) {
+			LOG.info("User created: " + account.getUserName() + " through createAccount()");
+			return accountRepository.save(account);
+		} else {
+			LOG.error("INVALID USER");
+			return accountRepository.save(null);
+		}
 	}
 	
 	@GetMapping("/accounts/{id}")
 	public ResponseEntity<Account> getAccountById(@PathVariable(value = "id") Long accountId)
 			throws ResourceNotFoundException {
+		
 		Account account = accountRepository.findById(accountId)
 				.orElseThrow(() -> new ResourceNotFoundException("Account not found for this id :: " + accountId));
+		LOG.info("getAccountById : SUCCESSFULL " + "id : " + accountId );
 		return ResponseEntity.ok().body(account);
 		
 	}
@@ -77,6 +92,7 @@ public class AccountController {
 		account.setLocation(accountDetails.getLocation());
 		account.setDirection(accountDetails.getDirection());
 		final Account updatedAccount = accountRepository.save(account);
+		LOG.info("updateAccount : SUCCESSFULL " + account.getUserName() + " ID:" + accountId);
 		return ResponseEntity.ok(updatedAccount);
 	}
 	
@@ -89,6 +105,7 @@ public class AccountController {
 		accountRepository.delete(account);
 		Map<String, Boolean> response = new HashMap<>();
 		response.put("deleted", Boolean.TRUE);
+		LOG.info("deleteAccount : SUCCESSFULL " + account.getSurname() + " ID: " + accountId);
 		return response;
 	}
 }
