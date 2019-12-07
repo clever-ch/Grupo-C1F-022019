@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuService } from 'src/app/services/menu-service/menu.service';
-import { Menu } from 'src/app/model/menu';
+//import { Menu } from 'src/app/model/menu';
 import { Router } from '@angular/router';
-import { DeliveryInfo } from 'src/app/model/delivery-info'
+//import { DeliveryInfo } from 'src/app/model/delivery-info'
 import { IDropdownSettings } from 'ng-multiselect-dropdown';
 import { LinkedList } from 'ngx-bootstrap';
 import { DatePipe } from '@angular/common';
+import { MenuDTO } from '../../model/menu-dto';
+import { DeliveryInfoDTO } from '../../model/delivery-info-dto';
 
 @Component({
   selector: 'app-create-menu',
@@ -14,8 +16,8 @@ import { DatePipe } from '@angular/common';
 })
 export class CreateMenuComponent implements OnInit {
 
-  menu: Menu = new Menu();
-  deliveryInfo: DeliveryInfo = new DeliveryInfo();
+  menuDTO: MenuDTO = new MenuDTO();
+  deliveryInfoDTO: DeliveryInfoDTO = new DeliveryInfoDTO();
   submitted = false;
   dropdownSettings: IDropdownSettings = {};
   ddlCategories = [];
@@ -96,8 +98,8 @@ export class CreateMenuComponent implements OnInit {
     this.selectedhsAttention.remove(item);
   }
   
-  createDeliveryInfo(): DeliveryInfo {
-    var deliveryInfo = new DeliveryInfo();
+  createDeliveryInfo(): DeliveryInfoDTO {
+    var deliveryInfo = new DeliveryInfoDTO();
     deliveryInfo.shiftsAvailable = this.selectedShifts.toArray();
     deliveryInfo.hoursAttention = this.selectedhsAttention.toArray();
     deliveryInfo.hasDelivery = this.hasDelivery;
@@ -111,15 +113,15 @@ export class CreateMenuComponent implements OnInit {
 
   newMenu(): void {
     this.submitted = false;
-    this.menu = new Menu();
+    this.menuDTO = new MenuDTO();
   }
 
   save() {
-    this.menu.categories = this.selectedCategories.toArray();
-    this.menu.deliveryInfo = this.createDeliveryInfo();
-    this.menuService.createMenu(this.menu)
+    this.menuDTO.categories = this.selectedCategories.toArray();
+    this.menuDTO.deliveryInfo = this.createDeliveryInfo();
+    this.menuService.createMenu(this.menuDTO)
       .subscribe(data => console.log(data), error => console.log(error));
-    this.menu = new Menu();
+    this.menuDTO = new MenuDTO();
     this.menuList();
   }
 
