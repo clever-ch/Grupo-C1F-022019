@@ -23,6 +23,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { SignInComponent } from './components/sign-in/sign-in.component';
 
+// Firebase services + enviorment module
+import { AngularFireModule } from "@angular/fire";
+import { AngularFireAuthModule } from "@angular/fire/auth";
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { environment } from '../environments/environment';
+
+// Auth service
+import { AuthService } from "../app/services/auth-service/auth.service";
 
 @NgModule({
   declarations: [
@@ -41,6 +49,9 @@ import { SignInComponent } from './components/sign-in/sign-in.component';
     BrowserModule,
     LeafletModule.forRoot(),
     AppRoutingModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule,
+    AngularFirestoreModule,
     FormsModule,
     HttpClientModule,
     TranslateModule.forRoot({
@@ -54,8 +65,9 @@ import { SignInComponent } from './components/sign-in/sign-in.component';
     }),
     BrowserAnimationsModule,
     NgMultiSelectDropDownModule.forRoot(),
+    
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
