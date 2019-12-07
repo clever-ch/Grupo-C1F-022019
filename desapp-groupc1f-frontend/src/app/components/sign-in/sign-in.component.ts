@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AuthService } from "../../services/auth-service/auth.service";
 import * as firebase from 'firebase/app'
 
@@ -7,15 +7,10 @@ import * as firebase from 'firebase/app'
   templateUrl: './sign-in.component.html',
   styleUrls: ['./sign-in.component.css']
 })
-export class SignInComponent {
+export class SignInComponent implements OnInit {
 
   constructor(public authService: AuthService) {
-    
+    console.log(authService);
   }
-
-  signWithGoogle() {
-    this.authService.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
-    //this.authService.GoogleAuth();
-  }
-
+  ngOnInit() { }
 }
