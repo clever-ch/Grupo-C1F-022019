@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {TranslateService} from '@ngx-translate/core';
+import { AuthService } from "../../src/app/services/auth-service/auth.service";
 
 @Component({
   selector: 'app-root',
@@ -7,7 +8,7 @@ import {TranslateService} from '@ngx-translate/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {  
-  constructor(private translate: TranslateService) {
+  constructor(private translate: TranslateService, public authService: AuthService) {
     translate.setDefaultLang('en');
   }
 
