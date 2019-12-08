@@ -14,7 +14,7 @@ import { SignInComponent } from 'src/app/components/sign-in/sign-in.component';
 
 
 const routes: Routes = [
-  { path: '', redirectTo: 'account', pathMatch: 'full' },
+  { path: '', redirectTo: 'sign-in', pathMatch: 'full' },
   { path: 'accounts', component: AccountListComponent },
   { path: 'add', component: CreateAccountComponent },
   { path: 'details/:id', component: AccountDetailsComponent },
