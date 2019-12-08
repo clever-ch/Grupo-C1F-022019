@@ -41,7 +41,7 @@ export class AuthService {
     return this.afAuth.auth.signInWithPopup(provider)
     .then((result) => {
        this.ngZone.run(() => {
-          this.router.navigate(['dashboard']);
+          this.router.navigate(['menus']);
         })
       this.SetUserData(result.user);
     }).catch((error) => {
@@ -61,9 +61,7 @@ export class AuthService {
       photoURL: user.photoURL,
       emailVerified: user.emailVerified
     }
-    return userRef.set(userData, {
-      merge: true
-    })
+    return userRef.set(userData, {merge: true})
   }
 
   // Sign out 
@@ -72,5 +70,11 @@ export class AuthService {
       localStorage.removeItem('user');
       this.router.navigate(['sign-in']);
     })
+  }
+
+  // Returns true when user is looged in and email is verified
+  get isLoggedIn(): boolean {
+    const user = JSON.parse(localStorage.getItem('user'));
+    return (user !== null && user.emailVerified !== false) ? true : false;
   }
 }
