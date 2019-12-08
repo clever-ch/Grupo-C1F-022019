@@ -9,8 +9,6 @@ import * as firebase from 'firebase/app'
 })
 export class SignInComponent implements OnInit {
 
-  constructor(public authService: AuthService) {
-    console.log(authService);
-  }
+  constructor(public authService: AuthService) { }
   ngOnInit() { }
 }
