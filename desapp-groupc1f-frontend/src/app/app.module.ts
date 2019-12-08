@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 
@@ -16,6 +17,7 @@ import { MenuListComponent } from './components/menu-list/menu-list.component';
 import { MenuDetailsComponent } from './components/menu-details/menu-details.component';
 import { CreateMenuComponent } from './components/create-menu/create-menu.component';
 import { UpdateMenuComponent } from './components/update-menu/update-menu.component';
+
 //Translation
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
@@ -47,6 +49,7 @@ import { AuthService } from "../app/services/auth-service/auth.service";
   ],
   imports: [
     BrowserModule,
+    NgbModule,
     LeafletModule.forRoot(),
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
