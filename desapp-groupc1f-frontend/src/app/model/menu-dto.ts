@@ -10,7 +10,7 @@ export class MenuDTO {
     validFromDate: Date;
     validToDate: Date;
     deliveryPrice: number;
-    avgDeliveryTime: Time;
-    categories: Array<string>;
+    avgDeliveryTime: string;
+    categories: Array<String>;
     deliveryInfo: DeliveryInfoDTO;
 }
