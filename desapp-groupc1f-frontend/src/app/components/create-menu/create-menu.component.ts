@@ -21,9 +21,9 @@ export class CreateMenuComponent implements OnInit {
   submitted = false;
   dropdownSettings: IDropdownSettings = {};
   ddlCategories = [];
-  selectedCategories = new LinkedList<any>();
+  selectedCategories = new LinkedList<String>();
   ddlShifts = [];
-  selectedShifts = new LinkedList<any>();
+  selectedShifts = new LinkedList<string>();
   maxChars = 300;
   hasDelivery = false;
   ddlhsAttention = [];
@@ -74,11 +74,11 @@ export class CreateMenuComponent implements OnInit {
     ];
   }
 
-  onItemSelect(item: any) {
+  onCategorieSelect(item: any) {
     this.selectedCategories.add(item);
   }
 
-  onItemDeSelect(item: any) {
+  onCategorieDeSelect(item: any) {
     this.selectedCategories.remove(item);
   }
 
@@ -119,8 +119,9 @@ export class CreateMenuComponent implements OnInit {
   save() {
     this.menuDTO.categories = this.selectedCategories.toArray();
     this.menuDTO.deliveryInfo = this.createDeliveryInfo();
-    this.menuService.createMenu(this.menuDTO)
-      .subscribe(data => console.log(data), error => console.log(error));
+    this.menuService.createMenu(this.menuDTO).subscribe(data => console.log(data), error => console.log(error));
+    console.log("Log del DTO completo");
+    console.log(this.menuDTO);
     this.menuDTO = new MenuDTO();
     this.menuList();
   }
