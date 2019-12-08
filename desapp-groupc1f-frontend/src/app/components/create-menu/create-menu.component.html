@@ -11,14 +11,12 @@
       <div class="row">
         <div class="col-md-6">
           <label for="name">{{'createMenu.menuName' | translate}}</label>
-          <input type="text" class="form-control" id="menuNameId" required [(ngModel)]="menuDTO.menuName"
-            name="impMenuName">
+          <input type="text" class="form-control" id="menuNameId" required [(ngModel)]="menuDTO.menuName" name="inpMenuName">
         </div>
 
         <div class="col-md-6">
           <label for="name">{{'createMenu.description' | translate}}</label>
-          <textarea class="form-control" placeholder="{{'createMenu.enterDesc' | translate}}"
-            [(ngModel)]="menuDTO.description" [maxlength]="maxChars"></textarea>
+          <input type="text" class="form-control" id="menuDescrId" required [(ngModel)]="menuDTO.description" name="inpMenuDesc">
         </div>
       </div>
     </div>
@@ -28,7 +26,7 @@
         <div class="col-md-6">
           <label for="name">{{'createMenu.price' | translate}}</label>
           <input type='number' step='0.01' min="0" value='0.00' placeholder='0.00' class="form-control" id="priceId"
-            required [(ngModel)]="menuDTO.price" name="impPrice">
+            required [(ngModel)]="menuDTO.price" name="inpPrice">
         </div>
 
         <div class="col-md-6">
@@ -44,13 +42,13 @@
         <div class="col-md-6">
           <label for="name">{{'createMenu.deliveryPrice' | translate}}</label>
           <input type="number" step=".01" min="0" value='0.00' placeholder='0.00' class="form-control"
-            id="deliveryPriceId" required [(ngModel)]="menuDTO.deliveryPrice" name="impDeliveryPrice">
+            id="deliveryPriceId" required [(ngModel)]="menuDTO.deliveryPrice" name="inpDeliveryPrice">
         </div>
 
         <div class="col-md-6">
           <label for="name">{{'createMenu.avgDeliTime' | translate}}</label>
-          <input type="time" class="form-control" id="avgDeliveryTimeId" required [(ngModel)]="menuDTO.avgDeliveryTime"
-            name="impAvgDeliveryTime">
+          <input type="text" class="form-control" id="avgDeliveryTimeId" required [(ngModel)]="menuDTO.avgDeliveryTime"
+            name="inpAvgDeliveryTime">
         </div>
       </div>
     </div>
@@ -63,8 +61,8 @@
     <div class="form-group">
       <label for="name">{{'createMenu.categories' | translate}}</label>
       <ng-multiselect-dropdown placeholder="{{'createMenu.selectCate' | translate}}" [data]="ddlCategories"
-        [(ngModel)]="selectedCategories" [settings]="dropdownSettings" (onSelect)="onItemSelect($event)"
-        (onDeSelect)="onItemDeSelect($event)">
+        [(ngModel)]="selectedCategories" [settings]="dropdownSettings" (onSelect)="onCategorieSelect($event)"
+        (onDeSelect)="onCategorieDeSelect($event)">
       </ng-multiselect-dropdown>
     </div>
 
@@ -87,13 +85,13 @@
       <div class="row">
         <div class="col-md-6">
           <label for="validFromDate"> {{'createMenu.validFrom' | translate}} </label>
-          <input id="validFromDateId" name="impValidFromDate" required [(ngModel)]="menuDTO.validFromDate" type="date"
+          <input id="validFromDateId" name="inpValidFromDate" required [(ngModel)]="menuDTO.validFromDate" type="date"
             bsDatepicker class="form-control">
         </div>
 
         <div class="col-md-6">
           <label for="validToDate"> {{'createMenu.validTo' | translate}} </label>
-          <input id="validToDateId" name="impValidToDate" required [(ngModel)]="menuDTO.validToDate" type="date"
+          <input id="validToDateId" name="inpValidToDate" required [(ngModel)]="menuDTO.validToDate" type="date"
             class="form-control">
         </div>
       </div>
@@ -102,7 +100,7 @@
     <div class="form-group">
       <label for="name">{{'createMenu.maxSalesPerDay' | translate}}</label>
       <input type="number" class="form-control" id="maxSalesId" required [(ngModel)]="menuDTO.maximunSales"
-        name="impMaxSales">
+        name="inpMaxSales">
     </div>
     <br>
     <div class="row">
