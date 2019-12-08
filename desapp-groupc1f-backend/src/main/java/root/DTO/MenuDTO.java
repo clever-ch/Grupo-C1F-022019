@@ -1,6 +1,5 @@
 package root.DTO;
 
-import java.sql.Time;
 import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
@@ -24,14 +23,16 @@ public class MenuDTO {
 	public Date validFromDate = Calendar.getInstance().getTime();
 	public Date validToDate = Calendar.getInstance().getTime();
 	public double deliveryPrice;
-	public Time avgDeliveryTime;
-	public List<String> categories = new ArrayList<String>();
+	public String avgDeliveryTime;
+	public String[] categories;
 	public DeliveryInfoDTO deliveryInfoDTO;
 	public List<OfferDTO> offers = new ArrayList<OfferDTO>();
 	public String menuState;
 	public List<MenuScoreDTO> menuScore = new ArrayList<MenuScoreDTO>();
 	
 	public Menu convertToMenu(MenuDTO menuDTO) {
+		System.out.println(menuDTO.categories);
+		
 		Menu newMenu = new Menu();
 		newMenu.setId(menuDTO.id);
 		newMenu.setMenuName(menuDTO.menuName);
@@ -41,7 +42,7 @@ public class MenuDTO {
 		newMenu.setValidFromDate(menuDTO.validFromDate);
 		newMenu.setValidToDate(menuDTO.validToDate);
 		newMenu.setDeliveryPrice(menuDTO.deliveryPrice);
-		newMenu.setAvgDeliveryTime(menuDTO.avgDeliveryTime);
+		newMenu.setAvgDeliveryTime(java.sql.Time.valueOf(menuDTO.avgDeliveryTime));
 		newMenu.setCategories(convertStringsToCategories(menuDTO.categories));
 		newMenu.setDeliveryInfo(converToDeliveryInfo(menuDTO.deliveryInfoDTO));
 		
@@ -89,7 +90,7 @@ public class MenuDTO {
 		return shifts;
 	}
 
-	private List<Category> convertStringsToCategories(List<String> strCategories) {
+	private List<Category> convertStringsToCategories(String[] strCategories) {
 		
 		List<Category> categories = new ArrayList<Category>();
 		
