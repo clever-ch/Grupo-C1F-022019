@@ -9,8 +9,12 @@ import { MenuDetailsComponent } from './components/menu-details/menu-details.com
 import { UpdateMenuComponent } from './components/update-menu/update-menu.component';
 import { CreateMenuComponent } from './components/create-menu/create-menu.component';
 
+// Required components for which route services to be activated
+import { SignInComponent } from 'src/app/components/sign-in/sign-in.component';
+
+
 const routes: Routes = [
-  { path: '', redirectTo: 'account', pathMatch: 'full' },
+  { path: '', redirectTo: 'sign-in', pathMatch: 'full' },
   { path: 'accounts', component: AccountListComponent },
   { path: 'add', component: CreateAccountComponent },
   { path: 'details/:id', component: AccountDetailsComponent },
@@ -18,7 +22,8 @@ const routes: Routes = [
   { path: 'menuUpdate/:id', component: UpdateMenuComponent },
   { path: 'menus', component: MenuListComponent },
   { path: 'menuDetails/:id', component: MenuDetailsComponent },
-  { path: 'addMenu', component: CreateMenuComponent }
+  { path: 'addMenu', component: CreateMenuComponent },
+  { path: 'sign-in', component: SignInComponent },
 ];
 
 @NgModule({

@@ -1,4 +1,4 @@
-export class DeliveryInfo {
+export class DeliveryInfoDTO {
     id: number;
     shiftsAvailable: Array<string>;
     hoursAttention: Array<Date>;

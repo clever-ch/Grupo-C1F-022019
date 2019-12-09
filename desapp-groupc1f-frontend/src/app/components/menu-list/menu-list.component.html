@@ -1,39 +1,41 @@
 <div class="panel panel-primary">
-    <div class="panel-heading">
-      <h2>{{ 'menuList.title' | translate }}</h2>
-    </div>
-    <div class="panel-body">
-      <table class="table table-striped">
-        <thead>
-          <tr>
-
-            <th>{{ 'menuList.menuName' | translate }}</th>
-            <th>{{ 'menuList.description' | translate }}</th>
-            <th>{{ 'menuList.price' | translate }}</th>
-            <th>{{ 'menuList.validFrom' | translate }}</th>
-            <th>{{ 'menuList.validTo' | translate }}</th>
-            <th>{{ 'menuList.deliveryPrice' | translate }}</th>
-            <th>{{ 'menuList.avgDeliTime' | translate }}</th>
-
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let menu of menus | async">
-            <td>{{menu.menuName}}</td>
-            <td>{{menu.description}}</td>
-            <td>{{menu.price}}</td>
-            <td>{{menu.validFromDate}}</td>
-            <td>{{menu.validToDate}}</td>
-            <td>{{menu.deliveryPrice}}</td>
-            <td>{{menu.avgDeliveryTime}}</td>
-
-            <td><button (click)="deleteMenu(menu.id)" class="btn btn-danger">{{'menuList.delete' | translate}}</button>
-                <button (click)="updateMenu(menu.id)" class="btn btn-info">{{'menuList.update' | translate}}</button>
-                <button (click)="menuDetails(menu.id)" class="btn btn-info">{{'menuList.details' | translate}}</button>
-
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+  <div class="panel-heading">
+    <h2>{{ 'menuList.title' | translate }}</h2>
   </div>
+  <div class="panel-body">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>{{ 'menuList.menuName' | translate }}</th>
+          <th>{{ 'menuList.description' | translate }}</th>
+          <th>{{ 'menuList.price' | translate }}</th>
+          <th>{{ 'menuList.validFrom' | translate }}</th>
+          <th>{{ 'menuList.validTo' | translate }}</th>
+          <th>{{ 'menuList.deliveryPrice' | translate }}</th>
+          <th>{{ 'menuList.avgDeliTime' | translate }}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let menu of menus | async">
+          <td>{{menu.menuName}}</td>
+          <td>{{menu.description}}</td>
+          <td>{{menu.price}}</td>
+          <td>{{menu.validFromDate}}</td>
+          <td>{{menu.validToDate}}</td>
+          <td>{{menu.deliveryPrice}}</td>
+          <td>{{menu.avgDeliveryTime}}</td>
+          <td><button (click)="deleteMenu(menu.id)" class="btn btn-danger">{{'menuList.delete' | translate}}</button>
+            <button (click)="updateMenu(menu.id)" class="btn btn-info">{{'menuList.update' | translate}}</button>
+            <button (click)="menuDetails(menu.id)" class="btn btn-info">{{'menuList.details' | translate}}</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <h2>
+      <ngb-rating [(rate)]="currentRate"></ngb-rating>
+      <button (click)="sendRate(currentRate)" class="btn btn-info">Send Rate</button>
+      <hr>
+      <pre>Rate: <b>{{currentRate}}</b></pre>
+    </h2>
+  </div>
+</div>

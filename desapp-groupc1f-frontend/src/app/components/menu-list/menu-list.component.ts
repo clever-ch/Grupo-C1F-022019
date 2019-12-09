@@ -12,9 +12,9 @@ import { Menu } from "src/app/model/menu";
 export class MenuListComponent implements OnInit {
 
   menus: Observable<Menu[]>;
+  currentRate = 0;
 
-  constructor(private menuService: MenuService,
-    private router: Router) {}
+  constructor(private menuService: MenuService, private router: Router) {}
 
   ngOnInit() {
     this.reloadData();
@@ -40,6 +40,10 @@ export class MenuListComponent implements OnInit {
           this.reloadData();
         },
         error => console.log(error));
+  }
+
+  sendRate(rate: number) {
+    console.log("El puntaje es: " + rate);
   }
 
 }
