@@ -1,11 +1,12 @@
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
   <a class="navbar-brand" href="#">{{'home.title' | translate }} </a>
-  <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarCollapse">
   <!-- Links -->
+  <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  <div class="collapse navbar-collapse" id="navbarCollapse">
   <ul class="navbar-nav">
+    
     <div *ngIf="authService.isLoggedIn">
       <li class="nav-item">
         <a routerLink="accounts" class="nav-link" routerLinkActive="active">{{'accountList.title' | translate }}</a>
@@ -44,6 +45,7 @@
       <img class="form-control mr-5 img-thumbnail rounded-circle"
         src="{{(user.photoURL) ? user.photoURL : '/assets/dummy-user.png'}}" alt="{{user.displayName}}">
     </form>
+  </div>
   </div>
 </nav>
 
