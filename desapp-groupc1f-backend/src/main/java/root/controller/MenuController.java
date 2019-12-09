@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
+import root.DTO.MenuDTO;
 import root.constants.MenuState;
 import root.controller.exception.ResourceNotFoundException;
 import root.model.Menu;
@@ -35,10 +35,11 @@ public class MenuController {
 	}
 	
 	@PostMapping("/menus")
-	public Menu createMenu(@Valid @RequestBody Menu menu) {
-		menu.setMenuState(MenuState.Enabled);				//Por default el estado inicial es Habilitado
+	public Menu createMenu(@Valid @RequestBody MenuDTO menuDTO) {
+		Menu newMenu = menuDTO.convertToMenu(menuDTO);
+		newMenu.setMenuState(MenuState.Enabled);				//Por default el estado inicial es Habilitado
 		
-		return menuRepository.save(menu);
+		return menuRepository.save(newMenu);
 	}
 	
 	@GetMapping("/menus/{id}")

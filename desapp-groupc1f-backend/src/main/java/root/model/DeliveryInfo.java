@@ -47,9 +47,17 @@ public class DeliveryInfo extends Entity{
 	public void addShiftAvailable(Shift shiftAvailables) {
 		this.shiftsAvailable.add(shiftAvailables);
 	}
+	
+	public void setShiftsAvailable(List<Shift> shiftsAvailables) {
+		this.shiftsAvailable = shiftsAvailables;
+	}
 
 	public List<LocalTime> getHoursAttention() {
 		return hoursAttention;
+	}
+	
+	public void setHoursAttention(List<LocalTime> hsAttention) {
+		this.hoursAttention = hsAttention;
 	}
 
 	public void setHourAttention(LocalTime hour) {

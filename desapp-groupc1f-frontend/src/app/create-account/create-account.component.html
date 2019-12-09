@@ -1,5 +1,6 @@
 <h3>{{'addAccount.subtitle' | translate}}</h3>
 <div [hidden]="submitted" style="width: 400px;">
+
   <form (ngSubmit)="onSubmit(accountForm)" #accountForm="ngForm" novalidate="">
 
     <div class="form-group">
@@ -9,8 +10,8 @@
 
     <div class="form-group">
       <label for="name">{{'addAccount.username' | translate }}</label>
-      <input type="text" class="form-control" id="userNameId" required [(ngModel)]="account.userName" name="userName" #name="ngModel"
-        minlength="6">
+      <input type="text" class="form-control" id="userNameId" required [(ngModel)]="account.userName" name="userName"
+        #name="ngModel" minlength="6">
       <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
         <div *ngIf="name.errors?.required">
           {{'validation.fieldRequired' | translate }}
@@ -23,21 +24,22 @@
 
     <div class="form-group">
       <label for="email"> {{'addAccount.email' | translate }}</label>
-      <input type="text" class="form-control" id="emailId" required [(ngModel)]="account.email" name="eMail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
-      #email=ngModel>
-    <div [hidden]="email.valid || email.pristine" class="alert alert-danger">
-      <div *ngIf="name.errors?.required">
-        {{'validation.fieldRequired' | translate }}
-      </div>
-      <div *ngIf="email.errors?.pattern">
-        {{'validation.patternEmail' | translate }}
+      <input type="text" class="form-control" id="emailId" required [(ngModel)]="account.email" name="eMail"
+        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" #email=ngModel>
+      <div [hidden]="email.valid || email.pristine" class="alert alert-danger">
+        <div *ngIf="name.errors?.required">
+          {{'validation.fieldRequired' | translate }}
+        </div>
+        <div *ngIf="email.errors?.pattern">
+          {{'validation.patternEmail' | translate }}
+        </div>
       </div>
     </div>
-  </div>
 
     <div class="form-group">
       <label for="nameAc">{{'addAccount.name' | translate }}</label>
-      <input type="text" class="form-control" id="nameId" required [(ngModel)]="account.name" name="name" #nameAc="ngModel">
+      <input type="text" class="form-control" id="nameId" required [(ngModel)]="account.name" name="name"
+        #nameAc="ngModel">
       <div [hidden]="nameAc.valid || nameAc.pristine" class="alert alert-danger">
         <div *ngIf="nameAc.errors?.required">
           {{'validation.fieldRequired' | translate }}
@@ -47,7 +49,8 @@
 
     <div class="form-group">
       <label for="surname">{{'addAccount.surname' | translate }}</label>
-      <input type="text" class="form-control" id="surnameId" required [(ngModel)]="account.surname" name="surname" #surname="ngModel">
+      <input type="text" class="form-control" id="surnameId" required [(ngModel)]="account.surname" name="surname"
+        #surname="ngModel">
       <div [hidden]="surname.valid || surname.pristine" class="alert alert-danger">
         <div *ngIf="surname.errors?.required">
           {{'validation.fieldRequired' | translate }}
@@ -62,7 +65,8 @@
 
     <div class="form-group">
       <label for="locationAcc">{{'addAccount.location' | translate }}</label>
-      <input type="text" class="form-control" id="locationId" required [(ngModel)]="account.location" name="location" #locationAcc="ngModel">
+      <input type="text" class="form-control" id="locationId" required [(ngModel)]="account.location" name="location"
+        #locationAcc="ngModel">
       <div [hidden]="locationAcc.valid || locationAcc.pristine" class="alert alert-danger">
         <div *ngIf="locationAcc.errors?.required">
           {{'validation.fieldRequired' | translate }}
@@ -72,7 +76,8 @@
 
     <div class="form-group">
       <label for="directionAcc">{{'addAccount.direction' | translate }}</label>
-      <input type="text" class="form-control" id="directionId" required [(ngModel)]="account.direction" name="direction" #directionAcc="ngModel">
+      <input type="text" class="form-control" id="directionId" required [(ngModel)]="account.direction" name="direction"
+        #directionAcc="ngModel">
       <div [hidden]="directionAcc.valid || directionAcc.pristine" class="alert alert-danger">
         <div *ngIf="directionAcc.errors?.required">
           {{'validation.fieldRequired' | translate }}
@@ -92,6 +97,5 @@
 </div>
 
 <div [hidden]="!submitted">
-
   <h4>{{'addAccount.submitOk' | translate }}</h4>
 </div>
