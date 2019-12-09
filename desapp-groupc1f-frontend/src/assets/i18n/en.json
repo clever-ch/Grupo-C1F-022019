@@ -2,7 +2,8 @@
     "home": {
         "title" : "Lunch Right Now!",
         "text"  : "This is an application to request different menus quickly and easily.",
-        "search" : "Search"
+        "search" : "Search",
+        "logOut" : "Log Out"
     },
 
     "accountList" : {
@@ -44,7 +45,9 @@
         "avgDeliTime" : "Avg Delivery Time",
         "delete" : "Delete",
         "update" : "Update",
-        "details" : "Details"
+        "details" : "Details",
+        "sendRate" : "Send Rate",
+        "rate" : "Rate "
     },
 
     "createMenu" : {
@@ -122,5 +125,12 @@
         "fieldRequired" : "This field is required.",
         "minLength" : "At least 6 characters.",
         "patternEmail" : "The email is incorrect. It must contain '@' and .com"
+    },
+
+    "auth" : {
+        "signIn" : "Sign In",
+        "logWith" : "Log in with Google",
+        "noAccount" : "Don't have an account?",
+        "signUp" : "Sign Up"
     }
 }

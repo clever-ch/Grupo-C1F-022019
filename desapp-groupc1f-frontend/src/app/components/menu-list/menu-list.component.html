@@ -33,9 +33,9 @@
     </table>
     <h2>
       <ngb-rating [(rate)]="currentRate"></ngb-rating>
-      <button (click)="sendRate(currentRate)" class="btn btn-info">Send Rate</button>
+      <button (click)="sendRate(currentRate)" class="btn btn-info">{{'menuList.sendRate' | translate}}</button>
       <hr>
-      <pre>Rate: <b>{{currentRate}}</b></pre>
+      <pre>{{'menuList.rate' | translate}}<b>{{currentRate}}</b></pre>
     </h2>
   </div>
 </div>
