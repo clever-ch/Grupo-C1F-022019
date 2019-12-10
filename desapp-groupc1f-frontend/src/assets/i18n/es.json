@@ -43,7 +43,7 @@
         "validTo" : "Valido hasta",
         "deliveryPrice" : "Precio del delivery",
         "avgDeliTime" : "Tiempo promedio de entrega",
-        "delete" : "Eliminar",
+        "delete" : "X",
         "update" : "Actualizar",
         "details" : "Detalles",
         "sendRate" : "Enviar calificación",
