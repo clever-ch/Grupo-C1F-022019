@@ -1,6 +1,12 @@
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
   <a class="navbar-brand" href="#">{{'home.title' | translate }} </a>
+  <!-- Links -->
+  <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  <div class="collapse navbar-collapse" id="navbarCollapse">
   <ul class="navbar-nav">
+    
     <div *ngIf="authService.isLoggedIn">
       <li class="nav-item">
         <a routerLink="accounts" class="nav-link" routerLinkActive="active">{{'accountList.title' | translate }}</a>
@@ -21,10 +27,12 @@
         <a routerLink="addMenu" class="nav-link" routerLinkActive="active">{{'createMenu.title' | translate}}</a>
       </li>
     </div>
+    <ul></ul>
+    <ul></ul>
     <div *ngIf="authService.isLoggedIn">
       <li class="nav-item">
         <a class="nav-link" (click)="authService.SignOut()">
-          <i class="fas fa-sign-out-alt"></i>Log out
+          <i class="fas fa-sign-out-alt"></i>{{'home.logOut' | translate }} 
         </a>
       </li>
     </div>
@@ -32,13 +40,14 @@
 
   <button type="button" class="btn btn-light ml-auto" (click)="useLanguage('en')">EN</button>
   <button type="button" class="btn btn-secondary" (click)="useLanguage('es')">ES</button>
-
+  <ul></ul>
   <div *ngIf="authService.isLoggedIn && authService.userData as user">
     <form class="form-inline ml-auto" action="/action_page.php">
-      <input class="form-control mr-sm-2" type="text" disabled placeholder="{{user.displayName}}">
-      <img class="form-control mr-5 img-thumbnail rounded-circle"
+      <p class="text-secondary">{{user.displayName}} </p>
+      <img class="mr-5 rounded-circle" width="50" height="50"
         src="{{(user.photoURL) ? user.photoURL : '/assets/dummy-user.png'}}" alt="{{user.displayName}}">
     </form>
+  </div>
   </div>
 </nav>
 

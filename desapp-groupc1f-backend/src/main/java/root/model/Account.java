@@ -3,6 +3,7 @@ package root.model;
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+
 import root.utilities.Entity;
 
 @javax.persistence.Entity

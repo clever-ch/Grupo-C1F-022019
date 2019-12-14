@@ -1,18 +1,20 @@
 <div class="displayTable">
     <div class="displayTableCell">
         <div class="authBlock">
-            <h3>Sign In</h3>
+            <h3>{{'auth.signIn' | translate}}</h3>
             <!-- Calling GoogleAuth Api from AuthService -->
             <div class="formGroup">
-                <button type="button" class="btn googleBtn" (click)="authService.GoogleAuth()">
-                    <i class="fab fa-google-plus-g"></i>
-                    Log in with Google
+                <button type="button" class="btn btn-google" (click)="authService.GoogleAuth()">
+                    <span class="fab fa-google-plus-g"></span>
+                    {{'auth.logWith' | translate}}
                 </button>
             </div>
         </div>
 
         <div class="redirectToLogin">
-            <span>Don't have an account?<span class="redirect" routerLink="/register-user"> Sign Up</span></span>
+            <span>{{'auth.noAccount' | translate}}</span>
+            <br>
+        <button type="button" class="btn btn-secondary" routerLink="/register-user">{{'auth.signUp' | translate}}</button>
         </div>
 
     </div>

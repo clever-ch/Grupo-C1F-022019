@@ -4,6 +4,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import javax.validation.Valid;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -29,8 +32,11 @@ public class MenuController {
 	@Autowired
 	private MenuRepository menuRepository;
 	
+	private static final Logger LOG = LoggerFactory.getLogger(AccountController.class);
+	
 	@GetMapping("/menus")
 	public List<Menu> getAllMenus() {
+		LOG.info("Successful access to the menus list");
 		return menuRepository.findAll();
 	}
 	
@@ -39,6 +45,7 @@ public class MenuController {
 		Menu newMenu = menuDTO.convertToMenu(menuDTO);
 		newMenu.setMenuState(MenuState.Enabled);				//Por default el estado inicial es Habilitado
 		
+		LOG.info("Menu created: " + newMenu.getMenuName() + " through createMenu()");
 		return menuRepository.save(newMenu);
 	}
 	
@@ -47,6 +54,7 @@ public class MenuController {
 			throws ResourceNotFoundException {
 		Menu menu = menuRepository.findById(menuId)
 				.orElseThrow(() -> new ResourceNotFoundException("Menu not found for this id :: " + menuId));
+		LOG.info("getMenuById : SUCCESSFULL " + "id : " + menuId );
 		return ResponseEntity.ok().body(menu);
 	}
 	
@@ -64,6 +72,7 @@ public class MenuController {
 		menu.setDeliveryPrice(menuDetails.getDeliveryPrice());
 		menu.setAvgDeliveryTime(menuDetails.getAvgDeliveryTime());
 		final Menu updatedMenu = menuRepository.save(menu);
+		LOG.info("updateMenu : SUCCESSFULL " + menu.getMenuName() + " ID:" + menuId);
 		return ResponseEntity.ok(updatedMenu);
 	}
 	
@@ -76,6 +85,7 @@ public class MenuController {
 		menuRepository.delete(menu);
 		Map<String, Boolean> response = new HashMap<>();
 		response.put("deleted", Boolean.TRUE);
+		LOG.info("deleteMenu : SUCCESSFULL " + menu.getMenuName() + " ID: " + menuId);
 		return response;
 	}
 }
