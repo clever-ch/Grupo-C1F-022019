@@ -1,10 +1,10 @@
-<div class="panel panel-primary">
-  <div class="panel-heading">
+<div class="container">
+  <div class="panel-heading text-center">
     <h2>{{ 'menuList.title' | translate }}</h2>
   </div>
-  <div class="panel-body">
-    <table class="table table-striped">
-      <thead>
+  <div class="panel-body table-responsive">
+    <table class="table table-bordered">
+      <thead class="thead-light">
         <tr>
           <th>{{ 'menuList.menuName' | translate }}</th>
           <th>{{ 'menuList.description' | translate }}</th>
@@ -13,6 +13,7 @@
           <th>{{ 'menuList.validTo' | translate }}</th>
           <th>{{ 'menuList.deliveryPrice' | translate }}</th>
           <th>{{ 'menuList.avgDeliTime' | translate }}</th>
+          <th>{{'accountList.actions' | translate}}</th>
         </tr>
       </thead>
       <tbody>
@@ -24,18 +25,18 @@
           <td>{{menu.validToDate}}</td>
           <td>{{menu.deliveryPrice}}</td>
           <td>{{menu.avgDeliveryTime}}</td>
-          <td><button (click)="deleteMenu(menu.id)" class="btn btn-danger">{{'menuList.delete' | translate}}</button>
-            <button (click)="updateMenu(menu.id)" class="btn btn-info">{{'menuList.update' | translate}}</button>
-            <button (click)="menuDetails(menu.id)" class="btn btn-info">{{'menuList.details' | translate}}</button>
+          <td><button (click)="deleteMenu(menu.id)" class="btn btn-danger btn-sm">{{'menuList.delete' | translate}}</button>
+            <button (click)="updateMenu(menu.id)" class="btn btn-info btn-sm">{{'menuList.update' | translate}}</button>
+            <button (click)="menuDetails(menu.id)" class="btn btn-info btn-sm">{{'menuList.details' | translate}}</button>
           </td>
         </tr>
       </tbody>
     </table>
     <h2>
       <ngb-rating [(rate)]="currentRate"></ngb-rating>
-      <button (click)="sendRate(currentRate)" class="btn btn-info">Send Rate</button>
+      <button (click)="sendRate(currentRate)" class="btn btn-info">{{'menuList.sendRate' | translate}}</button>
       <hr>
-      <pre>Rate: <b>{{currentRate}}</b></pre>
+      <pre>{{'menuList.rate' | translate}}<b>{{currentRate}}</b></pre>
     </h2>
   </div>
 </div>

@@ -2,7 +2,8 @@
     "home" : {
         "title" : "Viandas Ya!",
         "text"  : "Esta es una aplicación para solicitar distintos menues de forma rápida y sencilla.",
-        "search" : "Buscar"
+        "search" : "Buscar",
+        "logOut" : "Cerrar Sesion"
     },
 
     "accountList" : {
@@ -42,9 +43,11 @@
         "validTo" : "Valido hasta",
         "deliveryPrice" : "Precio del delivery",
         "avgDeliTime" : "Tiempo promedio de entrega",
-        "delete" : "Eliminar",
+        "delete" : "X",
         "update" : "Actualizar",
-        "details" : "Detalles"
+        "details" : "Detalles",
+        "sendRate" : "Enviar calificación",
+         "rate" : "Calificar "
     },
 
     "createMenu" : {
@@ -122,5 +125,12 @@
         "fieldRequired" : "Este campo es requerido.",
         "minLength" : "Por lo menos 6 caracteres.",
         "patternEmail" : "El email es incorrecto. Debe contener @ y .com"
+    },
+
+    "auth" : {
+        "signIn" : "Registrarse",
+        "logWith" : "Inicia sesión con Google",
+        "noAccount" : "¿No tienes una cuenta?",
+        "signUp" : "Regístrate"
     }
 }
