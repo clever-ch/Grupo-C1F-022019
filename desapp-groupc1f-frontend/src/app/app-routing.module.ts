@@ -8,6 +8,7 @@ import { MenuListComponent } from './components/menu-list/menu-list.component';
 import { MenuDetailsComponent } from './components/menu-details/menu-details.component';
 import { UpdateMenuComponent } from './components/update-menu/update-menu.component';
 import { CreateMenuComponent } from './components/create-menu/create-menu.component';
+import { OrderItemComponent } from './components/order-item/order-item.component';
 
 // Required components for which route services to be activated
 import { SignInComponent } from 'src/app/components/sign-in/sign-in.component';
@@ -24,6 +25,7 @@ const routes: Routes = [
   { path: 'menuDetails/:id', component: MenuDetailsComponent },
   { path: 'addMenu', component: CreateMenuComponent },
   { path: 'sign-in', component: SignInComponent },
+  { path: 'orderItems', component: OrderItemComponent },
 ];
 
 @NgModule({
