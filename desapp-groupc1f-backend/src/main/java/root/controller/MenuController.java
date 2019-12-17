@@ -8,6 +8,7 @@ import javax.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -19,11 +20,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import root.DTO.MenuDTO;
+import root.aspectLog.LogExecutionTime;
 import root.constants.MenuState;
 import root.controller.exception.ResourceNotFoundException;
 import root.model.Menu;
 import root.repository.MenuRepository;
 
+@EnableAutoConfiguration
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/api/v1")
@@ -34,12 +37,14 @@ public class MenuController {
 	
 	private static final Logger LOG = LoggerFactory.getLogger(AccountController.class);
 	
+	@LogExecutionTime
 	@GetMapping("/menus")
 	public List<Menu> getAllMenus() {
 		LOG.info("Successful access to the menus list");
 		return menuRepository.findAll();
 	}
 	
+	@LogExecutionTime
 	@PostMapping("/menus")
 	public Menu createMenu(@Valid @RequestBody MenuDTO menuDTO) {
 		Menu newMenu = menuDTO.convertToMenu(menuDTO);
@@ -49,6 +54,7 @@ public class MenuController {
 		return menuRepository.save(newMenu);
 	}
 	
+	@LogExecutionTime
 	@GetMapping("/menus/{id}")
 	public ResponseEntity<Menu> getMenuById(@PathVariable(value = "id") Long menuId)
 			throws ResourceNotFoundException {
@@ -58,6 +64,7 @@ public class MenuController {
 		return ResponseEntity.ok().body(menu);
 	}
 	
+	@LogExecutionTime
 	@PutMapping("/menus/{id}")
 	public ResponseEntity<Menu> updateMenu(@PathVariable(value = "id") Long menuId,
 			@Valid @RequestBody Menu menuDetails) throws ResourceNotFoundException {
@@ -76,6 +83,7 @@ public class MenuController {
 		return ResponseEntity.ok(updatedMenu);
 	}
 	
+	@LogExecutionTime
 	@DeleteMapping("/menus/{id}")
 	public Map<String, Boolean> deleteMenu(@PathVariable(value = "id") Long menuId)
 			throws ResourceNotFoundException {

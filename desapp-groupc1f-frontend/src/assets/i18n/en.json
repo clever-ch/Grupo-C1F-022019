@@ -43,7 +43,6 @@
         "validTo" : "Valid to date",
         "deliveryPrice" : "Delivery Price",
         "avgDeliTime" : "Avg Delivery Time",
-        "delete" : "X",
         "update" : "Update",
         "details" : "Details",
         "sendRate" : "Send Rate",

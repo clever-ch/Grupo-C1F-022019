@@ -25,7 +25,7 @@
           <td>{{menu.validToDate}}</td>
           <td>{{menu.deliveryPrice}}</td>
           <td>{{menu.avgDeliveryTime}}</td>
-          <td><button (click)="deleteMenu(menu.id)" class="btn btn-danger btn-sm">{{'menuList.delete' | translate}}</button>
+          <td><button (click)="deleteMenu(menu.id)" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></button>
             <button (click)="updateMenu(menu.id)" class="btn btn-info btn-sm">{{'menuList.update' | translate}}</button>
             <button (click)="menuDetails(menu.id)" class="btn btn-info btn-sm">{{'menuList.details' | translate}}</button>
           </td>

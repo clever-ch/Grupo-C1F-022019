@@ -2,11 +2,11 @@
 
 insert into Account	values (1, 'calle falsa 123', 'pepe@gmail.com', 'Berazategui', 'Pepe', '112233', 'ApellidoPepe', 'Montoto');
 insert into Account values (2, 'calle falsa 123', 'jose@gmail.com', 'Quilmes', 'Jose','11223344', 'ApellidoJose', 'Yo');
-insert into Account values (3, 'calle 32423', 'jose@gmail.com', 'Lomas', 'Juan','654645', 'ApellidoJuan', 'Acc');
-insert into Account values (4, 'calle  65', 'jose@gmail.com', 'Banfield', 'Carlos','767463', 'ApellidoCarlos', 'Beti');
-insert into Account values (5, 'calle falsa 123', 'jose@gmail.com', 'Capital', 'Pedro','564546', 'ApellidoPedro', 'car');
-insert into Account values (6, 'calle 123', 'jose@gmail.com', 'Bera', 'Sebastian','4564564', 'ApellidoSebastian', 'Sebas');
-insert into Account values (7, 'calle falsa 123', 'jose@gmail.com', 'Lanus', 'Damian','46456', 'ApellidoDamian', 'usProv');
+--insert into Account values (3, 'calle 32423', 'jose@gmail.com', 'Lomas', 'Juan','654645', 'ApellidoJuan', 'Acc');
+--insert into Account values (4, 'calle  65', 'jose@gmail.com', 'Banfield', 'Carlos','767463', 'ApellidoCarlos', 'Beti');
+--insert into Account values (5, 'calle falsa 123', 'jose@gmail.com', 'Capital', 'Pedro','564546', 'ApellidoPedro', 'car');
+--insert into Account values (6, 'calle 123', 'jose@gmail.com', 'Bera', 'Sebastian','4564564', 'ApellidoSebastian', 'Sebas');
+--insert into Account values (7, 'calle falsa 123', 'jose@gmail.com', 'Lanus', 'Damian','46456', 'ApellidoDamian', 'usProv');
 
 --SECCIÓN BILLETERAS
 insert into CUSTOMER_WALLET values (1, 100.0);
