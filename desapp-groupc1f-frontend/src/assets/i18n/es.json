@@ -88,8 +88,8 @@
         "menuName" : "Nombre de Menu: ",
         "description" : "Descripción: ",
         "price" : "Precio: ",
-        "validFrom" : "Valido desde: ",
-        "validTo" : "Valido hasta: ",
+        "validFromDate" : "Valido desde: ",
+        "validToDate" : "Valido hasta: ",
         "deliveryPrice" : "Precio del delivery: ",
         "avgDeliTime" : "Tiempo promedio de entrega: ",
         "back" : "Volver al listado de menus"
