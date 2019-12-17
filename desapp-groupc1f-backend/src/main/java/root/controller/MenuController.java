@@ -3,8 +3,8 @@ package root.controller;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import javax.validation.Valid;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,10 +19,18 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import root.DTO.MenuDTO;
+import root.DTO.OrderItemDTO;
 import root.constants.MenuState;
 import root.controller.exception.ResourceNotFoundException;
+import root.exceptions.CantTakeCreditException;
+import root.model.Customer;
+import root.model.CustomerWallet;
 import root.model.Menu;
+import root.model.OrderItem;
+import root.repository.CustomerRepository;
+import root.repository.CustomerWalletRepository;
 import root.repository.MenuRepository;
+import root.repository.OrderItemRepository;
 
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
@@ -31,6 +39,15 @@ public class MenuController {
 
 	@Autowired
 	private MenuRepository menuRepository;
+	
+	@Autowired
+	private OrderItemRepository orderItemRepository;
+	
+	@Autowired
+	private CustomerWalletRepository customerWalletRepository;
+	
+	@Autowired
+	private CustomerRepository customerRepository;
 	
 	private static final Logger LOG = LoggerFactory.getLogger(AccountController.class);
 	
@@ -48,6 +65,34 @@ public class MenuController {
 		LOG.info("Menu created: " + newMenu.getMenuName() + " through createMenu()");
 		
 		return menuRepository.save(newMenu);
+	}
+	
+	@PutMapping("/menus")
+	public ResponseEntity<OrderItem> buyMenu(@Valid @RequestBody OrderItemDTO orderItemDTO) throws CantTakeCreditException {
+		System.out.println("Llego al controller");
+		Optional<Menu> newMenu = menuRepository.findById(orderItemDTO.menuId);		
+		OrderItem orderItem = new OrderItem();
+		orderItem.setMenu(newMenu.get());
+		orderItem.setNumberMenus(orderItemDTO.numberMenus);
+		orderItem.setId(1);
+		
+		CustomerWallet customerWallet = new CustomerWallet();
+		
+		List<Customer> customers = customerRepository.findAll();
+		for (Customer cust : customers) {
+			
+			if (cust.getTokenTPA().equals(orderItemDTO.tokenUser)) {
+				Customer customer = cust;
+				customerWallet = customer.getaWallet();
+			}
+		}
+		
+		customerWallet.takeCredit(orderItemDTO.totalPrice);
+		
+		orderItemRepository.save(orderItem);
+		customerWalletRepository.save(customerWallet);
+		
+		return ResponseEntity.ok(orderItem);
 	}
 	
 	@GetMapping("/menus/{id}")
