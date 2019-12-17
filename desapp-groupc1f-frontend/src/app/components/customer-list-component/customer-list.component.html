@@ -1,0 +1,19 @@
+<div class="container">
+    <div class="panel-heading text-center">
+        <h2>Customers List</h2>
+    </div>
+    <div class="panel-body table-responsive">
+        <table class="table table-bordered">
+            <thead class="thead-light">
+                <tr>
+                    <th>Token Customer</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let customer of customers | async">
+                    <td>{{customer.userToken}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
