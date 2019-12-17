@@ -2,29 +2,63 @@
 
 <hr />
 <div *ngIf="menu">
-  <div>
-    <label><b>{{'menuDetails.menuName' | translate}}</b></label> {{menu.menuName}}
+  <div class="row">
+    <div class="col-md-6">
+      <div>
+        <label><b>{{'menuDetails.menuName' | translate}}</b></label> {{menu.menuName}}
+      </div>
+      <div>
+        <label><b>{{'menuDetails.description' | translate}}</b></label> {{menu.description}}
+      </div>
+      <div>
+        <label><b>{{'menuDetails.price' | translate}}</b></label> {{menu.price}}
+      </div>
+      <div>
+        <label><b>{{'menuDetails.validFromDate' | translate}}</b></label> {{menu.validFromDate}}
+      </div>
+      <div>
+        <label><b>{{'menuDetails.validToDate' | translate}}</b></label> {{menu.validToDate}}
+      </div>
+      <div>
+        <label><b>{{'menuDetails.deliveryPrice' | translate}}</b></label> {{menu.deliveryPrice}}
+      </div>
+      <div>
+        <label><b>{{'menuDetails.avgDeliTime' | translate}}</b></label> {{menu.avgDeliveryTime}}
+      </div>
+    </div>
+    <div class="col-md-6">
+      <h3>
+        <p>Ingrese la cantidad que desea comprar</p>
+      </h3>
+      <div class="row">
+        <label>Cantidad</label>
+        <input type='number' step='1' min="0" max="10" value='0' placeholder='0' class="form-control" id="cantId"
+          required [(ngModel)]="orderItemDTO.numberMenus" name="inpCant" data-md-icheck
+          (change)="addMenuEvent($event)">
+      </div>
+      <br>
+      <label>Total</label>
+      <div class="row">
+        <label>({{orderItemDTO.numberMenus}} x {{menu.price}}) + {{menu.deliveryPrice}} =
+          {{orderItemDTO.totalPrice}}</label>
+      </div>
+      <br>
+      <div class="row">
+        <button (click)="confirmPurchase()" class="btn btn-info">Confirm</button><br>
+      </div>
+    </div>
   </div>
-  <div>
-    <label><b>{{'menuDetails.description' | translate}}</b></label> {{menu.description}}
-  </div>
-  <div>
-    <label><b>{{'menuDetails.price' | translate}}</b></label> {{menu.price}}
-  </div>
-  <div>
-    <label><b>{{'menuDetails.validFromDate' | translate}}</b></label> {{menu.validFromDate}}
-  </div>
-  <div>
-    <label><b>{{'menuDetails.validToDate' | translate}}</b></label> {{menu.validToDate}}
-  </div>
-  <div>
-    <label><b>{{'menuDetails.deliveryPrice' | translate}}</b></label> {{menu.deliveryPrice}}
-  </div>
-  <div>
-    <label><b>{{'menuDetails.avgDeliTime' | translate}}</b></label> {{menu.avgDeliveryTime}}
+  <br>
+  <div *ngIf="statusConfirm">
+    <div class="row">
+      <h2>
+        <ngb-rating [(rate)]="currentRate"></ngb-rating>
+        <button (click)="sendRate(currentRate)" class="btn btn-info">{{'menuList.sendRate' | translate}}</button>
+        <hr>
+        <pre>{{'menuList.rate' | translate}}<b>{{currentRate}}</b></pre>
+      </h2>
+    </div>
   </div>
 </div>
-
-<br>
 <br>
 <button (click)="list()" class="btn btn-primary">{{'menuDetails.back' | translate}}</button><br>
