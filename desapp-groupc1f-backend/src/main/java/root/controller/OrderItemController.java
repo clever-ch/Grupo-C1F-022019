@@ -51,12 +51,6 @@ public class OrderItemController {
 	public ResponseEntity<OrderItem> buyMenu(@Valid @RequestBody OrderItemDTO orderItemDTO) throws CantTakeCreditException, UserNotFoundException, NumberOfMenuDistintCeroException {
 
 		Optional<Menu> newMenu = menuRepository.findById(orderItemDTO.menuId);
-		System.out.println("|************|Imprimo los datos del DTO |************|");
-		System.out.println("|************|orderItemDTO.menuId: " + orderItemDTO.menuId + " |************|");
-		System.out.println("|************|orderItemDTO.numberMenus: " + orderItemDTO.numberMenus + " |************|");
-		System.out.println("|************|orderItemDTO.totalPrice: " + orderItemDTO.totalPrice + " |************|");
-		System.out.println("|************|orderItemDTO.tokenUser: " + orderItemDTO.tokenUser + " |************|");
-		
 		OrderItem orderItem = new OrderItem();
 		
 		if((orderItemDTO.numberMenus) > 0) {
@@ -64,20 +58,15 @@ public class OrderItemController {
 				orderItem.setMenu(newMenu.get());
 				orderItem.setNumberMenus(orderItemDTO.numberMenus);
 				orderItem.setTotalPrice(orderItemDTO.totalPrice);
-				orderItem.setId(1);
 		} else throw new NumberOfMenuDistintCeroException("El numero de menus debe ser mayor a 0");
 				
 		CustomerWallet customerWallet = new CustomerWallet();
 		Customer customer = new Customer();
 		
 		List<Customer> customers = customerRepository.findAll();
-		System.out.println("|************|Cantidad de customers encontrados: " + customers.size()+ " |************|");
-		
+
 		for (Customer cust : customers) {
-			System.out.println("|************|Imprimo token cada customer: " + cust.getTokenTPA() + " |************|");
 			if (cust.getTokenTPA().equals(orderItemDTO.tokenUser)) {
-				System.out.println("Busco e imprimo el token TPA");
-				System.out.println(customer.getTokenTPA());
 				customer = cust;
 			} else throw new UserNotFoundException("Usuario no habilitado");
 		}
