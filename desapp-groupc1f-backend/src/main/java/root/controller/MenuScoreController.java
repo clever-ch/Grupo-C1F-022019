@@ -39,10 +39,6 @@ public class MenuScoreController {
 	
 	@PostMapping("/menuscores")
 	public MenuScore createMenuScore(@Valid @RequestBody MenuScoreDTO menuScoreDTO) {
-		System.out.println("|************|Entro al createMenuScore|************|");
-		System.out.println("|************|imprimo menuScoreDTO.userToken: |************|" + menuScoreDTO.userToken);
-		System.out.println("|************|imprimo menuScoreDTO.idMenu: |************|" + menuScoreDTO.idMenu);
-		System.out.println("|************|imprimo menuScoreDTO.rate: |************|" + menuScoreDTO.rate);
 		MenuScore menuScore = new MenuScore();
 		menuScore.setScoreState(ScoreState.Pending);
 		menuScore.setMenu(menuRepository.findById(menuScoreDTO.idMenu).get());
