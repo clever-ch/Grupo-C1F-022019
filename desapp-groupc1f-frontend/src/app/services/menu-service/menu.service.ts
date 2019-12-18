@@ -32,8 +32,6 @@ export class MenuService {
   }
 
   buyMenu(orderItemDTO: Object): Observable<Object> {
-    console.log("Imprimo orderItemDTO");
-    console.log(orderItemDTO);
     return this.http.post(`${this.baseUrl}`, orderItemDTO);
   }
 }
