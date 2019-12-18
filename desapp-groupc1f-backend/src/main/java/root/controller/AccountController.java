@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import root.controller.exception.ResourceNotFoundException;
+import root.controller.exception.UserInvalidException;
 import root.model.Account;
 import root.repository.AccountRepository;
 import root.service.AccountService;
@@ -58,14 +59,11 @@ public class AccountController {
 	}
 	
 	@PostMapping("/accounts")
-	public Account createAccount(@Valid @RequestBody Account account) {
+	public Account createAccount(@Valid @RequestBody Account account) throws UserInvalidException {
 		if (account.isValidAccount()) {
 			LOG.info("User created: " + account.getUserName() + " through createAccount()");
 			return accountRepository.save(account);
-		} else {
-			LOG.error("INVALID USER");
-			return accountRepository.save(null);
-		}
+		} else throw new UserInvalidException("Usuario invalido");
 	}
 	
 	@GetMapping("/accounts/{id}")

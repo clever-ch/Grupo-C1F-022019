@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import root.DTO.OrderItemDTO;
+import root.controller.exception.NumberOfMenuDistintCeroException;
+import root.controller.exception.UserNotFoundException;
 import root.exceptions.CantTakeCreditException;
 import root.model.Customer;
 import root.model.CustomerWallet;
@@ -46,7 +48,7 @@ public class OrderItemController {
 	}
 	
 	@PostMapping("/orderItems")
-	public ResponseEntity<OrderItem> buyMenu(@Valid @RequestBody OrderItemDTO orderItemDTO) throws CantTakeCreditException {
+	public ResponseEntity<OrderItem> buyMenu(@Valid @RequestBody OrderItemDTO orderItemDTO) throws CantTakeCreditException, UserNotFoundException, NumberOfMenuDistintCeroException {
 
 		Optional<Menu> newMenu = menuRepository.findById(orderItemDTO.menuId);
 		System.out.println("|************|Imprimo los datos del DTO |************|");
@@ -54,12 +56,17 @@ public class OrderItemController {
 		System.out.println("|************|orderItemDTO.numberMenus: " + orderItemDTO.numberMenus + " |************|");
 		System.out.println("|************|orderItemDTO.totalPrice: " + orderItemDTO.totalPrice + " |************|");
 		System.out.println("|************|orderItemDTO.tokenUser: " + orderItemDTO.tokenUser + " |************|");
-		OrderItem orderItem = new OrderItem();
-		orderItem.setMenu(newMenu.get());
-		orderItem.setNumberMenus(orderItemDTO.numberMenus);
-		orderItem.setTotalPrice(orderItemDTO.totalPrice);
-		orderItem.setId(1);
 		
+		OrderItem orderItem = new OrderItem();
+		
+		if((orderItemDTO.numberMenus) > 0) {
+				
+				orderItem.setMenu(newMenu.get());
+				orderItem.setNumberMenus(orderItemDTO.numberMenus);
+				orderItem.setTotalPrice(orderItemDTO.totalPrice);
+				orderItem.setId(1);
+		} else throw new NumberOfMenuDistintCeroException("El numero de menus debe ser mayor a 0");
+				
 		CustomerWallet customerWallet = new CustomerWallet();
 		Customer customer = new Customer();
 		
@@ -72,7 +79,7 @@ public class OrderItemController {
 				System.out.println("Busco e imprimo el token TPA");
 				System.out.println(customer.getTokenTPA());
 				customer = cust;
-			}
+			} else throw new UserNotFoundException("Usuario no habilitado");
 		}
 		
 		customerWallet = customer.getaWallet();

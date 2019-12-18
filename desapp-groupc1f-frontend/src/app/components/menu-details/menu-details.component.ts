@@ -23,6 +23,7 @@ export class MenuDetailsComponent implements OnInit {
   statusConfirm: boolean = false;
   menuScoreDTO: MenuScoreDTO = new MenuScoreDTO();
   orderItems: Observable<MenuScoreDTO[]> = null;
+  failBuy: boolean = false;
 
   constructor(private route: ActivatedRoute,
     private router: Router,
@@ -54,8 +55,7 @@ export class MenuDetailsComponent implements OnInit {
     this.completeOrderItem();
     console.log("Inicio llamada a buyMenu");
     //menuService / orderItemService
-    var response = this.orderItemService.buyMenu(this.orderItemDTO).subscribe(data => this.statusConfirm = true, error => console.log(error));
-
+    var response = this.orderItemService.buyMenu(this.orderItemDTO).subscribe(data => this.statusConfirm = true, error => this.failBuy = true);
     console.log("Reviso el response");
     console.log(response);
   }

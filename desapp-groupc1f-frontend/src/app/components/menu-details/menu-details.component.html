@@ -46,6 +46,12 @@
       <div class="row">
         <button (click)="confirmPurchase()" class="btn btn-info">Confirm</button><br>
       </div>
+      <br>    
+      <div *ngIf="failBuy">         
+        <div class="alert alert-danger text-center">
+          <strong>Disculpe!</strong> Controlar que el número de menus sea mayor a 0 o que su usuario sea valido
+        </div>
+      </div>
     </div>
   </div>
   <br>
