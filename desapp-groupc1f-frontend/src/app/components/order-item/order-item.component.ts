@@ -13,8 +13,7 @@ export class OrderItemComponent implements OnInit {
 
   orderItems: Observable<OrderItemDTO[]>;
 
-  constructor(private orderItemService: OrderItemService,
-    private router: Router) { }
+  constructor(private orderItemService: OrderItemService, private router: Router) { }
 
   ngOnInit() {
     this.reloadData();
