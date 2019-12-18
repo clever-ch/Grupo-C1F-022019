@@ -20,7 +20,7 @@ export class MenuDetailsComponent implements OnInit {
   menu: Menu;
   orderItemDTO: OrderItemDTO = new OrderItemDTO();
   currentRate = 0;
-  statusConfirm: boolean = true;
+  statusConfirm: boolean = false;
   menuScoreDTO: MenuScoreDTO = new MenuScoreDTO();
   orderItems: Observable<MenuScoreDTO[]> = null;
 
@@ -54,7 +54,7 @@ export class MenuDetailsComponent implements OnInit {
     this.completeOrderItem();
     console.log("Inicio llamada a buyMenu");
     //menuService / orderItemService
-    var response = this.orderItemService.buyMenu(this.orderItemDTO).subscribe(data => console.log(data), error => console.log(error));
+    var response = this.orderItemService.buyMenu(this.orderItemDTO).subscribe(data => this.statusConfirm = true, error => console.log(error));
 
     console.log("Reviso el response");
     console.log(response);
@@ -68,14 +68,14 @@ export class MenuDetailsComponent implements OnInit {
   sendRate(rate: number) {
     console.log("Se ejecuta metodo rate");
     this.completeMenuScoreDTO(rate);
-    this.menuScoreService.createMenuScore(this.menuScoreDTO);
+    this.menuScoreService.createMenuScore(this.menuScoreDTO).subscribe(console.log, console.log);
     //this.setVisualizacionRate();
   }
 
   completeMenuScoreDTO(rate: number) {
     this.menuScoreDTO.rate = rate;
     this.menuScoreDTO.idMenu = this.id;
-    this.menuScoreDTO.tokeUser = this.authService.userData.uid;
+    this.menuScoreDTO.userToken = this.authService.userData.uid;
   }
 
   setVisualizacionRate() {
