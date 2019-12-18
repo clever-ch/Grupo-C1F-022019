@@ -16,10 +16,6 @@ export class MenuScoreService {
   }
 
   createMenuScore(menuScoreDTO: Object): Observable<Object> {
-    console.log("Entré al servicio");
-    console.log("--Imprimo menuScoreDTO");
-    console.log(menuScoreDTO);
-    console.log("--Envio request");
     return this.http.post(`${this.baseUrl}`, menuScoreDTO);
   }
 }
