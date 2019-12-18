@@ -24,6 +24,7 @@ export class MenuDetailsComponent implements OnInit {
   menuScoreDTO: MenuScoreDTO = new MenuScoreDTO();
   orderItems: Observable<MenuScoreDTO[]> = null;
   failBuy: boolean = false;
+  confirmRate: boolean = false;
 
   constructor(private route: ActivatedRoute,
     private router: Router,
@@ -53,11 +54,7 @@ export class MenuDetailsComponent implements OnInit {
 
   confirmPurchase() {
     this.completeOrderItem();
-    console.log("Inicio llamada a buyMenu");
-    //menuService / orderItemService
-    var response = this.orderItemService.buyMenu(this.orderItemDTO).subscribe(data => this.statusConfirm = true, error => this.failBuy = true);
-    console.log("Reviso el response");
-    console.log(response);
+    this.orderItemService.buyMenu(this.orderItemDTO).subscribe(data => this.statusConfirm = true, error => this.failBuy = true);
   }
 
   completeOrderItem() {
@@ -66,10 +63,9 @@ export class MenuDetailsComponent implements OnInit {
   }
 
   sendRate(rate: number) {
-    console.log("Se ejecuta metodo rate");
     this.completeMenuScoreDTO(rate);
     this.menuScoreService.createMenuScore(this.menuScoreDTO).subscribe(console.log, console.log);
-    //this.setVisualizacionRate();
+    this.router.navigate(['menus']);
   }
 
   completeMenuScoreDTO(rate: number) {
@@ -79,10 +75,7 @@ export class MenuDetailsComponent implements OnInit {
   }
 
   setVisualizacionRate() {
-    //Cuando haya un ORDER_ITEM creado se debería ver para puntuar
     this.orderItems = this.orderItemService.getAllOrderItems();
-    console.log("--Imprimo getAllOrderItems");
-    console.log(this.orderItems);
   }
 
 }
