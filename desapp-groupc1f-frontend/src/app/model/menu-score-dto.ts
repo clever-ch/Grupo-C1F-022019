@@ -1,5 +1,5 @@
 export class MenuScoreDTO {
     idMenu: number;
-    tokeUser: String;
+    userToken: String;
     rate: number;
 }
