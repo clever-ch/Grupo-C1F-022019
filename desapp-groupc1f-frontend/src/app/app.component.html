@@ -1,53 +1,54 @@
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
   <a class="navbar-brand" href="#">{{'home.title' | translate }} </a>
+
   <!-- Links -->
   <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+    <span class="navbar-toggler-icon"></span>
+  </button>
   <div class="collapse navbar-collapse" id="navbarCollapse">
-  <ul class="navbar-nav">
-    
-    <div *ngIf="authService.isLoggedIn">
-      <li class="nav-item">
-        <a routerLink="accounts" class="nav-link" routerLinkActive="active">{{'accountList.title' | translate }}</a>
-      </li>
-    </div>
-    <div *ngIf="authService.isLoggedIn">
-      <li class="nav-item">
-        <a routerLink="add" class="nav-link" routerLinkActive="active">{{'addAccount.title' | translate }}</a>
-      </li>
-    </div>
-    <div *ngIf="authService.isLoggedIn">
-      <li class="nav-item">
-        <a routerLink="menus" class="nav-link" routerLinkActive="active">{{'menuList.title' | translate }}</a>
-      </li>
-    </div>
-    <div *ngIf="authService.isLoggedIn">
-      <li class="nav-item">
-        <a routerLink="addMenu" class="nav-link" routerLinkActive="active">{{'createMenu.title' | translate}}</a>
-      </li>
-    </div>
-    <ul></ul>
-    <ul></ul>
-    <div *ngIf="authService.isLoggedIn">
-      <li class="nav-item">
-        <a class="nav-link" (click)="authService.SignOut()">
-          <i class="fas fa-sign-out-alt"></i>{{'home.logOut' | translate }} 
-        </a>
-      </li>
-    </div>
-  </ul>
+    <ul class="navbar-nav">
+      <div *ngIf="authService.isLoggedIn">
+        <li class="nav-item">
+          <a routerLink="accounts" class="nav-link" routerLinkActive="active">{{'accountList.title' | translate }}</a>
+        </li>
+      </div>
+      <div *ngIf="authService.isLoggedIn">
+        <li class="nav-item">
+          <a routerLink="add" class="nav-link" routerLinkActive="active">{{'addAccount.title' | translate }}</a>
+        </li>
+      </div>
+      <div *ngIf="authService.isLoggedIn">
+        <li class="nav-item">
+          <a routerLink="menus" class="nav-link" routerLinkActive="active">{{'menuList.title' | translate }}</a>
+        </li>
+      </div>
+      <div *ngIf="authService.isLoggedIn">
+        <li class="nav-item">
+          <a routerLink="addMenu" class="nav-link" routerLinkActive="active">{{'createMenu.title' | translate}}</a>
+        </li>
+      </div>
+      <ul></ul>
+      <ul></ul>
+      <div *ngIf="authService.isLoggedIn">
+        <li class="nav-item">
+          <a class="nav-link" (click)="authService.SignOut()">
+            <i class="fas fa-sign-out-alt"></i>{{'home.logOut' | translate }}
+          </a>
+        </li>
+      </div>
+    </ul>
 
-  <button type="button" class="btn btn-light ml-auto" (click)="useLanguage('en')">EN</button>
-  <button type="button" class="btn btn-secondary" (click)="useLanguage('es')">ES</button>
-  <ul></ul>
-  <div *ngIf="authService.isLoggedIn && authService.userData as user">
-    <form class="form-inline ml-auto" action="/action_page.php">
-      <p class="text-secondary">{{user.displayName}} </p>
-      <img class="mr-5 rounded-circle" width="50" height="50"
-        src="{{(user.photoURL) ? user.photoURL : '/assets/dummy-user.png'}}" alt="{{user.displayName}}">
-    </form>
-  </div>
+    <button type="button" class="btn btn-light ml-auto" (click)="useLanguage('en')">EN</button>
+    <button type="button" class="btn btn-secondary" (click)="useLanguage('es')">ES</button>
+
+    <ul></ul>
+    <div *ngIf="authService.isLoggedIn && authService.userData as user">
+      <form class="form-inline ml-auto" action="/action_page.php">
+        <p class="text-secondary">{{user.displayName}} </p>
+        <img class="mr-5 rounded-circle" width="50" height="50"
+          src="{{(user.photoURL) ? user.photoURL : '/assets/dummy-user.png'}}" alt="{{user.displayName}}">
+      </form>
+    </div>
   </div>
 </nav>
 
@@ -57,6 +58,8 @@
   <hr>
   <h3 style="text-align: center;">{{'home.text' | translate }}</h3>
   <br>
+  <hr>
+  <h3 style="text-align: center;">Tu crédito disponible es: </h3>
   <div class="card">
     <div class="card-body">
       <router-outlet></router-outlet>

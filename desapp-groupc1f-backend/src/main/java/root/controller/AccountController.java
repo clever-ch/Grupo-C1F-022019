@@ -7,6 +7,7 @@ import javax.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -17,7 +18,11 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import root.aspectLog.LogExecutionTime;
+import root.aspectLog.LogExecutionTimeAspectAnnotation;
 import root.controller.exception.ResourceNotFoundException;
+import root.controller.exception.UserInvalidException;
 import root.model.Account;
 import root.repository.AccountRepository;
 import root.service.AccountService;
@@ -28,6 +33,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.RequestParam;
 
+@EnableAutoConfiguration
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/api/v1")
@@ -38,8 +44,9 @@ public class AccountController {
 	@Autowired
     private AccountService accountService;	
 	
-	private static final Logger LOG = LoggerFactory.getLogger(AccountController.class);
+	static Logger logger = LoggerFactory.getLogger(LogExecutionTimeAspectAnnotation.class);
 	
+	@LogExecutionTime
 	@GetMapping("/accounts")
 	public ResponseEntity<Page<Account>> paginas(
             @RequestParam(defaultValue = "0") int page,
@@ -52,33 +59,33 @@ public class AccountController {
         if(!asc)
         	account = accountService.paginas(
                     PageRequest.of(page, size, Sort.by(order).descending()));
-        LOG.info("Successful access to the user list");
+        logger.info("Successful access to the user list");
         return new ResponseEntity<Page<Account>>(account, HttpStatus.OK);
         
 	}
 	
+	@LogExecutionTime
 	@PostMapping("/accounts")
-	public Account createAccount(@Valid @RequestBody Account account) {
+	public Account createAccount(@Valid @RequestBody Account account) throws UserInvalidException {
 		if (account.isValidAccount()) {
-			LOG.info("User created: " + account.getUserName() + " through createAccount()");
+			logger.info("User created: " + account.getUserName() + " through createAccount()");
 			return accountRepository.save(account);
-		} else {
-			LOG.error("INVALID USER");
-			return accountRepository.save(null);
-		}
+		} else throw new UserInvalidException("Usuario invalido");
 	}
 	
+	@LogExecutionTime
 	@GetMapping("/accounts/{id}")
 	public ResponseEntity<Account> getAccountById(@PathVariable(value = "id") Long accountId)
 			throws ResourceNotFoundException {
 		
 		Account account = accountRepository.findById(accountId)
 				.orElseThrow(() -> new ResourceNotFoundException("Account not found for this id :: " + accountId));
-		LOG.info("getAccountById : SUCCESSFULL " + "id : " + accountId );
+		logger.info("getAccountById : SUCCESSFULL " + "id : " + accountId );
 		return ResponseEntity.ok().body(account);
 		
 	}
 	
+	@LogExecutionTime
 	@PutMapping("/accounts/{id}")
 	public ResponseEntity<Account> updateAccount(@PathVariable(value = "id") Long accountId,
 			@Valid @RequestBody Account accountDetails) throws ResourceNotFoundException {
@@ -92,10 +99,11 @@ public class AccountController {
 		account.setLocation(accountDetails.getLocation());
 		account.setDirection(accountDetails.getDirection());
 		final Account updatedAccount = accountRepository.save(account);
-		LOG.info("updateAccount : SUCCESSFULL " + account.getUserName() + " ID:" + accountId);
+		logger.info("updateAccount : SUCCESSFULL " + account.getUserName() + " ID:" + accountId);
 		return ResponseEntity.ok(updatedAccount);
 	}
 	
+	@LogExecutionTime
 	@DeleteMapping("/accounts/{id}")
 	public Map<String, Boolean> deleteAccount(@PathVariable(value = "id") Long accountId)
 			throws ResourceNotFoundException {
@@ -105,7 +113,7 @@ public class AccountController {
 		accountRepository.delete(account);
 		Map<String, Boolean> response = new HashMap<>();
 		response.put("deleted", Boolean.TRUE);
-		LOG.info("deleteAccount : SUCCESSFULL " + account.getSurname() + " ID: " + accountId);
+		logger.info("deleteAccount : SUCCESSFULL " + account.getSurname() + " ID: " + accountId);
 		return response;
 	}
 }

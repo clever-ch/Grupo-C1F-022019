@@ -10,6 +10,7 @@ import { Router } from "@angular/router";
 })
 export class AuthService {
   userData: any;                    // Save logged in user data
+  tokeUser: string;
 
   constructor(
     public afs: AngularFirestore,   // Inject Firestore service
@@ -61,6 +62,8 @@ export class AuthService {
       photoURL: user.photoURL,
       emailVerified: user.emailVerified
     }
+
+    this.tokeUser = user.uid;
     return userRef.set(userData, {merge: true})
   }
 
@@ -76,5 +79,9 @@ export class AuthService {
   get isLoggedIn(): boolean {
     const user = JSON.parse(localStorage.getItem('user'));
     return (user !== null && user.emailVerified !== false) ? true : false;
+  }
+
+  get getTokenUser(): string{
+    return this.tokeUser;
   }
 }

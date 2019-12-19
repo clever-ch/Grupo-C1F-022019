@@ -30,4 +30,8 @@ export class MenuService {
   deleteMenu(id: number): Observable<any> {
     return this.http.delete(`${this.baseUrl}/${id}`, { responseType: 'text' });
   }
+
+  buyMenu(orderItemDTO: Object): Observable<Object> {
+    return this.http.post(`${this.baseUrl}`, orderItemDTO);
+  }
 }

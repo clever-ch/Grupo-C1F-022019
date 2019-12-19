@@ -43,7 +43,6 @@
         "validTo" : "Valido hasta",
         "deliveryPrice" : "Precio del delivery",
         "avgDeliTime" : "Tiempo promedio de entrega",
-        "delete" : "X",
         "update" : "Actualizar",
         "details" : "Detalles",
         "sendRate" : "Enviar calificación",
@@ -88,11 +87,13 @@
         "menuName" : "Nombre de Menu: ",
         "description" : "Descripción: ",
         "price" : "Precio: ",
-        "validFrom" : "Valido desde: ",
-        "validTo" : "Valido hasta: ",
+        "validFromDate" : "Valido desde: ",
+        "validToDate" : "Valido hasta: ",
         "deliveryPrice" : "Precio del delivery: ",
         "avgDeliTime" : "Tiempo promedio de entrega: ",
-        "back" : "Volver al listado de menus"
+        "back" : "Volver al listado de menus",
+        "enterPrice" : "Ingrese la cantidad que desea comprar ",
+        "howMany" : "Cantidad"
     },
 
     "updateMenu" : {

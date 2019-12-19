@@ -17,6 +17,7 @@ import { MenuListComponent } from './components/menu-list/menu-list.component';
 import { MenuDetailsComponent } from './components/menu-details/menu-details.component';
 import { CreateMenuComponent } from './components/create-menu/create-menu.component';
 import { UpdateMenuComponent } from './components/update-menu/update-menu.component';
+import { OrderItemComponent } from './components/order-item/order-item.component';
 
 //Translation
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
@@ -33,6 +34,7 @@ import { environment } from '../environments/environment';
 
 // Auth service
 import { AuthService } from "../app/services/auth-service/auth.service";
+import { CustomerListComponent } from './components/customer-list-component/customer-list.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +47,9 @@ import { AuthService } from "../app/services/auth-service/auth.service";
     MenuDetailsComponent,
     CreateMenuComponent,
     UpdateMenuComponent,
-    SignInComponent
+    SignInComponent,
+    OrderItemComponent,
+    CustomerListComponent
   ],
   imports: [
     BrowserModule,

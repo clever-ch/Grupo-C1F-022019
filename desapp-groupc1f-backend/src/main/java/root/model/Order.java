@@ -16,7 +16,8 @@ import java.sql.Time;
 public class Order extends Entity {
 	
 	@OneToMany
-	private List<OrderItem> orderItems = new ArrayList<OrderItem>();	
+	private List<OrderItem> orderItems = new ArrayList<OrderItem>();
+	
 	private boolean hasDelivery;
 	
 	@Temporal(TemporalType.DATE)
