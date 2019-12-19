@@ -12,7 +12,6 @@ import { Menu } from "src/app/model/menu";
 export class MenuListComponent implements OnInit {
 
   menus: Observable<Menu[]>;
-  currentRate = 0;
 
   constructor(private menuService: MenuService, private router: Router) {}
 
@@ -42,8 +41,8 @@ export class MenuListComponent implements OnInit {
         error => console.log(error));
   }
 
-  sendRate(rate: number) {
-    console.log("El puntaje es: " + rate);
+  buyMenu(id: number){
+    this.router.navigate(['menuDetails', id]);
   }
 
 }

@@ -1,10 +1,15 @@
 package root.model;
 
+import javax.persistence.OneToOne;
+
 import root.exceptions.CantTakeCreditException;
 import root.exceptions.OptionNotAvailableException;
 
 @javax.persistence.Entity
 public class ProviderWallet extends Wallet {
+	
+	@OneToOne
+	private Provider provider;
 	
     @Override
     public void loadCredit(double n) throws OptionNotAvailableException{
@@ -13,7 +18,6 @@ public class ProviderWallet extends Wallet {
 
     @Override
     public void takeCredit(double n) throws CantTakeCreditException {
-    		
     	Double actualAmount = this.getAmount();
         
     	if ((actualAmount - n) >= 0){
@@ -21,11 +25,18 @@ public class ProviderWallet extends Wallet {
             } else {
                 throw new CantTakeCreditException("El monto que desea quitar excede lo disponible en su billetera");
             }
-
     }
 
     @Override
     public double checkCredit() {
         return this.getAmount();
     }
+
+	public Provider getProvider() {
+		return provider;
+	}
+
+	public void setProvider(Provider provider) {
+		this.provider = provider;
+	}
 }

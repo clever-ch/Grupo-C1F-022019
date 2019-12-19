@@ -13,7 +13,7 @@
           <th>{{ 'menuList.validTo' | translate }}</th>
           <th>{{ 'menuList.deliveryPrice' | translate }}</th>
           <th>{{ 'menuList.avgDeliTime' | translate }}</th>
-          <th>{{'accountList.actions' | translate}}</th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
@@ -25,18 +25,14 @@
           <td>{{menu.validToDate}}</td>
           <td>{{menu.deliveryPrice}}</td>
           <td>{{menu.avgDeliveryTime}}</td>
-          <td><button (click)="deleteMenu(menu.id)" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></button>
-            <button (click)="updateMenu(menu.id)" class="btn btn-info btn-sm">{{'menuList.update' | translate}}</button>
-            <button (click)="menuDetails(menu.id)" class="btn btn-info btn-sm">{{'menuList.details' | translate}}</button>
+          <td>
+            <!-- <button (click)="deleteMenu(menu.id)" class="btn btn-danger btn-sm">{{'menuList.delete' | translate}}</button>
+            <button (click)="updateMenu(menu.id)" class="btn btn-info btn-sm">{{'menuList.update' | translate}}</button> -->
+            <button (click)="buyMenu(menu.id)" class="btn btn-info btn-sm">Buy</button>
+            <!-- <button (click)="menuDetails(menu.id)" class="btn btn-info btn-sm">{{'menuList.details' | translate}}</button> -->
           </td>
         </tr>
       </tbody>
     </table>
-    <h2>
-      <ngb-rating [(rate)]="currentRate"></ngb-rating>
-      <button (click)="sendRate(currentRate)" class="btn btn-info">{{'menuList.sendRate' | translate}}</button>
-      <hr>
-      <pre>{{'menuList.rate' | translate}}<b>{{currentRate}}</b></pre>
-    </h2>
   </div>
 </div>

@@ -8,7 +8,10 @@ public class OrderItem extends Entity{
 	
 	@OneToOne
 	private Menu menu;
+	
 	private int numberMenus;
+	
+	private long totalPrice;
 	  
 	public OrderItem() {  }
 	
@@ -41,4 +44,12 @@ public class OrderItem extends Entity{
   	public boolean isNumberOfMenusValid(int number) {
   		return number > 0;
   	}
+
+	public long getTotalPrice() {
+		return totalPrice;
+	}
+
+	public void setTotalPrice(long totalPrice) {
+		this.totalPrice = totalPrice;
+	}
 }

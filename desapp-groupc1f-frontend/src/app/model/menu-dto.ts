@@ -13,4 +13,5 @@ export class MenuDTO {
     avgDeliveryTime: string;
     categories: Array<String>;
     deliveryInfo: DeliveryInfoDTO;
+    confirmRate: boolean
 }

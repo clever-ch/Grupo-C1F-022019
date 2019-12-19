@@ -1,8 +1,6 @@
 <h3>{{'addAccount.subtitle' | translate}}</h3>
 <div [hidden]="submitted" style="width: 400px;">
-
   <form (ngSubmit)="onSubmit(accountForm)" #accountForm="ngForm" novalidate class="was-validated table-responsive">
-
     <div class="form-group">
       <label for="name">{{'addAccount.Id' | translate}}</label>
       <input type="int" class="form-control" id="pruebaId" required [(ngModel)]="account.id" name="id">

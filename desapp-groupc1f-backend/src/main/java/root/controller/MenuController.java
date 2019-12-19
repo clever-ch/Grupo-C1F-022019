@@ -4,7 +4,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import javax.validation.Valid;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,7 +33,7 @@ public class MenuController {
 
 	@Autowired
 	private MenuRepository menuRepository;
-	
+
 	private static final Logger LOG = LoggerFactory.getLogger(AccountController.class);
 	
 	@LogExecutionTime
@@ -51,6 +50,7 @@ public class MenuController {
 		newMenu.setMenuState(MenuState.Enabled);				//Por default el estado inicial es Habilitado
 		
 		LOG.info("Menu created: " + newMenu.getMenuName() + " through createMenu()");
+		
 		return menuRepository.save(newMenu);
 	}
 	

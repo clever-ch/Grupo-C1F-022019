@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
 import root.aspectLog.LogExecutionTime;
 import root.aspectLog.LogExecutionTimeAspectAnnotation;
 import root.controller.exception.ResourceNotFoundException;
+import root.controller.exception.UserInvalidException;
 import root.model.Account;
 import root.repository.AccountRepository;
 import root.service.AccountService;
@@ -65,14 +66,11 @@ public class AccountController {
 	
 	@LogExecutionTime
 	@PostMapping("/accounts")
-	public Account createAccount(@Valid @RequestBody Account account) {
+	public Account createAccount(@Valid @RequestBody Account account) throws UserInvalidException {
 		if (account.isValidAccount()) {
 			logger.info("User created: " + account.getUserName() + " through createAccount()");
 			return accountRepository.save(account);
-		} else {
-			logger.error("INVALID USER");
-			return accountRepository.save(null);
-		}
+		} else throw new UserInvalidException("Usuario invalido");
 	}
 	
 	@LogExecutionTime
