@@ -32,4 +32,5 @@ insert into DELIVERY_INFO_SHIFTS_AVAILABLE values (1, 'Morning');
 
 
 --SECCIÓN MENUS
-insert into Menu values (1, '00:15:00', 50.0, 'Descripcion 1', 20, 'Nombre menu 1', 2, 100, '2019-10-20', '2019-11-10', 1);
+insert into Menu values (1, '00:15:00', 50.0, 'Riquisimo pollo al horno con verduras', 20, 'Pollo al horno con vegetales', 2, 100, '2019-10-20', '2019-11-10', 1);
+insert into Menu values (2, '00:15:00', 60.0, 'Exquisita carne al horno con papas', 20, 'Carne al horno con papas', 2, 150, '2019-10-20', '2019-11-10', 1);

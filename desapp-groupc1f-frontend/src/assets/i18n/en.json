@@ -92,7 +92,9 @@
         "validToDate" : "Valid to date: ",
         "deliveryPrice" : "Delivery Price: ",
         "avgDeliTime" : "Avg Delivery Time: ",
-        "back" : "Back to Menu List"
+        "back" : "Back to Menu List",
+        "enterPrice" : "Enter the amount you want to buy",
+        "howMany" : "How many"
     },
 
     "updateMenu" : {

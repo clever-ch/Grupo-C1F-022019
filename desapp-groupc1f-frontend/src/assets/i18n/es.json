@@ -92,7 +92,9 @@
         "validToDate" : "Valido hasta: ",
         "deliveryPrice" : "Precio del delivery: ",
         "avgDeliTime" : "Tiempo promedio de entrega: ",
-        "back" : "Volver al listado de menus"
+        "back" : "Volver al listado de menus",
+        "enterPrice" : "Ingrese la cantidad que desea comprar ",
+        "howMany" : "Cantidad"
     },
 
     "updateMenu" : {

@@ -25,30 +25,36 @@
       <div>
         <label><b>{{'menuDetails.avgDeliTime' | translate}}</b></label> {{menu.avgDeliveryTime}}
       </div>
+      <img src="https://cdn.pixabay.com/photo/2014/11/05/15/57/salmon-518032_960_720.jpg" width="200" height="200">
     </div>
     <div class="col-md-6">
       <div *ngIf="!statusConfirm && !confirmRate">
+        <div class="container">
         <h3>
-          <p>Ingrese la cantidad que desea comprar</p>
+          <p>{{'menuDetails.enterPrice' | translate}}</p>
         </h3>
-        <div class="row">
-          <label>Cantidad</label>
+
+        <div class="card bg-info text-white">
+          <div class="card-body">
+          <label>{{'menuDetails.howMany' | translate}}</label>
           <input type='number' step='1' min="0" max="10" value='0' placeholder='0' class="form-control" id="cantId"
             required [(ngModel)]="orderItemDTO.numberMenus" name="inpCant" data-md-icheck
             (change)="addMenuEvent($event)">
         </div>
-        <br>
-        <label>Total</label>
-        <div class="row">
-          <label>({{orderItemDTO.numberMenus}} x {{menu.price}}) + {{menu.deliveryPrice}} =
-            {{orderItemDTO.totalPrice}}</label>
-        </div>
-        <br>
-        <div class="row">
-          <button (click)="confirmPurchase()" class="btn btn-info">Confirm</button><br>
-        </div>
-        <br>
       </div>
+    <br>      
+    
+        <h3>Total</h3>
+        <div class="card bg-info text-white">
+          <div class="card-body">({{orderItemDTO.numberMenus}} x {{menu.price}}) + {{menu.deliveryPrice}} =
+            {{orderItemDTO.totalPrice}}</div>
+        </div>
+        <br>
+       
+          <button (click)="confirmPurchase()" class="btn btn-success">Confirm</button><br>
+        </div>
+        <br>
+      
       <div *ngIf="failBuy">
         <div class="alert alert-danger text-center">
           <strong>Disculpe!</strong> Controlar que el número de menus sea mayor a 0 o que su usuario sea valido
@@ -56,8 +62,9 @@
       </div>
     </div>
   </div>
+</div>
   <br>
-  <div *ngIf="statusConfirm && !confirmRate">
+  <div *ngIf="statusConfirm">
     <div class="row">
       <h2>
         <ngb-rating [(rate)]="currentRate"></ngb-rating>
@@ -67,11 +74,11 @@
       </h2>
     </div>
   </div>
+  <div *ngIf="confirmRate">
+    <div class="alert alert-succes text-center">
+      <strong>!Felicidades!</strong> Su compra ha sido realizada con éxito
+    </div>
+  </div>
 </div>
 <br>
 <button (click)="list()" class="btn btn-primary">{{'menuDetails.back' | translate}}</button><br>
-<div *ngIf="confirmRate">
-  <div class="alert alert-succes text-center">
-    <strong>!Felicidades!</strong> Su compra ha sido realizada con éxito
-  </div>
-</div>
