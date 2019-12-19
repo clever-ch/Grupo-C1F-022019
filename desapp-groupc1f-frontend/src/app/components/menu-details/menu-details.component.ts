@@ -65,7 +65,7 @@ export class MenuDetailsComponent implements OnInit {
   sendRate(rate: number) {
     this.completeMenuScoreDTO(rate);
     this.menuScoreService.createMenuScore(this.menuScoreDTO).subscribe(data => this.confirmRate = true, error => console.log(error));
-    //this.router.navigate(['menus']);
+    this.router.navigate(['menus']);
   }
 
   completeMenuScoreDTO(rate: number) {
